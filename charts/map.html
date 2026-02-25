@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Map - Idea Diffusion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <div class="embed-chart map-wide" id="chart-map">
+    <div class="chart-label">00 - Global Map</div>
+    <div class="chart-title">Geo-Adaption of Businesses</div>
+    <div class="chart-desc">Filter by company, playbook family, or corridor to track idea diffusion.</div>
+    <div class="map-frame">
+      <div class="map-section" id="map-container"></div>
+    </div>
+  </div>
+
+  <script src="../js/map.js"></script>
+  <script>
+    window.IDEA_DIFFUSION_LOGO_DEV_TOKEN = window.IDEA_DIFFUSION_LOGO_DEV_TOKEN || '';
+    renderMap(document.getElementById('map-container'), '../data/', { showHeader: false });
+  </script>
+</body>
+</html>

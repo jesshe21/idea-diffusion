@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archetypes - Idea Diffusion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <div id="tip" class="tip"></div>
+
+  <div class="embed-chart" id="chart-archetypes">
+    <div class="chart-label">02 - Archetypes</div>
+    <div class="chart-title">What Gets Copied</div>
+    <div class="chart-desc">The most replicated business models, ranked by total value created.</div>
+    <div class="chart-note">Note: A company may appear in more than one archetype.</div>
+
+    <div class="arch-list" id="arch-list"></div>
+  </div>
+
+  <script src="../js/charts.js"></script>
+  <script>renderArchetypes(document.getElementById('chart-archetypes'), '../data/');</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Corridors - Idea Diffusion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <div id="tip" class="tip"></div>
+
+  <div class="embed-chart" id="chart-corridors">
+    <div class="chart-label">01 - Copy Corridors</div>
+    <div class="chart-title">Where Ideas Travel</div>
+    <div class="chart-desc">The strongest cross-border adaptation corridors ranked by value or company share.</div>
+
+    <div class="controls-row">
+      <div class="toggle-wrap">
+        <button class="toggle-btn" data-sort="count">By Company Share</button>
+        <button class="toggle-btn active" data-sort="value">By Value Share</button>
+      </div>
+      <div class="legend">
+        <div class="legend-item"><span class="legend-dot count-dot"></span>Company share</div>
+        <div class="legend-item"><span class="legend-dot value-dot"></span>Value share</div>
+      </div>
+    </div>
+
+    <div class="corridor-list" id="corridor-list"></div>
+  </div>
+
+  <script src="../js/charts.js"></script>
+  <script>renderCorridors(document.getElementById('chart-corridors'), '../data/');</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Role Reversals - Idea Diffusion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <div id="tip" class="tip"></div>
+
+  <div class="embed-chart" id="chart-flips">
+    <div class="chart-label">03 - Role Reversals</div>
+    <div class="chart-title">When the Student Beats the Teacher</div>
+    <div class="chart-desc">Cases where the derivative company surpassed the original in valuation.</div>
+
+    <div class="flip-list" id="flip-list">
+      <div class="f-header" style="display:grid;grid-template-columns:90px 24px 150px 1fr auto;gap:8px;padding:0 14px 6px;border-bottom:1px solid var(--border);margin-bottom:4px;">
+        <span class="f-header-label">Source</span>
+        <span></span>
+        <span class="f-header-label">Variant</span>
+        <span></span>
+        <span class="f-header-label" style="text-align:right;min-width:80px;">Delta</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/charts.js"></script>
+  <script>renderFlips(document.getElementById('chart-flips'), '../data/');</script>
+</body>
+</html>
