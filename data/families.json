@@ -10,7 +10,8 @@
       1002.2,
       283.9
     ],
-    "count": 21
+    "count": 21,
+    "anchorYear": 2014
   },
   "fintech_payments__qr_mobile_wallet": {
     "l": "QR-code mobile payment wallet / financial super-app (Alipay-like)",
@@ -23,7 +24,8 @@
       1002.2,
       283.9
     ],
-    "count": 19
+    "count": 19,
+    "anchorYear": 2004
   },
   "cleantech__premium_dtc_ev": {
     "l": "Premium direct-to-consumer electric vehicle brand (Tesla-like)",
@@ -36,7 +38,8 @@
       181.4,
       263.1
     ],
-    "count": 20
+    "count": 20,
+    "anchorYear": 2003
   },
   "ecommerce_horizontal__c2c_marketplace": {
     "l": "C2C / peer-to-peer online marketplace (eBay-like)",
@@ -49,7 +52,8 @@
       181.4,
       263.1
     ],
-    "count": 18
+    "count": 18,
+    "anchorYear": 1995
   },
   "ecommerce_horizontal__fullstack_marketplace_logistics": {
     "l": "Full-stack e-commerce platform with integrated logistics (Amazon-like)",
@@ -62,7 +66,8 @@
       181.4,
       263.1
     ],
-    "count": 14
+    "count": 14,
+    "anchorYear": 1994
   },
   "ride_hailing__marketplace": {
     "l": "Ride-hailing marketplace (Uber-like)",
@@ -75,7 +80,8 @@
       181.4,
       263.1
     ],
-    "count": 13
+    "count": 13,
+    "anchorYear": 2009
   },
   "fintech_lending__p2p_marketplace": {
     "l": "P2P / Marketplace Lending Platform (Zopa-like)",
@@ -88,7 +94,8 @@
       569.3,
       171.5
     ],
-    "count": 9
+    "count": 9,
+    "anchorYear": 2005
   },
   "ai_ml_platform__ai_accelerator_chip": {
     "l": "AI accelerator chip designer (NVIDIA-like)",
@@ -101,7 +108,8 @@
       181.4,
       263.1
     ],
-    "count": 9
+    "count": 9,
+    "anchorYear": 1993
   },
   "travel_hospitality__full_service_ota": {
     "l": "Full-service online travel agency (Expedia-like)",
@@ -114,7 +122,8 @@
       181.4,
       263.1
     ],
-    "count": 11
+    "count": 11,
+    "anchorYear": 1996
   },
   "ai_ml_platform__foundation_model_api": {
     "l": "Foundation model + API/consumer product provider (OpenAI-like)",
@@ -127,7 +136,8 @@
       181.4,
       263.1
     ],
-    "count": 9
+    "count": 9,
+    "anchorYear": 2015
   },
   "bnpl_consumer_credit__merchant_checkout_bnpl": {
     "l": "Merchant-integrated checkout BNPL (Klarna-like)",
@@ -140,7 +150,8 @@
       642.8,
       108.3
     ],
-    "count": 11
+    "count": 11,
+    "anchorYear": 2005
   },
   "fintech_payments__api_payment_gateway": {
     "l": "Developer-first API payment gateway (Stripe-like)",
@@ -153,7 +164,8 @@
       181.4,
       263.1
     ],
-    "count": 9
+    "count": 9,
+    "anchorYear": 2010
   },
   "fintech_payments__mpos_smb_card_acceptance": {
     "l": "mPOS / SMB card acceptance (Square-like)",
@@ -166,7 +178,8 @@
       181.4,
       263.1
     ],
-    "count": 10
+    "count": 10,
+    "anchorYear": 2009
   },
   "quick_commerce__scheduled_online_grocery_retailer": {
     "l": "Online grocery retailer with scheduled delivery (FreshDirect-like)",
@@ -179,7 +192,8 @@
       181.4,
       263.1
     ],
-    "count": 8
+    "count": 8,
+    "anchorYear": 1999
   },
   "crypto__regulated_retail_cex": {
     "l": "Regulated retail crypto exchange (Coinbase-like)",
@@ -192,7 +206,8 @@
       181.4,
       263.1
     ],
-    "count": 8
+    "count": 8,
+    "anchorYear": 2012
   },
   "fintech_neobanking__commission_free_retail_brokerage": {
     "l": "Commission-free mobile retail brokerage (Robinhood-like)",
@@ -205,7 +220,8 @@
       181.4,
       263.1
     ],
-    "count": 6
+    "count": 6,
+    "anchorYear": 2013
   },
   "ecommerce_horizontal__b2b_horizontal_marketplace": {
     "l": "B2B horizontal e-commerce marketplace (Alibaba.com-like)",
@@ -218,7 +234,8 @@
       1002.2,
       283.9
     ],
-    "count": 6
+    "count": 6,
+    "anchorYear": 1999
   },
   "food_delivery_restaurant__marketplace": {
     "l": "Restaurant food delivery marketplace (Just Eat / Grubhub-like)",
@@ -244,7 +261,8 @@
       181.4,
       263.1
     ],
-    "count": 6
+    "count": 6,
+    "anchorYear": 2012
   },
   "ecommerce_horizontal__fba_brand_aggregator": {
     "l": "Amazon FBA brand aggregator (Thrasio-like)",
@@ -257,7 +275,8 @@
       181.4,
       263.1
     ],
-    "count": 6
+    "count": 6,
+    "anchorYear": 2018
   },
   "ecom_vertical__fresh_food_ecommerce": {
     "l": "Online fresh food & produce e-commerce (Yiguo-like)",
@@ -283,7 +302,8 @@
       185.5,
       156.9
     ],
-    "count": 7
+    "count": 7,
+    "anchorYear": 2018
   },
   "quick_commerce__dark_store_instant_delivery": {
     "l": "Quick-commerce dark-store delivery (Gopuff-like)",
@@ -296,7 +316,8 @@
       181.4,
       263.1
     ],
-    "count": 7
+    "count": 7,
+    "anchorYear": 2013
   },
   "enterprise_saas_horizontal__cloud_hr_platform": {
     "l": "Cloud HR management platform (Workday-like)",
@@ -309,7 +330,8 @@
       181.4,
       263.1
     ],
-    "count": 6
+    "count": 6,
+    "anchorYear": 2005
   },
   "fintech_neobanking__consumer_neobank": {
     "l": "Fee-free mobile-first consumer neobank (Chime/N26-like)",
@@ -335,7 +357,8 @@
       1002.2,
       283.9
     ],
-    "count": 6
+    "count": 6,
+    "anchorYear": 2014
   },
   "classifieds__horizontal_classifieds": {
     "l": "Horizontal online classifieds (Craigslist-like)",
@@ -348,7 +371,8 @@
       181.4,
       263.1
     ],
-    "count": 5
+    "count": 5,
+    "anchorYear": 1995
   },
   "media_entertainment__svod_streaming": {
     "l": "Subscription video-on-demand streaming (Netflix-like)",
@@ -361,7 +385,8 @@
       181.4,
       263.1
     ],
-    "count": 5
+    "count": 5,
+    "anchorYear": 1997
   },
   "ecommerce_horizontal__daily_deals": {
     "l": "Daily deals / local commerce marketplace (Groupon-like)",
@@ -374,7 +399,8 @@
       181.4,
       263.1
     ],
-    "count": 2
+    "count": 2,
+    "anchorYear": 2008
   },
   "cloud_infra__iaas_cloud_platform": {
     "l": "Public IaaS Cloud Platform (AWS-like)",
@@ -387,7 +413,8 @@
       181.4,
       263.1
     ],
-    "count": 2
+    "count": 2,
+    "anchorYear": 2006
   },
   "hr_workforce__smb_cloud_hr_payroll": {
     "l": "SMB cloud HR & payroll platform (Gusto-like)",
@@ -400,7 +427,8 @@
       181.4,
       263.1
     ],
-    "count": 5
+    "count": 5,
+    "anchorYear": 2011
   },
   "fintech_neobanking__emerging_market_card_neobank": {
     "l": "Card-first neobank for emerging-market underbanked (Nubank-like)",
@@ -413,7 +441,8 @@
       369.2,
       498.6
     ],
-    "count": 5
+    "count": 5,
+    "anchorYear": 2013
   },
   "b2b_marketplace__small_retailer_fmcg": {
     "l": "B2B e-commerce for small/informal retailers (Huimin / Udaan-style)",
@@ -439,7 +468,8 @@
       181.4,
       263.1
     ],
-    "count": 4
+    "count": 4,
+    "anchorYear": 2011
   },
   "av_robotics__adas_chip_platform": {
     "l": "ADAS/AD chip-and-software platform for automotive OEMs (Mobileye-like)",
@@ -478,7 +508,8 @@
       181.4,
       263.1
     ],
-    "count": 3
+    "count": 3,
+    "anchorYear": 1998
   },
   "ecom_vertical__multi_brand_fashion_retail": {
     "l": "Multi-brand online fashion retailer (Zappos-like)",
@@ -491,7 +522,8 @@
       181.4,
       263.1
     ],
-    "count": 4
+    "count": 4,
+    "anchorYear": 1999
   },
   "edtech__live_tutoring_platform": {
     "l": "Live online tutoring platform (iTutorGroup-like)",
@@ -517,7 +549,8 @@
       181.4,
       263.1
     ],
-    "count": 4
+    "count": 4,
+    "anchorYear": 2017
   },
   "healthtech_biotech__in_license_develop_local_market": {
     "l": "In-license & develop biotech for local market (SymBio-like)",
@@ -543,7 +576,8 @@
       1002.2,
       283.9
     ],
-    "count": 3
+    "count": 3,
+    "anchorYear": 2011
   },
   "cleantech__battery_gigafactory": {
     "l": "EV battery cell gigafactory (CATL-like)",
@@ -556,7 +590,8 @@
       1002.2,
       283.9
     ],
-    "count": 3
+    "count": 3,
+    "anchorYear": 2011
   },
   "ai_ml_vertical__ai_customer_support_chatbot": {
     "l": "AI-first customer support automation (Ada-like)",
@@ -569,7 +604,8 @@
       185.5,
       156.9
     ],
-    "count": 3
+    "count": 3,
+    "anchorYear": 2016
   },
   "ecommerce_horizontal__storefront_saas": {
     "l": "E-commerce storefront SaaS for SMBs (Shopify-like)",
@@ -595,7 +631,8 @@
       544.8,
       178.5
     ],
-    "count": 3
+    "count": 3,
+    "anchorYear": 2015
   },
   "dtc_retail__ultra_fast_fashion_dtc": {
     "l": "Data-driven ultra-fast fashion DTC (Shein-like)",
@@ -608,7 +645,8 @@
       1001.4,
       434.3
     ],
-    "count": 3
+    "count": 3,
+    "anchorYear": 2008
   },
   "ecom_vertical__home_furnishing_ecommerce": {
     "l": "Online home furnishing e-commerce (Wayfair-like)",
@@ -660,7 +698,8 @@
       181.4,
       263.1
     ],
-    "count": 3
+    "count": 3,
+    "anchorYear": 2013
   },
   "fintech_infra__cloud_core_banking": {
     "l": "Cloud-native core banking platform (Mambu-like)",
@@ -673,7 +712,8 @@
       597.9,
       185.3
     ],
-    "count": 3
+    "count": 3,
+    "anchorYear": 2011
   },
   "fintech_neobanking__smb_neobank": {
     "l": "Digital SMB neobank (Tide-like)",
@@ -725,7 +765,8 @@
       181.4,
       263.1
     ],
-    "count": 3
+    "count": 3,
+    "anchorYear": 2012
   },
   "media_entertainment__music_streaming": {
     "l": "Freemium music streaming (Spotify-like)",
@@ -738,7 +779,8 @@
       642.8,
       108.3
     ],
-    "count": 3
+    "count": 3,
+    "anchorYear": 2006
   },
   "media_entertainment__ai_news_aggregation": {
     "l": "AI-powered personalized news/content aggregation (Toutiao/ByteDance-like)",
@@ -751,7 +793,8 @@
       1002.2,
       283.9
     ],
-    "count": 3
+    "count": 3,
+    "anchorYear": 2012
   },
   "proptech__property_listing_portal": {
     "l": "Online property listing portal / real estate classifieds (REA Group-like)",
@@ -790,7 +833,8 @@
       181.4,
       263.1
     ],
-    "count": 3
+    "count": 3,
+    "anchorYear": 2010
   },
   "social_community__mobile_messaging": {
     "l": "Mobile messaging platform (WhatsApp-like)",
@@ -803,7 +847,8 @@
       181.4,
       263.1
     ],
-    "count": 3
+    "count": 3,
+    "anchorYear": 2009
   },
   "social_community__short_form_video": {
     "l": "Short-form algorithmic video platform (TikTok/Douyin-like)",

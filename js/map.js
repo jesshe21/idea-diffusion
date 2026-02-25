@@ -291,6 +291,7 @@
     const corridorModeTwoWay = byId('corridor-mode-twoway');
     const sidebarClearWrap = byId('sidebar-clear-wrap');
     const sidebarClearFilter = byId('sidebar-clear-filter');
+    const playbookBlock = byId('playbook-block');
 
     const state = {
       activeFamily: null,
@@ -407,6 +408,7 @@
       toggleFams.textContent = state.showAllFams ? 'Top 10' : 'Select All';
       resetBtn.style.display = isActive() ? 'block' : 'none';
       sidebarClearWrap.style.display = isActive() ? 'block' : 'none';
+      playbookBlock.style.display = state.filterMode === 'corridor' ? 'none' : 'block';
 
       companyDD.style.display = (state.companyFocused && searchResults.length && state.filterMode !== 'legend' && state.filterMode !== 'corridor') ? 'block' : 'none';
       companyDD.innerHTML = searchResults.map(function (c, i) {

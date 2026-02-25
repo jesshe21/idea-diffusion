@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lag Distribution - Idea Diffusion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <div id="tip" class="tip"></div>
+
+  <div class="embed-chart" id="chart-lag">
+    <div class="chart-label">04 - Diffusion Lag</div>
+    <div class="chart-title">Probability Distribution of Copy Time</div>
+    <div class="chart-desc">For each anchor-variant pair, n = variant founding year - anchor founding year. Negative n is excluded.</div>
+    <div class="lag-summary" id="lag-summary"></div>
+    <svg class="lag-svg" id="lag-chart-svg"></svg>
+  </div>
+
+  <script src="../js/charts.js"></script>
+  <script>renderLagDistribution(document.getElementById('chart-lag'), '../data/');</script>
+</body>
+</html>

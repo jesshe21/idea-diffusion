@@ -1,0 +1,101 @@
+anchor	short_label	count	family_id
+Yiguo	Fresh Food E-Commerce	7	ecom_vertical__fresh_food_ecommerce
+Just Eat / Grubhub	Restaurant Food Delivery	7	food_delivery_restaurant__marketplace
+Chime/N26	Consumer Neobank	6	fintech_neobanking__consumer_neobank
+Huimin / Udaan	B2B Small Retailer FMCG	5	b2b_marketplace__small_retailer_fmcg
+iTutorGroup	Live Online Tutoring	3	edtech__live_tutoring_platform
+Mobileye	ADAS Chip + Software	2	av_robotics__adas_chip_platform
+DJI	Autonomous Drone Platform	2	av_robotics__integrated_autonomous_drone_platform
+Meicai	B2B Restaurant Supply	2	agritech_foodtech__b2b_restaurant_supply_platform
+Solaris	Banking-as-a-Service	2	fintech_infra__banking_as_a_service
+CloudKitchens	Cloud Kitchen / Ghost Kitchen	2	food_delivery_restaurant__cloud_kitchen
+Zscaler	Cloud SASE / Zero-Trust	2	cybersecurity__cloud_delivered_sase_platform
+Peloton	Connected Fitness Hardware	2	dtc_retail__connected_fitness_hardware
+Xometry	Custom Manufacturing Marketplace	2	b2b_marketplace__custom_manufacturing
+Lemonade	D2C Digital Insurer	2	insurtech__d2c_digital_insurer
+Shield AI	Defense AI Platform	2	ai_ml_vertical__defense_ai_platform
+Flexport	Digital Freight Forwarding	2	logistics_supply_chain__digital_freight_forwarding
+Zocdoc	Doctor Booking Marketplace	2	healthtech__doctor_booking_marketplace
+Check Point	Enterprise Network Security	2	cybersecurity__enterprise_network_security_platform
+Carta	Equity / Cap Table Mgmt	2	fintech_infra__equity_cap_table_mgmt
+Twitch	Game Live Streaming	2	gaming__live_streaming_platform
+Wayfair	Home Furnishing E-Commerce	2	ecom_vertical__home_furnishing_ecommerce
+Houzz	Home Interior Platform	2	proptech__home_interior_platform
+Opendoor	iBuyer / Instant Home Buying	2	proptech__ibuyer
+SymBio	In-License Biotech Localizer	2	healthtech_biotech__in_license_develop_local_market
+BitGo	Institutional Crypto Custody	2	crypto__institutional_custody
+eHealth	Insurance Comparison Marketplace	2	insurtech__insurance_comparison_marketplace
+YNAP	Luxury Fashion E-Commerce	2	ecom_vertical__luxury_fashion_ecommerce
+Twitter/X	Microblogging Platform	2	social_community__microblogging
+Ele.me	Multi-Category On-Demand	2	quick_commerce__multi_category_on_demand_delivery
+PayPal	Online Payment Platform	2	fintech_payments__online_payment_platform
+Udemy	Open Course Marketplace	2	edtech__open_course_marketplace
+MongoDB	OSS Data Infrastructure	2	cloud_infra__oss_data_infrastructure
+Airbnb	P2P Short-Term Rental	2	travel_hospitality__p2p_shortterm_rental_marketplace
+LinkedIn	Professional Networking	2	hr_workforce__professional_networking_platform
+REA Group	Property Listing Portal	2	proptech__property_listing_portal
+Tencent	Regional Gaming Ecosystem	2	gaming__regional_gaming_ecosystem
+Betterment	Robo-Advisory	2	fintech_neobanking__robo_advisory
+TikTok/Douyin	Short-Form Video	2	social_community__short_form_video
+Rocket Lab	Smallsat Launch Vehicle	2	space_aerospace__dedicated_smallsat_launch
+Tide	SMB Neobank	2	fintech_neobanking__smb_neobank
+YY/JOYY	Social Live Streaming	2	media_entertainment__social_live_streaming
+Tinder	Swipe Dating App	2	social_community__swipe_dating
+Slack	Team Collaboration Platform	2	enterprise_saas_horizontal__team_collaboration_platform
+Amwell	Telemedicine Platform	2	healthtech__telemedicine_virtual_consultation
+Tripadvisor	Travel UGC & Reviews	2	travel_hospitality__travel_ugc_reviews
+Squarespace	Website Builder SaaS	2	enterprise_saas_horizontal__website_builder_saas
+Harvey	AI Legal Assistant	1	ai_ml_vertical__ai_legal_assistant
+Upstart	AI Lending Decisioning	1	ai_ml_vertical__ai_lending_decisioning
+Beyond Meat	Alternative Protein CPG	1	agritech_foodtech__alternative_protein_cpg
+Lexin	App-First Installment Credit	1	bnpl_consumer_credit__app_first_installment_credit
+StockX	Authenticated Sneaker Marketplace	1	ecom_vertical__authenticated_sneaker_marketplace
+Kabbage	Automated SMB Lending	1	fintech_lending__automated_smb_lending
+Velodyne/Luminar	Automotive LiDAR Sensor	1	av_robotics__automotive_lidar_sensor
+Xencor	Biologics Tech Platform	1	healthtech_biotech__biologics_technology_platform
+DriveWealth	Brokerage-as-a-Service API	1	fintech_infra__brokerage_infrastructure_api
+Snapchat	Camera + AR Filter Social	1	social_community__camera_filter_social
+Marqeta	Card Issuing Infrastructure	1	fintech_infra__card_issuing_infrastructure
+Honest Company	Clean-Label Baby / Personal Care	1	dtc_retail__clean_label_baby_personal_care
+iCIMS	Cloud ATS / Recruiting	1	hr_workforce__cloud_ats_recruiting
+Anaplan	Cloud Business Planning	1	enterprise_saas_horizontal__cloud_business_planning
+Snowflake	Cloud Data Warehouse	1	cloud_infra__cloud_data_warehouse
+Asana	Cloud Work Management	1	enterprise_saas_horizontal__cloud_work_management
+Vonage	CPaaS / Cloud Comms	1	telecom__cpaas_cloud_comms
+Airwallex	Cross-Border B2B Payments	1	fintech_infra__cross_border_b2b_payments
+FanDuel	Daily Fantasy Sports	1	gaming__daily_fantasy_sports
+Convoy	Digital Trucking Marketplace	1	logistics_supply_chain__digital_trucking_marketplace
+Illumina	DNA Sequencing Platform	1	healthtech_biotech__sequencing_instruments_platform
+Glossier	DTC Beauty Brand	1	dtc_retail__digital_native_dtc_beauty
+Clearco	E-Commerce Revenue Financing	1	fintech_lending__ecommerce_revenue_financing
+Shippo	E-Commerce Shipping Aggregator	1	logistics_supply_chain__ecommerce_shipping_aggregator
+Shopify	E-Commerce Storefront SaaS	1	ecommerce_horizontal__storefront_saas
+Culture Amp	Employee Engagement & Perf	1	hr_workforce__employee_engagement_performance
+Workhuman	Employee Recognition & Rewards	1	hr_workforce__employee_recognition_rewards
+DataRobot	Enterprise ML Platform	1	ai_ml_platform__enterprise_ml_platform
+Vipshop	Flash-Sale Branded Discount	1	ecommerce_horizontal__flash_sale_branded_discount
+Runway	Generative Visual AI	1	ai_ml_platform__generative_visual_model
+CoreWeave	GPU Cloud for AI	1	ai_ml_platform__gpu_cloud_iaas
+Trulioo	Identity Verification API	1	fintech_infra__identity_verification_api
+Faire	Indie Retail Wholesale	1	b2b_marketplace__indie_retail_wholesale
+Clio	Legal Practice Mgmt SaaS	1	enterprise_saas_vertical__legal_practice_mgmt
+HelloFresh	Meal Kit Subscription	1	agritech_foodtech__meal_kit_subscription
+Moglix	MRO / Industrial Supplies	1	b2b_marketplace__mro_supplies
+Crown Castle	Neutral Shared Infra / TowerCo	1	telecom__neutral_shared_infra
+Tines	No-Code Security Automation	1	cybersecurity__nocode_security_workflow_automation
+Datadog	Observability & Monitoring	1	cloud_infra__observability_monitoring
+JUUL	Pod-Based Vaping Device	1	dtc_retail__pod_based_vaping
+Quora	Q&A Knowledge Community	1	social_community__qa_knowledge
+Sunrun	Residential Solar Leasing	1	cleantech__residential_solar_leasing
+Toast	Restaurant Cloud POS	1	enterprise_saas_vertical__restaurant_cloud_pos
+Blue Prism	RPA Platform	1	enterprise_saas_horizontal__rpa_platform
+Planet	Smallsat Earth Observation	1	space_aerospace__smallsat_earth_observation
+Compass	Tech Real Estate Brokerage	1	proptech__tech_brokerage
+OakNorth	Tech SME Lending Bank	1	fintech_neobanking__tech_sme_lending_bank
+Oscar Health	Tech-First Health Insurer	1	insurtech__tech_first_health_insurer
+GetYourGuide	Tours & Activities Marketplace	1	travel_hospitality__tours_activities_marketplace
+Skyscanner	Travel Metasearch	1	travel_hospitality__travel_metasearch
+YouTube	UGC Video Platform	1	media_entertainment__ugc_video_platform
+Coursera	University Online Education	1	edtech__university_partnered_online_education
+Instagram	Visual Lifestyle Feed	1	social_community__visual_lifestyle_feed
+Zapier	Workflow Automation	1	enterprise_saas_horizontal__workflow_automation_platform

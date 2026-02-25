@@ -75,18 +75,29 @@
     </div>
   </div>
 
+  <div class="sep"></div>
+
+  <div class="embed-chart" id="chart-lag">
+    <div class="chart-label">04 - Diffusion Lag</div>
+    <div class="chart-title">Probability Distribution of Copy Time</div>
+    <div class="chart-desc">For each anchor-variant pair, n = variant founding year - anchor founding year. Negative n is excluded.</div>
+    <div class="lag-summary" id="lag-summary"></div>
+    <svg class="lag-svg" id="lag-chart-svg"></svg>
+  </div>
+
   <div class="embed-chart" style="text-align:center; padding:16px; opacity:0.5; font-size:12px; color:var(--text-muted);">
     DCM Ventures
   </div>
 
+  <script src="js/site-config.js"></script>
   <script src="js/map.js"></script>
   <script src="js/charts.js"></script>
   <script>
-    window.IDEA_DIFFUSION_LOGO_DEV_TOKEN = window.IDEA_DIFFUSION_LOGO_DEV_TOKEN || '';
     renderMap(document.getElementById('map-container'), 'data/', { showHeader: false });
     renderCorridors(document.getElementById('chart-corridors'), 'data/');
     renderArchetypes(document.getElementById('chart-archetypes'), 'data/');
     renderFlips(document.getElementById('chart-flips'), 'data/');
+    renderLagDistribution(document.getElementById('chart-lag'), 'data/');
   </script>
 </body>
 </html>
