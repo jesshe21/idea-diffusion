@@ -179,11 +179,16 @@
       fetch(base + 'positions.json').then(function (r) { return r.json(); })
     ]);
 
-    const companies = loadCsv(data[0]).filter(function (row) {
-      return String(row.cc || '').trim() !== '';
-    });
+    const rawCompanies = loadCsv(data[0]);
     const families = data[1];
-    const positions = data[2];
+    const rawPositions = data[2];
+    const kept = rawCompanies
+      .map(function (row, i) { return { row: row, pos: rawPositions[i], i: i }; })
+      .filter(function (item) {
+        return String(item.row.cc || '').trim() !== '' && Array.isArray(item.pos) && item.pos.length >= 2;
+      });
+    const companies = kept.map(function (item) { return item.row; });
+    const positions = kept.map(function (item) { return item.pos; });
     const worldData = await fetchWorldPaths();
     const worldPaths = worldData.paths;
     const worldBounds = worldData.bounds || { minX: 0, maxX: 1400, minY: 0, maxY: 650 };
@@ -870,7 +875,9 @@
           '</g>';
       }).join('');
 
-      const arcLayer = state.filterMode === 'corridor' ? corridorAggregateArc : arcs;
+      const arcLayer = state.filterMode === 'corridor'
+        ? (corridorAggregateArc + arcs)
+        : arcs;
       svg.innerHTML = world + arcLayer + dimmed + anchors + nodes;
 
       if (!logoToken) {
