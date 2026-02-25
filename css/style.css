@@ -47,15 +47,15 @@ body {
 
 /* ── Embed wrapper: this is what goes inside a blog ── */
 .embed-chart {
-  max-width: 1120px;
+  max-width: 1000px;
   width: 100%;
   margin: 10px auto;
   padding: 0 clamp(28px, 4.4vw, 72px);
 }
 
 .embed-chart.map-wide {
-  max-width: 1520px;
-  padding: 0 clamp(20px, 3.4vw, 56px);
+  max-width: 1460px;
+  padding: 0 clamp(28px, 4.2vw, 72px);
 }
 
 .chart-label {
@@ -481,6 +481,7 @@ body {
   font-weight: 500;
   color: var(--text);
   white-space: nowrap;
+  margin-right: 6px;
 }
 
 .f-val {
@@ -565,6 +566,7 @@ body {
 
 .lag-svg {
   width: 100%;
+  min-height: 360px;
   height: auto;
   border: 1px solid var(--border-light);
   border-radius: 10px;
@@ -717,8 +719,8 @@ body {
 .map-section {
   position: relative;
   width: 100%;
-  height: clamp(500px, 74vh, 820px);
-  min-height: 500px;
+  height: clamp(620px, 84vh, 980px);
+  min-height: 620px;
   display: flex;
   overflow: hidden;
   border: 1px solid var(--border);
@@ -777,9 +779,27 @@ body {
   flex-shrink: 0;
   border-left: 1px solid var(--border);
   background: rgba(255,255,255,0.95);
-  padding: 18px 16px 16px;
+  padding: 14px 14px 12px;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
   overflow-y: auto;
   font-size: 13px;
+}
+
+.map-sidebar > * {
+  flex-shrink: 0;
+}
+
+.map-sidebar.details-active {
+  overflow: hidden;
+}
+
+.map-sidebar.details-active #details-block {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebar-label {
@@ -788,14 +808,45 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.24em;
   color: #7f7b74;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+}
+
+.sidebar-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 26px;
+  margin-bottom: 6px;
+}
+
+.sidebar-title-row .sidebar-label {
+  margin-bottom: 0;
+}
+
+.default-filter-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid #cfe0ff;
+  background: #eef4ff;
+  color: #355fa8;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+#corridor-block,
+#playbook-block {
+  margin-top: 8px;
 }
 
 .sidebar-input {
   width: 100%;
   border: 1px solid var(--border-light);
   border-radius: 11px;
-  padding: 11px 14px;
+  padding: 9px 12px;
   font-size: 13px;
   font-weight: 500;
   line-height: 1.35;
@@ -817,14 +868,19 @@ body {
 }
 
 .map-sidebar .toggle-wrap {
-  border-radius: 12px;
+  border-radius: 10px;
   border-color: #dbd7cf;
   background: #f2f1ee;
+  padding: 1px;
+  gap: 2px;
 }
 
 .map-sidebar .toggle-btn {
-  font-size: 17px;
-  min-width: 44px;
+  font-size: 13px;
+  min-width: 34px;
+  height: 26px;
+  padding: 1px 8px;
+  line-height: 1;
   color: #938f88;
 }
 
@@ -867,7 +923,7 @@ body {
   display: flex;
   align-items: center;
   gap: 7px;
-  padding: 7px 8px;
+  padding: 5px 6px;
   border-radius: 8px;
   cursor: pointer;
   font-size: 13px;
@@ -898,13 +954,72 @@ body {
   flex-shrink: 0;
 }
 
+.pair-table-wrap {
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  background: #fff;
+  max-height: 260px;
+  overflow: auto;
+}
+
+.map-sidebar.details-active .pair-table-wrap {
+  max-height: none;
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow-y: auto;
+}
+
+.pair-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.pair-table th {
+  position: sticky;
+  top: 0;
+  background: #faf9f6;
+  color: #7f7b74;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 8px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.pair-table td {
+  padding: 8px 10px;
+  color: #4f4d49;
+  border-bottom: 1px solid #f2f0eb;
+  white-space: nowrap;
+}
+
 #sidebar-clear-filter {
   font-family: 'Barlow', sans-serif;
-  font-size: 12px !important;
-  font-weight: 500;
-  color: #6f6b64 !important;
-  background: #fff !important;
-  border-color: #ddd8ce !important;
+  font-size: 11px !important;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #b14a40 !important;
+  background: #fff5f4 !important;
+  border-color: #efd2cf !important;
+  border-radius: 999px !important;
+  width: auto !important;
+  min-width: 92px;
+  max-width: 118px;
+  padding: 5px 12px !important;
+  margin: 0;
+  display: block;
+  text-align: left;
+  align-self: flex-start;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+#sidebar-clear-filter:hover {
+  background: #ffeceb !important;
+  border-color: #e8beb9 !important;
+  color: #9f3a31 !important;
 }
 
 /* Map tooltip */

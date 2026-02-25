@@ -5,7 +5,7 @@
     "acc": "CHN",
     "ad": "antgroup.com",
     "sl": "Payments Super-App Lending",
-    "color": "#3b82f6",
+    "color": "#2563eb",
     "anchorPos": [
       1002.2,
       283.9
@@ -19,7 +19,7 @@
     "acc": "CHN",
     "ad": "alipay.com",
     "sl": "QR Mobile Wallet",
-    "color": "#f59e0b",
+    "color": "#059669",
     "anchorPos": [
       1002.2,
       283.9
@@ -33,7 +33,7 @@
     "acc": "USA",
     "ad": "tesla.com",
     "sl": "Premium DTC EV",
-    "color": "#ef4444",
+    "color": "#e11d48",
     "anchorPos": [
       181.4,
       263.1
@@ -47,7 +47,7 @@
     "acc": "USA",
     "ad": "ebay.com",
     "sl": "C2C Marketplace",
-    "color": "#8b5cf6",
+    "color": "#7c3aed",
     "anchorPos": [
       181.4,
       263.1
@@ -61,7 +61,7 @@
     "acc": "USA",
     "ad": "amazon.com",
     "sl": "Full-Stack E-Commerce + Logistics",
-    "color": "#10b981",
+    "color": "#ea580c",
     "anchorPos": [
       181.4,
       263.1
@@ -75,7 +75,7 @@
     "acc": "USA",
     "ad": "uber.com",
     "sl": "Ride-Hailing Marketplace",
-    "color": "#ec4899",
+    "color": "#0ea5e9",
     "anchorPos": [
       181.4,
       263.1
@@ -89,7 +89,7 @@
     "acc": "GBR",
     "ad": "zopa.com",
     "sl": "P2P Lending Marketplace",
-    "color": "#14b8a6",
+    "color": "#9333ea",
     "anchorPos": [
       569.3,
       171.5
@@ -103,7 +103,7 @@
     "acc": "USA",
     "ad": "nvidia.com",
     "sl": "AI Accelerator Chip",
-    "color": "#e11d48",
+    "color": "#0d9488",
     "anchorPos": [
       181.4,
       263.1
@@ -117,7 +117,7 @@
     "acc": "USA",
     "ad": "expediagroup.com",
     "sl": "Full-Service OTA",
-    "color": "#06b6d4",
+    "color": "#65a30d",
     "anchorPos": [
       181.4,
       263.1
@@ -131,7 +131,7 @@
     "acc": "USA",
     "ad": "openai.com",
     "sl": "Foundation Model + API",
-    "color": "#84cc16",
+    "color": "#0891b2",
     "anchorPos": [
       181.4,
       263.1
@@ -145,7 +145,7 @@
     "acc": "SWE",
     "ad": "klarna.com",
     "sl": "Merchant BNPL",
-    "color": "#f97316",
+    "color": "#db2777",
     "anchorPos": [
       642.8,
       108.3
@@ -159,7 +159,7 @@
     "acc": "USA",
     "ad": "stripe.com",
     "sl": "API Payment Gateway",
-    "color": "#a855f7",
+    "color": "#dc2626",
     "anchorPos": [
       181.4,
       263.1
@@ -173,7 +173,7 @@
     "acc": "USA",
     "ad": "block.xyz",
     "sl": "mPOS / SMB Card Acceptance",
-    "color": "#6366f1",
+    "color": "#4f46e5",
     "anchorPos": [
       181.4,
       263.1
@@ -187,7 +187,7 @@
     "acc": "USA",
     "ad": "freshdirect.com",
     "sl": "Scheduled Online Grocery",
-    "color": "#0ea5e9",
+    "color": "#c2410c",
     "anchorPos": [
       181.4,
       263.1
@@ -201,7 +201,7 @@
     "acc": "USA",
     "ad": "coinbase.com",
     "sl": "Regulated Retail Crypto Exchange",
-    "color": "#d946ef",
+    "color": "#16a34a",
     "anchorPos": [
       181.4,
       263.1
@@ -215,7 +215,7 @@
     "acc": "USA",
     "ad": "robinhood.com",
     "sl": "Commission-Free Brokerage",
-    "color": "#c084fc",
+    "color": "#a21caf",
     "anchorPos": [
       181.4,
       263.1
@@ -229,7 +229,7 @@
     "acc": "CHN",
     "ad": "alibaba.com",
     "sl": "B2B Horizontal Marketplace",
-    "color": "#78716c",
+    "color": "#0369a1",
     "anchorPos": [
       1002.2,
       283.9
@@ -243,7 +243,7 @@
     "acc": "CAN",
     "ad": "justeattakeaway.com",
     "sl": "Restaurant Food Delivery",
-    "color": "#facc15",
+    "color": "#6d28d9",
     "anchorPos": [
       185.5,
       156.9
@@ -256,7 +256,7 @@
     "acc": "USA",
     "ad": "carvana.com",
     "sl": "Full-Stack Used Car Retail",
-    "color": "#0d9488",
+    "color": "#155e75",
     "anchorPos": [
       181.4,
       263.1
@@ -270,7 +270,7 @@
     "acc": "USA",
     "ad": "thrasio.com",
     "sl": "FBA Brand Aggregator",
-    "color": "#db2777",
+    "color": "#b91c1c",
     "anchorPos": [
       181.4,
       263.1
@@ -284,7 +284,7 @@
     "acc": "USA",
     "ad": "freshdirect.com",
     "sl": "Fresh Food E-Commerce",
-    "color": "#22d3ee",
+    "color": "#be123c",
     "anchorPos": [
       181.4,
       263.1
@@ -297,7 +297,7 @@
     "acc": "CAN",
     "ad": "dapperlabs.com",
     "sl": "NFT / Blockchain Gaming",
-    "color": "#fb7185",
+    "color": "#047857",
     "anchorPos": [
       185.5,
       156.9
@@ -311,7 +311,7 @@
     "acc": "USA",
     "ad": "gopuff.com",
     "sl": "Dark-Store Quick Commerce",
-    "color": "#4ade80",
+    "color": "#1d4ed8",
     "anchorPos": [
       181.4,
       263.1
@@ -325,7 +325,7 @@
     "acc": "USA",
     "ad": "workday.com",
     "sl": "Cloud HR Platform",
-    "color": "#65a30d",
+    "color": "#4d7c0f",
     "anchorPos": [
       181.4,
       263.1
@@ -339,7 +339,7 @@
     "acc": "USA",
     "ad": "chime.com",
     "sl": "Consumer Neobank",
-    "color": "#7c3aed",
+    "color": "#b45309",
     "anchorPos": [
       181.4,
       263.1
@@ -352,7 +352,7 @@
     "acc": "CHN",
     "ad": "ofo.com",
     "sl": "Dockless Micro-Mobility",
-    "color": "#ea580c",
+    "color": "#166534",
     "anchorPos": [
       1002.2,
       283.9
@@ -366,7 +366,7 @@
     "acc": "USA",
     "ad": "craigslist.org",
     "sl": "Horizontal Classifieds",
-    "color": "#0891b2",
+    "color": "#9a3412",
     "anchorPos": [
       181.4,
       263.1
@@ -380,7 +380,7 @@
     "acc": "USA",
     "ad": "netflix.com",
     "sl": "SVOD Streaming",
-    "color": "#be123c",
+    "color": "#9f1239",
     "anchorPos": [
       181.4,
       263.1
@@ -394,7 +394,7 @@
     "acc": "USA",
     "ad": "groupon.com",
     "sl": "Daily Deals Marketplace",
-    "color": "#4ade80",
+    "color": "#1c9fe3",
     "anchorPos": [
       181.4,
       263.1
@@ -408,7 +408,7 @@
     "acc": "USA",
     "ad": "amazon.com",
     "sl": "Public IaaS Cloud",
-    "color": "#c084fc",
+    "color": "#df496c",
     "anchorPos": [
       181.4,
       263.1
@@ -422,7 +422,7 @@
     "acc": "USA",
     "ad": "gusto.com",
     "sl": "SMB HR & Payroll",
-    "color": "#4f46e5",
+    "color": "#1e40af",
     "anchorPos": [
       181.4,
       263.1
@@ -436,7 +436,7 @@
     "acc": "BRA",
     "ad": "nubank.com.br",
     "sl": "EM Card-First Neobank",
-    "color": "#059669",
+    "color": "#15803d",
     "anchorPos": [
       369.2,
       498.6
@@ -450,7 +450,7 @@
     "acc": "CHN",
     "ad": "huimin.cn",
     "sl": "B2B Small Retailer FMCG",
-    "color": "#3b82f6",
+    "color": "#5b21b6",
     "anchorPos": [
       1002.2,
       283.9
@@ -463,7 +463,7 @@
     "acc": "USA",
     "ad": "offerup.com",
     "sl": "Mobile C2C Secondhand",
-    "color": "#ef4444",
+    "color": "#7e22ce",
     "anchorPos": [
       181.4,
       263.1
@@ -477,7 +477,7 @@
     "acc": "ISR",
     "ad": "mobileye.com",
     "sl": "ADAS Chip + Software",
-    "color": "#78716c",
+    "color": "#ae8829",
     "anchorPos": [
       720.4,
       301.4
@@ -490,7 +490,7 @@
     "acc": "USA",
     "ad": "gilt.com",
     "sl": "Flash-Sale Branded Discount",
-    "color": "#ef4444",
+    "color": "#9edf49",
     "anchorPos": [
       181.4,
       263.1
@@ -503,7 +503,7 @@
     "acc": "USA",
     "ad": "equinix.com",
     "sl": "Colocation Data Center",
-    "color": "#10b981",
+    "color": "#0c4a6e",
     "anchorPos": [
       181.4,
       263.1
@@ -517,7 +517,7 @@
     "acc": "USA",
     "ad": "zappos.com",
     "sl": "Multi-Brand Fashion Retail",
-    "color": "#f59e0b",
+    "color": "#3f6212",
     "anchorPos": [
       181.4,
       263.1
@@ -531,7 +531,7 @@
     "acc": "TWN",
     "ad": "itutorgroup.com",
     "sl": "Live Online Tutoring",
-    "color": "#ec4899",
+    "color": "#dc1ce3",
     "anchorPos": [
       1071.6,
       336.7
@@ -544,7 +544,7 @@
     "acc": "USA",
     "ad": "brex.com",
     "sl": "Corporate Card + Spend Mgmt",
-    "color": "#8b5cf6",
+    "color": "#0f766e",
     "anchorPos": [
       181.4,
       263.1
@@ -558,7 +558,7 @@
     "acc": "JPN",
     "ad": "symbiopharma.com",
     "sl": "In-License Biotech Localizer",
-    "color": "#0d9488",
+    "color": "#1ce350",
     "anchorPos": [
       1149.2,
       278.8
@@ -571,7 +571,7 @@
     "acc": "CHN",
     "ad": "best-inc.com",
     "sl": "E-Commerce Parcel Delivery",
-    "color": "#06b6d4",
+    "color": "#ca6221",
     "anchorPos": [
       1002.2,
       283.9
@@ -585,7 +585,7 @@
     "acc": "CHN",
     "ad": "catl.com",
     "sl": "Battery Gigafactory",
-    "color": "#f97316",
+    "color": "#075985",
     "anchorPos": [
       1002.2,
       283.9
@@ -599,7 +599,7 @@
     "acc": "CAN",
     "ad": "ada.cx",
     "sl": "AI Customer Support",
-    "color": "#6366f1",
+    "color": "#c026d3",
     "anchorPos": [
       185.5,
       156.9
@@ -613,7 +613,7 @@
     "acc": "CAN",
     "ad": "shopify.com",
     "sl": "E-Commerce Storefront SaaS",
-    "color": "#f59e0b",
+    "color": "#4e21ca",
     "anchorPos": [
       185.5,
       156.9
@@ -626,7 +626,7 @@
     "acc": "IRL",
     "ad": "pddholdings.com",
     "sl": "Social Group Buying",
-    "color": "#14b8a6",
+    "color": "#3cd751",
     "anchorPos": [
       544.8,
       178.5
@@ -640,7 +640,7 @@
     "acc": "SGP",
     "ad": "shein.com",
     "sl": "Ultra-Fast Fashion DTC",
-    "color": "#e11d48",
+    "color": "#711ce3",
     "anchorPos": [
       1001.4,
       434.3
@@ -654,7 +654,7 @@
     "acc": "USA",
     "ad": "wayfair.com",
     "sl": "Home Furnishing E-Commerce",
-    "color": "#db2777",
+    "color": "#a5df49",
     "anchorPos": [
       181.4,
       263.1
@@ -667,7 +667,7 @@
     "acc": "GBR",
     "ad": "ynap.com",
     "sl": "Luxury Fashion E-Commerce",
-    "color": "#65a30d",
+    "color": "#21b3ca",
     "anchorPos": [
       569.3,
       171.5
@@ -680,7 +680,7 @@
     "acc": "CHN",
     "ad": "lexin.com",
     "sl": "App-First Installment Credit",
-    "color": "#8b5cf6",
+    "color": "#5e49df",
     "anchorPos": [
       1002.2,
       283.9
@@ -693,7 +693,7 @@
     "acc": "USA",
     "ad": "plaid.com",
     "sl": "Open Banking Data API",
-    "color": "#84cc16",
+    "color": "#ca213b",
     "anchorPos": [
       181.4,
       263.1
@@ -707,7 +707,7 @@
     "acc": "NLD",
     "ad": "mambu.com",
     "sl": "Cloud Core Banking",
-    "color": "#a855f7",
+    "color": "#14532d",
     "anchorPos": [
       597.9,
       185.3
@@ -721,7 +721,7 @@
     "acc": "GBR",
     "ad": "tide.co",
     "sl": "SMB Neobank",
-    "color": "#7c3aed",
+    "color": "#df49be",
     "anchorPos": [
       569.3,
       171.5
@@ -734,7 +734,7 @@
     "acc": "USA",
     "ad": "zocdoc.com",
     "sl": "Doctor Booking Marketplace",
-    "color": "#ea580c",
+    "color": "#4621ca",
     "anchorPos": [
       181.4,
       263.1
@@ -747,7 +747,7 @@
     "acc": "USA",
     "ad": "amwell.com",
     "sl": "Telemedicine Platform",
-    "color": "#0891b2",
+    "color": "#29ae5c",
     "anchorPos": [
       181.4,
       263.1
@@ -760,7 +760,7 @@
     "acc": "USA",
     "ad": "instacart.com",
     "sl": "Grocery Personal Shopping",
-    "color": "#0ea5e9",
+    "color": "#3cd7a5",
     "anchorPos": [
       181.4,
       263.1
@@ -774,7 +774,7 @@
     "acc": "SWE",
     "ad": "spotify.com",
     "sl": "Music Streaming",
-    "color": "#d946ef",
+    "color": "#498cdf",
     "anchorPos": [
       642.8,
       108.3
@@ -788,7 +788,7 @@
     "acc": "CHN",
     "ad": "bytedance.com",
     "sl": "AI News Aggregation",
-    "color": "#facc15",
+    "color": "#7f1d1d",
     "anchorPos": [
       1002.2,
       283.9
@@ -802,7 +802,7 @@
     "acc": "AUS",
     "ad": "rea-group.com",
     "sl": "Property Listing Portal",
-    "color": "#be123c",
+    "color": "#296fae",
     "anchorPos": [
       1124.7,
       556.5
@@ -815,7 +815,7 @@
     "acc": "USA",
     "ad": "opendoor.com",
     "sl": "iBuyer / Instant Home Buying",
-    "color": "#4f46e5",
+    "color": "#d73c41",
     "anchorPos": [
       181.4,
       263.1
@@ -828,7 +828,7 @@
     "acc": "USA",
     "ad": "wework.com",
     "sl": "Co-Working / Flex Workspace",
-    "color": "#22d3ee",
+    "color": "#86198f",
     "anchorPos": [
       181.4,
       263.1
@@ -842,7 +842,7 @@
     "acc": "USA",
     "ad": "whatsapp.com",
     "sl": "Mobile Messaging",
-    "color": "#fb7185",
+    "color": "#8bae29",
     "anchorPos": [
       181.4,
       263.1
@@ -856,7 +856,7 @@
     "acc": "CHN",
     "ad": "kuaishou.com",
     "sl": "Short-Form Video",
-    "color": "#059669",
+    "color": "#e39b1c",
     "anchorPos": [
       1002.2,
       283.9
@@ -869,7 +869,7 @@
     "acc": "DEU",
     "ad": "hellofreshgroup.com",
     "sl": "Meal Kit Subscription",
-    "color": "#10b981",
+    "color": "#21aaca",
     "anchorPos": [
       618.3,
       192
@@ -882,7 +882,7 @@
     "acc": "CHN",
     "ad": "meicai.cn",
     "sl": "B2B Restaurant Supply",
-    "color": "#3b82f6",
+    "color": "#ca2197",
     "anchorPos": [
       1002.2,
       283.9
@@ -895,7 +895,7 @@
     "acc": "USA",
     "ad": "sunrun.com",
     "sl": "Residential Solar Leasing",
-    "color": "#ec4899",
+    "color": "#b5e31c",
     "anchorPos": [
       181.4,
       263.1
@@ -908,7 +908,7 @@
     "acc": "CHN",
     "ad": "dji.com",
     "sl": "Autonomous Drone Platform",
-    "color": "#ef4444",
+    "color": "#49dddf",
     "anchorPos": [
       1002.2,
       283.9
@@ -921,7 +921,7 @@
     "acc": "USA",
     "ad": "coreweave.com",
     "sl": "GPU Cloud for AI",
-    "color": "#06b6d4",
+    "color": "#d73f3c",
     "anchorPos": [
       181.4,
       263.1
@@ -934,7 +934,7 @@
     "acc": "USA",
     "ad": "shield.ai",
     "sl": "Defense AI Platform",
-    "color": "#f59e0b",
+    "color": "#ae2959",
     "anchorPos": [
       181.4,
       263.1
@@ -947,7 +947,7 @@
     "acc": "USA",
     "ad": "upstart.com",
     "sl": "AI Lending Decisioning",
-    "color": "#f97316",
+    "color": "#e31c74",
     "anchorPos": [
       181.4,
       263.1
@@ -960,7 +960,7 @@
     "acc": "USA",
     "ad": "checkpoint.com",
     "sl": "Enterprise Network Security",
-    "color": "#8b5cf6",
+    "color": "#d78b3c",
     "anchorPos": [
       181.4,
       263.1
@@ -973,7 +973,7 @@
     "acc": "USA",
     "ad": "zscaler.com",
     "sl": "Cloud SASE / Zero-Trust",
-    "color": "#10b981",
+    "color": "#ae4029",
     "anchorPos": [
       181.4,
       263.1
@@ -986,7 +986,7 @@
     "acc": "USA",
     "ad": "onepeloton.com",
     "sl": "Connected Fitness Hardware",
-    "color": "#ec4899",
+    "color": "#49df8f",
     "anchorPos": [
       181.4,
       263.1
@@ -999,7 +999,7 @@
     "acc": "USA",
     "ad": "glossier.com",
     "sl": "DTC Beauty Brand",
-    "color": "#6366f1",
+    "color": "#1c95e3",
     "anchorPos": [
       181.4,
       263.1
@@ -1012,7 +1012,7 @@
     "acc": "USA",
     "ad": "mongodb.com",
     "sl": "OSS Data Infrastructure",
-    "color": "#06b6d4",
+    "color": "#21ca86",
     "anchorPos": [
       181.4,
       263.1
@@ -1025,7 +1025,7 @@
     "acc": "USA",
     "ad": "udemy.com",
     "sl": "Open Course Marketplace",
-    "color": "#f97316",
+    "color": "#df7749",
     "anchorPos": [
       181.4,
       263.1
@@ -1038,7 +1038,7 @@
     "acc": "USA",
     "ad": "carta.com",
     "sl": "Equity / Cap Table Mgmt",
-    "color": "#6366f1",
+    "color": "#1ce3bc",
     "anchorPos": [
       181.4,
       263.1
@@ -1051,7 +1051,7 @@
     "acc": "DEU",
     "ad": "solarisgroup.com",
     "sl": "Banking-as-a-Service",
-    "color": "#14b8a6",
+    "color": "#7bd73c",
     "anchorPos": [
       618.3,
       192
@@ -1064,7 +1064,7 @@
     "acc": "USA",
     "ad": "bitgo.com",
     "sl": "Institutional Crypto Custody",
-    "color": "#e11d48",
+    "color": "#7229ae",
     "anchorPos": [
       181.4,
       263.1
@@ -1077,7 +1077,7 @@
     "acc": "USA",
     "ad": "slack.com",
     "sl": "Team Collaboration Platform",
-    "color": "#84cc16",
+    "color": "#e3301c",
     "anchorPos": [
       181.4,
       263.1
@@ -1090,7 +1090,7 @@
     "acc": "USA",
     "ad": "squarespace.com",
     "sl": "Website Builder SaaS",
-    "color": "#a855f7",
+    "color": "#cac521",
     "anchorPos": [
       181.4,
       263.1
@@ -1103,7 +1103,7 @@
     "acc": "USA",
     "ad": "lemonade.com",
     "sl": "D2C Digital Insurer",
-    "color": "#0ea5e9",
+    "color": "#cfd73c",
     "anchorPos": [
       181.4,
       263.1
@@ -1116,7 +1116,7 @@
     "acc": "USA",
     "ad": "ehealthinsurance.com",
     "sl": "Insurance Comparison Marketplace",
-    "color": "#d946ef",
+    "color": "#dfc849",
     "anchorPos": [
       181.4,
       263.1
@@ -1129,7 +1129,7 @@
     "acc": "USA",
     "ad": "cloudkitchens.com",
     "sl": "Cloud Kitchen / Ghost Kitchen",
-    "color": "#facc15",
+    "color": "#1c33e3",
     "anchorPos": [
       181.4,
       263.1
@@ -1142,7 +1142,7 @@
     "acc": "USA",
     "ad": "twitch.tv",
     "sl": "Game Live Streaming",
-    "color": "#22d3ee",
+    "color": "#ae29a1",
     "anchorPos": [
       181.4,
       263.1
@@ -1155,7 +1155,7 @@
     "acc": "CHN",
     "ad": "tencent.com",
     "sl": "Regional Gaming Ecosystem",
-    "color": "#fb7185",
+    "color": "#21ca2a",
     "anchorPos": [
       1002.2,
       283.9
@@ -1168,7 +1168,7 @@
     "acc": "USA",
     "ad": "linkedin.com",
     "sl": "Professional Networking",
-    "color": "#4ade80",
+    "color": "#bfe31c",
     "anchorPos": [
       181.4,
       263.1
@@ -1181,7 +1181,7 @@
     "acc": "USA",
     "ad": "icims.com",
     "sl": "Cloud ATS / Recruiting",
-    "color": "#14b8a6",
+    "color": "#ae8f29",
     "anchorPos": [
       181.4,
       263.1
@@ -1194,7 +1194,7 @@
     "acc": "USA",
     "ad": "betterment.com",
     "sl": "Robo-Advisory",
-    "color": "#c084fc",
+    "color": "#723cd7",
     "anchorPos": [
       181.4,
       263.1
@@ -1207,7 +1207,7 @@
     "acc": "USA",
     "ad": "paypal.com",
     "sl": "Online Payment Platform",
-    "color": "#78716c",
+    "color": "#2a29ae",
     "anchorPos": [
       181.4,
       263.1
@@ -1220,7 +1220,7 @@
     "acc": "USA",
     "ad": "xometry.com",
     "sl": "Custom Manufacturing Marketplace",
-    "color": "#0d9488",
+    "color": "#a121ca",
     "anchorPos": [
       181.4,
       263.1
@@ -1233,7 +1233,7 @@
     "acc": "USA",
     "ad": "flexport.com",
     "sl": "Digital Freight Forwarding",
-    "color": "#db2777",
+    "color": "#54df49",
     "anchorPos": [
       181.4,
       263.1
@@ -1246,7 +1246,7 @@
     "acc": "CHN",
     "ad": "ele.me",
     "sl": "Multi-Category On-Demand",
-    "color": "#65a30d",
+    "color": "#54e31c",
     "anchorPos": [
       1002.2,
       283.9
@@ -1259,7 +1259,7 @@
     "acc": "USA",
     "ad": "rocketlabcorp.com",
     "sl": "Smallsat Launch Vehicle",
-    "color": "#7c3aed",
+    "color": "#29aea4",
     "anchorPos": [
       181.4,
       263.1
@@ -1272,7 +1272,7 @@
     "acc": "USA",
     "ad": "youtube.com",
     "sl": "UGC Video Platform",
-    "color": "#e11d48",
+    "color": "#3c53d7",
     "anchorPos": [
       181.4,
       263.1
@@ -1285,7 +1285,7 @@
     "acc": "SGP",
     "ad": "joyy.com",
     "sl": "Social Live Streaming",
-    "color": "#ea580c",
+    "color": "#73ca21",
     "anchorPos": [
       1001.4,
       434.3
@@ -1298,7 +1298,7 @@
     "acc": "USA",
     "ad": "houzz.com",
     "sl": "Home Interior Platform",
-    "color": "#0891b2",
+    "color": "#2157ca",
     "anchorPos": [
       181.4,
       263.1
@@ -1311,7 +1311,7 @@
     "acc": "USA",
     "ad": "x.com",
     "sl": "Microblogging Platform",
-    "color": "#be123c",
+    "color": "#d73c95",
     "anchorPos": [
       181.4,
       263.1
@@ -1324,7 +1324,7 @@
     "acc": "USA",
     "ad": "tinder.com",
     "sl": "Swipe Dating App",
-    "color": "#4f46e5",
+    "color": "#3c5ad7",
     "anchorPos": [
       181.4,
       263.1
@@ -1337,7 +1337,7 @@
     "acc": "USA",
     "ad": "airbnb.com",
     "sl": "P2P Short-Term Rental",
-    "color": "#059669",
+    "color": "#c63cd7",
     "anchorPos": [
       181.4,
       263.1
@@ -1350,7 +1350,7 @@
     "acc": "USA",
     "ad": "tripadvisor.com",
     "sl": "Travel UGC & Reviews",
-    "color": "#3b82f6",
+    "color": "#af49df",
     "anchorPos": [
       181.4,
       263.1
@@ -1363,7 +1363,7 @@
     "acc": "USA",
     "ad": "beyondmeat.com",
     "sl": "Alternative Protein CPG",
-    "color": "#84cc16",
+    "color": "#3dae29",
     "anchorPos": [
       181.4,
       263.1
@@ -1376,7 +1376,7 @@
     "acc": "USA",
     "ad": "luminartech.com",
     "sl": "Automotive LiDAR Sensor",
-    "color": "#a855f7",
+    "color": "#e31ce0",
     "anchorPos": [
       181.4,
       263.1
@@ -1389,7 +1389,7 @@
     "acc": "USA",
     "ad": "runwayml.com",
     "sl": "Generative Visual AI",
-    "color": "#0ea5e9",
+    "color": "#214fca",
     "anchorPos": [
       181.4,
       263.1
@@ -1402,7 +1402,7 @@
     "acc": "USA",
     "ad": "datarobot.com",
     "sl": "Enterprise ML Platform",
-    "color": "#d946ef",
+    "color": "#ae299a",
     "anchorPos": [
       181.4,
       263.1
@@ -1415,7 +1415,7 @@
     "acc": "USA",
     "ad": "harvey.ai",
     "sl": "AI Legal Assistant",
-    "color": "#facc15",
+    "color": "#3caed7",
     "anchorPos": [
       181.4,
       263.1
@@ -1428,7 +1428,7 @@
     "acc": "IRL",
     "ad": "tines.com",
     "sl": "No-Code Security Automation",
-    "color": "#22d3ee",
+    "color": "#3129ae",
     "anchorPos": [
       544.8,
       178.5
@@ -1441,7 +1441,7 @@
     "acc": "USA",
     "ad": "juul.com",
     "sl": "Pod-Based Vaping Device",
-    "color": "#fb7185",
+    "color": "#21ca8e",
     "anchorPos": [
       181.4,
       263.1
@@ -1454,7 +1454,7 @@
     "acc": "USA",
     "ad": "honest.com",
     "sl": "Clean-Label Baby / Personal Care",
-    "color": "#4ade80",
+    "color": "#7b1ce3",
     "anchorPos": [
       181.4,
       263.1
@@ -1467,7 +1467,7 @@
     "acc": "USA",
     "ad": "datadoghq.com",
     "sl": "Observability & Monitoring",
-    "color": "#c084fc",
+    "color": "#df7e49",
     "anchorPos": [
       181.4,
       263.1
@@ -1480,7 +1480,7 @@
     "acc": "USA",
     "ad": "snowflake.com",
     "sl": "Cloud Data Warehouse",
-    "color": "#78716c",
+    "color": "#ca218f",
     "anchorPos": [
       181.4,
       263.1
@@ -1493,7 +1493,7 @@
     "acc": "USA",
     "ad": "stockx.com",
     "sl": "Authenticated Sneaker Marketplace",
-    "color": "#0d9488",
+    "color": "#ca6a21",
     "anchorPos": [
       181.4,
       263.1
@@ -1506,7 +1506,7 @@
     "acc": "USA",
     "ad": "coursera.org",
     "sl": "University Online Education",
-    "color": "#db2777",
+    "color": "#e3391c",
     "anchorPos": [
       181.4,
       263.1
@@ -1519,7 +1519,7 @@
     "acc": "USA",
     "ad": "marqeta.com",
     "sl": "Card Issuing Infrastructure",
-    "color": "#65a30d",
+    "color": "#3cd759",
     "anchorPos": [
       181.4,
       263.1
@@ -1532,7 +1532,7 @@
     "acc": "CAN",
     "ad": "trulioo.com",
     "sl": "Identity Verification API",
-    "color": "#7c3aed",
+    "color": "#1ce35a",
     "anchorPos": [
       185.5,
       156.9
@@ -1545,7 +1545,7 @@
     "acc": "SGP",
     "ad": "airwallex.com",
     "sl": "Cross-Border B2B Payments",
-    "color": "#ea580c",
+    "color": "#ae4729",
     "anchorPos": [
       1001.4,
       434.3
@@ -1558,7 +1558,7 @@
     "acc": "USA",
     "ad": "drivewealth.com",
     "sl": "Brokerage-as-a-Service API",
-    "color": "#0891b2",
+    "color": "#4985df",
     "anchorPos": [
       181.4,
       263.1
@@ -1571,7 +1571,7 @@
     "acc": "USA",
     "ad": "toasttab.com",
     "sl": "Restaurant Cloud POS",
-    "color": "#be123c",
+    "color": "#2968ae",
     "anchorPos": [
       181.4,
       263.1
@@ -1584,7 +1584,7 @@
     "acc": "CAN",
     "ad": "clio.com",
     "sl": "Legal Practice Mgmt SaaS",
-    "color": "#4f46e5",
+    "color": "#dfcf49",
     "anchorPos": [
       185.5,
       156.9
@@ -1597,7 +1597,7 @@
     "acc": "USA",
     "ad": "anaplan.com",
     "sl": "Cloud Business Planning",
-    "color": "#059669",
+    "color": "#49d6df",
     "anchorPos": [
       181.4,
       263.1
@@ -1610,7 +1610,7 @@
     "acc": "GBR",
     "ad": "blueprism.com",
     "sl": "RPA Platform",
-    "color": "#3b82f6",
+    "color": "#df4965",
     "anchorPos": [
       569.3,
       171.5
@@ -1623,7 +1623,7 @@
     "acc": "USA",
     "ad": "asana.com",
     "sl": "Cloud Work Management",
-    "color": "#ef4444",
+    "color": "#74d73c",
     "anchorPos": [
       181.4,
       263.1
@@ -1636,7 +1636,7 @@
     "acc": "USA",
     "ad": "zapier.com",
     "sl": "Workflow Automation",
-    "color": "#f59e0b",
+    "color": "#b649df",
     "anchorPos": [
       181.4,
       263.1
@@ -1649,7 +1649,7 @@
     "acc": "USA",
     "ad": "hioscar.com",
     "sl": "Tech-First Health Insurer",
-    "color": "#8b5cf6",
+    "color": "#29aeab",
     "anchorPos": [
       181.4,
       263.1
@@ -1662,7 +1662,7 @@
     "acc": "CAN",
     "ad": "clear.co",
     "sl": "E-Commerce Revenue Financing",
-    "color": "#10b981",
+    "color": "#ae2953",
     "anchorPos": [
       185.5,
       156.9
@@ -1675,7 +1675,7 @@
     "acc": "USA",
     "ad": "kabbage.com",
     "sl": "Automated SMB Lending",
-    "color": "#ec4899",
+    "color": "#3cd7ac",
     "anchorPos": [
       181.4,
       263.1
@@ -1688,7 +1688,7 @@
     "acc": "USA",
     "ad": "fanduel.com",
     "sl": "Daily Fantasy Sports",
-    "color": "#06b6d4",
+    "color": "#49df97",
     "anchorPos": [
       181.4,
       263.1
@@ -1701,7 +1701,7 @@
     "acc": "IRL",
     "ad": "workhuman.com",
     "sl": "Employee Recognition & Rewards",
-    "color": "#f97316",
+    "color": "#1ce3c5",
     "anchorPos": [
       544.8,
       178.5
@@ -1714,7 +1714,7 @@
     "acc": "AUS",
     "ad": "cultureamp.com",
     "sl": "Employee Engagement & Perf",
-    "color": "#6366f1",
+    "color": "#d7933c",
     "anchorPos": [
       1124.7,
       556.5
@@ -1727,7 +1727,7 @@
     "acc": "GBR",
     "ad": "oaknorth.co.uk",
     "sl": "Tech SME Lending Bank",
-    "color": "#14b8a6",
+    "color": "#e3a51c",
     "anchorPos": [
       569.3,
       171.5
@@ -1740,7 +1740,7 @@
     "acc": "USA",
     "ad": "faire.com",
     "sl": "Indie Retail Wholesale",
-    "color": "#e11d48",
+    "color": "#7929ae",
     "anchorPos": [
       181.4,
       263.1
@@ -1753,7 +1753,7 @@
     "acc": "CHN",
     "ad": "zkh360.com",
     "sl": "MRO / Industrial Supplies",
-    "color": "#84cc16",
+    "color": "#d73c8d",
     "anchorPos": [
       1002.2,
       283.9
@@ -1766,7 +1766,7 @@
     "acc": "USA",
     "ad": "illumina.com",
     "sl": "DNA Sequencing Platform",
-    "color": "#a855f7",
+    "color": "#c7d73c",
     "anchorPos": [
       181.4,
       263.1
@@ -1779,7 +1779,7 @@
     "acc": "USA",
     "ad": "xencor.com",
     "sl": "Biologics Tech Platform",
-    "color": "#0ea5e9",
+    "color": "#85ae29",
     "anchorPos": [
       181.4,
       263.1
@@ -1792,7 +1792,7 @@
     "acc": "USA",
     "ad": "convoy.com",
     "sl": "Digital Trucking Marketplace",
-    "color": "#d946ef",
+    "color": "#aa21ca",
     "anchorPos": [
       181.4,
       263.1
@@ -1805,7 +1805,7 @@
     "acc": "USA",
     "ad": "goshippo.com",
     "sl": "E-Commerce Shipping Aggregator",
-    "color": "#facc15",
+    "color": "#4cdf49",
     "anchorPos": [
       181.4,
       263.1
@@ -1818,7 +1818,7 @@
     "acc": "USA",
     "ad": "planet.com",
     "sl": "Smallsat Earth Observation",
-    "color": "#22d3ee",
+    "color": "#21ca32",
     "anchorPos": [
       181.4,
       263.1
@@ -1831,7 +1831,7 @@
     "acc": "USA",
     "ad": "compass.com",
     "sl": "Tech Real Estate Brokerage",
-    "color": "#fb7185",
+    "color": "#7a3cd7",
     "anchorPos": [
       181.4,
       263.1
@@ -1844,7 +1844,7 @@
     "acc": "USA",
     "ad": "twilio.com",
     "sl": "CPaaS / Cloud Comms",
-    "color": "#4ade80",
+    "color": "#1c29e3",
     "anchorPos": [
       181.4,
       263.1
@@ -1857,7 +1857,7 @@
     "acc": "USA",
     "ad": "crowncastle.com",
     "sl": "Neutral Shared Infra / TowerCo",
-    "color": "#c084fc",
+    "color": "#4ae31c",
     "anchorPos": [
       181.4,
       263.1
@@ -1870,7 +1870,7 @@
     "acc": "USA",
     "ad": "quora.com",
     "sl": "Q&A Knowledge Community",
-    "color": "#78716c",
+    "color": "#cd3cd7",
     "anchorPos": [
       181.4,
       263.1
@@ -1883,7 +1883,7 @@
     "acc": "USA",
     "ad": "snap.com",
     "sl": "Camera + AR Filter Social",
-    "color": "#0d9488",
+    "color": "#ca2133",
     "anchorPos": [
       181.4,
       263.1
@@ -1896,7 +1896,7 @@
     "acc": "USA",
     "ad": "instagram.com",
     "sl": "Visual Lifestyle Feed",
-    "color": "#db2777",
+    "color": "#29ae63",
     "anchorPos": [
       181.4,
       263.1
@@ -1909,7 +1909,7 @@
     "acc": "DEU",
     "ad": "getyourguide.com",
     "sl": "Tours & Activities Marketplace",
-    "color": "#65a30d",
+    "color": "#df49b6",
     "anchorPos": [
       618.3,
       192
@@ -1922,7 +1922,7 @@
     "acc": "GBR",
     "ad": "skyscanner.net",
     "sl": "Travel Metasearch",
-    "color": "#7c3aed",
+    "color": "#6bca21",
     "anchorPos": [
       569.3,
       171.5

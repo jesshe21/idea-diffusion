@@ -1,9 +1,9 @@
 (function () {
   const REGION_BUCKETS = {
-    USA: new Set(['USA']),
-    China: new Set(['CHN']),
+    USA: new Set(['USA', 'CAN']),
+    China: new Set(['CHN', 'HKG', 'TWN']),
     India: new Set(['IND']),
-    Europe: new Set(['GBR', 'DEU', 'FRA', 'ESP', 'ITA', 'NLD', 'SWE', 'NOR', 'DNK', 'FIN', 'CHE', 'AUT', 'BEL', 'IRL', 'PRT', 'POL', 'RUS', 'UK']),
+    Europe: new Set(['GBR', 'DEU', 'FRA', 'ESP', 'ITA', 'NLD', 'SWE', 'NOR', 'DNK', 'FIN', 'CHE', 'AUT', 'BEL', 'IRL', 'PRT', 'POL', 'RUS', 'UK', 'CZE', 'EST', 'GRC', 'LUX']),
     LATAM: new Set(['ARG', 'BRA', 'CHL', 'COL', 'MEX', 'PER', 'URY', 'ECU', 'BOL', 'PRY', 'VEN', 'CRI', 'PAN', 'GTM', 'DOM']),
     SEA: new Set(['SGP', 'IDN', 'THA', 'VNM', 'PHL', 'MYS', 'KHM', 'MMR', 'LAO', 'BRN']),
     MENA: new Set(['ARE', 'SAU', 'QAT', 'KWT', 'BHR', 'EGY', 'MAR', 'ISR', 'JOR', 'OMN', 'TUR']),
@@ -112,6 +112,10 @@
       const land = topo.objects.land;
       const geoms = land.type === 'GeometryCollection' ? land.geometries : [land];
       const paths = [];
+      let minPx = Infinity;
+      let maxPx = -Infinity;
+      let minPy = Infinity;
+      let maxPy = -Infinity;
       geoms.forEach(function (geom) {
         const polys = geom.type === 'Polygon' ? [geom.arcs] : (geom.type === 'MultiPolygon' ? geom.arcs : []);
         polys.forEach(function (polyArcs) {
@@ -123,7 +127,8 @@
 
             const segs = [[]];
             coords.forEach(function (c, i) {
-              if (i > 0 && Math.abs(c[0] - coords[i - 1][0]) > 90) segs.push([]);
+              // Only split at true antimeridian jumps; lower thresholds can incorrectly cut Alaska.
+              if (i > 0 && Math.abs(c[0] - coords[i - 1][0]) > 180) segs.push([]);
               segs[segs.length - 1].push(c);
             });
 
@@ -132,6 +137,10 @@
               const d = seg.map(function (c, i) {
                 const px = 4.015 * c[0] + 578.5;
                 const py = -4.837 * c[1] + 451.6;
+                if (px < minPx) minPx = px;
+                if (px > maxPx) maxPx = px;
+                if (py < minPy) minPy = py;
+                if (py > maxPy) maxPy = py;
                 return (i === 0 ? 'M' : 'L') + px.toFixed(1) + ',' + py.toFixed(1);
               }).join('') + 'Z';
               paths.push(d);
@@ -139,9 +148,12 @@
           });
         });
       });
-      return paths;
+      return {
+        paths: paths,
+        bounds: Number.isFinite(minPx) ? { minX: minPx, maxX: maxPx, minY: minPy, maxY: maxPy } : null
+      };
     } catch (e) {
-      return [];
+      return { paths: [], bounds: null };
     }
   }
 
@@ -167,10 +179,14 @@
       fetch(base + 'positions.json').then(function (r) { return r.json(); })
     ]);
 
-    const companies = loadCsv(data[0]);
+    const companies = loadCsv(data[0]).filter(function (row) {
+      return String(row.cc || '').trim() !== '';
+    });
     const families = data[1];
     const positions = data[2];
-    const worldPaths = await fetchWorldPaths();
+    const worldData = await fetchWorldPaths();
+    const worldPaths = worldData.paths;
+    const worldBounds = worldData.bounds || { minX: 0, maxX: 1400, minY: 0, maxY: 650 };
 
     const familyEntries = Object.entries(families).sort(function (a, b) {
       return (b[1].count || 0) - (a[1].count || 0);
@@ -189,6 +205,30 @@
       .map(function (entry) {
         return { fid: entry[0], fam: entry[1], x: entry[1].anchorPos[0], y: entry[1].anchorPos[1] };
       });
+
+    const contentBounds = (function () {
+      let minX = worldBounds.minX;
+      let maxX = worldBounds.maxX;
+      let minY = worldBounds.minY;
+      let maxY = worldBounds.maxY;
+      anchorNodes.forEach(function (a) {
+        if (a.x < minX) minX = a.x;
+        if (a.x > maxX) maxX = a.x;
+        if (a.y < minY) minY = a.y;
+        if (a.y > maxY) maxY = a.y;
+      });
+      positions.forEach(function (p) {
+        if (!Array.isArray(p) || p.length < 2) return;
+        const x = p[0];
+        const y = p[1];
+        if (x < minX) minX = x;
+        if (x > maxX) maxX = x;
+        if (y < minY) minY = y;
+        if (y > maxY) maxY = y;
+      });
+      const pad = 14;
+      return { minX: minX - pad, maxX: maxX + pad, minY: minY - pad, maxY: maxY + pad };
+    })();
 
     const allCompanies = anchorNodes.map(function (a) {
       return {
@@ -233,42 +273,51 @@
     containerEl.innerHTML =
       '<div class="map-area" id="map-area">' +
       (showHeader ? '<div class="map-header"><h2>Geo-Adaption of Businesses</h2></div>' : '') +
-      '<button class="map-reset-btn" id="map-reset" style="display:none">Clear filter</button>' +
       '<svg id="map-svg" style="position:absolute;top:0;left:0;width:100%;height:100%"></svg>' +
       '<div id="map-logos" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none"></div>' +
       '<div id="map-tip" class="map-tip" style="display:none"></div>' +
       '</div>' +
       '<aside class="map-sidebar" id="map-sidebar">' +
       '<div id="sidebar-clear-wrap" style="margin-bottom:10px;display:none">' +
-      '<button id="sidebar-clear-filter" style="width:100%;border:1px solid var(--border-light);background:var(--surface);color:var(--text-muted);border-radius:8px;padding:8px 10px;font-size:12px;cursor:pointer">Clear filter</button>' +
+      '<button id="sidebar-clear-filter" style="width:100%;border:1px solid var(--border-light);background:var(--surface);color:var(--text-muted);border-radius:8px;padding:8px 10px;font-size:12px;cursor:pointer">× Clear filter</button>' +
       '</div>' +
-      '<div style="position:relative;margin-bottom:8px">' +
+      '<div id="default-filter-wrap" style="display:none;margin:0 0 6px 0">' +
+      '<span class="default-filter-chip">Current filter: Selected Playbooks</span>' +
+      '</div>' +
+      '<div id="company-block">' +
+      '<div style="position:relative">' +
       '<div class="sidebar-label">Company</div>' +
       '<input id="company-search" class="sidebar-input" placeholder="Search companies..." />' +
       '<div class="sidebar-dropdown" id="company-dd" style="display:none"></div>' +
       '</div>' +
-      '<div style="position:relative;margin-top:10px">' +
-      '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">' +
-      '<div class="sidebar-label" style="margin:0">Corridor</div>' +
-      '<div class="toggle-wrap" style="gap:4px;padding:2px">' +
-      '<button class="toggle-btn active" id="corridor-mode-oneway" style="padding:4px 11px;line-height:1">→</button>' +
-      '<button class="toggle-btn" id="corridor-mode-twoway" style="padding:4px 11px;line-height:1">↔</button>' +
+      '</div>' +
+      '<div id="corridor-block">' +
+      '<div style="position:relative">' +
+      '<div class="sidebar-title-row">' +
+      '<div class="sidebar-label">Corridor</div>' +
+      '<div class="toggle-wrap">' +
+      '<button class="toggle-btn active" id="corridor-mode-oneway">→</button>' +
+      '<button class="toggle-btn" id="corridor-mode-twoway">↔</button>' +
       '</div>' +
       '</div>' +
       '<input id="corridor-search" class="sidebar-input" placeholder="e.g. USA -> China..." />' +
       '<div class="sidebar-dropdown" id="corridor-dd" style="display:none;max-height:260px"></div>' +
       '</div>' +
-      '<div id="corridor-list" style="margin-top:8px"></div>' +
+      '</div>' +
       '<div id="playbook-block">' +
-      '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">' +
-      '<div class="sidebar-label" style="margin:0">Playbook Family</div>' +
+      '<div class="sidebar-title-row">' +
+      '<div class="sidebar-label">Playbook Family</div>' +
       '<button id="toggle-fams" style="border:0;background:none;color:var(--text-muted);font-size:10px;cursor:pointer">Select All</button>' +
       '</div>' +
       '<div style="position:relative">' +
       '<input id="family-search" class="sidebar-input" placeholder="Search playbooks..." />' +
       '<div class="sidebar-dropdown" id="family-dd" style="display:none;max-height:340px"></div>' +
       '</div>' +
-      '<div id="family-list" style="margin-top:8px"></div>' +
+      '<div id="family-list" style="margin-top:4px"></div>' +
+      '</div>' +
+      '<div id="details-block" style="display:none;margin-top:12px">' +
+      '<div id="details-title" class="sidebar-label" style="margin:0 0 6px 0">Details</div>' +
+      '<div class="pair-table-wrap"><table class="pair-table"><thead id="details-head"></thead><tbody id="details-body"></tbody></table></div>' +
       '</div>' +
       '</aside>';
 
@@ -276,7 +325,6 @@
     const svg = byId('map-svg');
     const logoLayer = byId('map-logos');
     const tip = byId('map-tip');
-    const resetBtn = byId('map-reset');
 
     const companySearch = byId('company-search');
     const companyDD = byId('company-dd');
@@ -284,14 +332,20 @@
     const familyDD = byId('family-dd');
     const familyList = byId('family-list');
     const toggleFams = byId('toggle-fams');
+    const companyBlock = byId('company-block');
+    const corridorBlock = byId('corridor-block');
     const corridorSearch = byId('corridor-search');
     const corridorDD = byId('corridor-dd');
-    const corridorList = byId('corridor-list');
     const corridorModeOneWay = byId('corridor-mode-oneway');
     const corridorModeTwoWay = byId('corridor-mode-twoway');
     const sidebarClearWrap = byId('sidebar-clear-wrap');
     const sidebarClearFilter = byId('sidebar-clear-filter');
+    const defaultFilterWrap = byId('default-filter-wrap');
     const playbookBlock = byId('playbook-block');
+    const detailsBlock = byId('details-block');
+    const detailsTitle = byId('details-title');
+    const detailsHead = byId('details-head');
+    const detailsBody = byId('details-body');
 
     const state = {
       activeFamily: null,
@@ -338,16 +392,26 @@
       return !!state.activeFamily || !!state.activeCorridor;
     }
 
+    function isDefaultSelectedPlaybooksView() {
+      return state.filterMode === null
+        && !state.showAllFams
+        && !state.search
+        && !state.famSearch
+        && !state.corridorSearch;
+    }
+
     function getDims() {
       const rect = mapArea.getBoundingClientRect();
       const sidebarW = byId('map-sidebar').getBoundingClientRect().width;
       const mapW = Math.max(320, rect.width);
       const mapH = Math.max(300, rect.height);
-      const sx = mapW / 1400;
-      const sy = mapH / 650;
+      const contentW = Math.max(1, contentBounds.maxX - contentBounds.minX);
+      const contentH = Math.max(1, contentBounds.maxY - contentBounds.minY);
+      const sx = mapW / contentW;
+      const sy = mapH / contentH;
       const scale = Math.min(sx, sy);
-      const ox = (mapW - 1400 * scale) / 2;
-      const oy = (mapH - 650 * scale) / 2;
+      const ox = (mapW - contentW * scale) / 2 - contentBounds.minX * scale;
+      const oy = (mapH - contentH * scale) / 2 - contentBounds.minY * scale;
       return {
         mapW: mapW,
         mapH: mapH,
@@ -364,6 +428,40 @@
       const mx = (x1 + x2) / 2;
       const my = Math.min(y1, y2) - Math.abs(x1 - x2) * 0.12 - 15 * scale;
       return 'M' + x1 + ',' + y1 + ' Q' + mx + ',' + my + ' ' + x2 + ',' + y2;
+    }
+
+    function spreadClusteredPoints(items, cellSize, step, ringCap) {
+      const groups = {};
+      items.forEach(function (item) {
+        const gx = Math.round(item.x / cellSize);
+        const gy = Math.round(item.y / cellSize);
+        const key = gx + '|' + gy;
+        if (!groups[key]) groups[key] = [];
+        groups[key].push(item);
+      });
+
+      const out = {};
+      Object.keys(groups).forEach(function (key) {
+        const group = groups[key].slice().sort(function (a, b) {
+          return String(a.sortKey || '').localeCompare(String(b.sortKey || ''));
+        });
+        group.forEach(function (item, idx) {
+          if (idx === 0) {
+            out[item.id] = { x: item.x, y: item.y };
+            return;
+          }
+          const k = idx - 1;
+          const ring = Math.floor(k / ringCap) + 1;
+          const slot = k % ringCap;
+          const angle = (Math.PI * 2 * slot / ringCap) + (ring % 2 ? 0.2 : 0);
+          const radius = ring * step;
+          out[item.id] = {
+            x: item.x + Math.cos(angle) * radius,
+            y: item.y + Math.sin(angle) * radius
+          };
+        });
+      });
+      return out;
     }
 
     function hoveredDatum() {
@@ -384,6 +482,7 @@
 
     function updateSidebar() {
       const q = state.search.trim().toLowerCase();
+      const visCompanies = visibleCompanyIndices();
       const searchResults = q ? allCompanies.filter(function (c) {
         return c.n.toLowerCase().includes(q);
       }).slice(0, 40) : [];
@@ -405,10 +504,17 @@
       familySearch.disabled = state.filterMode === 'search' || state.filterMode === 'corridor';
       corridorSearch.disabled = state.filterMode === 'search' || state.filterMode === 'legend';
       toggleFams.style.display = isActive() ? 'none' : 'inline';
-      toggleFams.textContent = state.showAllFams ? 'Top 10' : 'Select All';
-      resetBtn.style.display = isActive() ? 'block' : 'none';
+      toggleFams.textContent = state.showAllFams ? 'Select Playbooks' : 'Select All';
       sidebarClearWrap.style.display = isActive() ? 'block' : 'none';
-      playbookBlock.style.display = state.filterMode === 'corridor' ? 'none' : 'block';
+      defaultFilterWrap.style.display = (!isActive() && isDefaultSelectedPlaybooksView()) ? 'block' : 'none';
+      if (state.filterMode === 'legend' && state.activeFamily && !state.familyFocused && !state.famSearch) {
+        const activeFam = families[state.activeFamily];
+        familySearch.value = (activeFam && (activeFam.sl || activeFam.l)) || state.activeFamily;
+      }
+
+      companyBlock.style.display = (state.filterMode === null || state.filterMode === 'search') ? 'block' : 'none';
+      corridorBlock.style.display = (state.filterMode === null || state.filterMode === 'corridor') ? 'block' : 'none';
+      playbookBlock.style.display = (state.filterMode === null || state.filterMode === 'legend') ? 'block' : 'none';
 
       companyDD.style.display = (state.companyFocused && searchResults.length && state.filterMode !== 'legend' && state.filterMode !== 'corridor') ? 'block' : 'none';
       companyDD.innerHTML = searchResults.map(function (c, i) {
@@ -451,7 +557,7 @@
           const f = entry[1];
           return '<div class="sidebar-dropdown-item" data-fid="' + fid + '">' +
             '<div class="family-dot" style="background:' + f.color + '"></div>' +
-            '<span style="flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + esc(f.sl || f.l || fid) + '</span>' +
+            '<span style="flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:' + esc(f.color || '') + ';font-weight:600">' + esc(f.sl || f.l || fid) + '</span>' +
             '<span class="family-count">(' + (f.count || 0) + ')</span>' +
             '</div>';
         }).join('');
@@ -463,19 +569,13 @@
           state.activeCorridor = null;
           state.filterMode = 'legend';
           state.famSearch = '';
-          familySearch.value = '';
           state.familyFocused = false;
           render();
         });
       });
 
       if (state.activeFamily) {
-        const f = families[state.activeFamily];
-        familyList.innerHTML = '<div class="family-item active" data-fid="' + state.activeFamily + '">' +
-          '<div class="family-dot" style="background:' + f.color + '"></div>' +
-          '<span style="flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="' + esc(f.l || '') + '">' + esc(f.sl || f.l || state.activeFamily) + '</span>' +
-          '<span class="family-count">(' + (f.count || 0) + ')</span>' +
-          '</div>';
+        familyList.innerHTML = '';
       } else {
         const vis = state.showAllFams ? familyEntries : getDefaultFamilyEntries();
         familyList.innerHTML = vis
@@ -484,7 +584,7 @@
             const f = entry[1];
             return '<div class="family-item" data-fid="' + fid + '">' +
               '<div class="family-dot" style="background:' + f.color + '"></div>' +
-              '<span style="flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="' + esc(f.l || '') + '">' + esc(f.sl || f.l || fid) + '</span>' +
+              '<span style="flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:' + esc(f.color || '') + ';font-weight:600" title="' + esc(f.l || '') + '">' + esc(f.sl || f.l || fid) + '</span>' +
               '<span class="family-count">(' + (f.count || 0) + ')</span>' +
               '</div>';
           }).join('');
@@ -527,7 +627,76 @@
           render();
         });
       });
-      corridorList.innerHTML = '';
+
+      function renderDetailTable(title, columns, rows, titleColor) {
+        detailsBlock.style.display = 'flex';
+        detailsTitle.textContent = title;
+        detailsTitle.style.color = titleColor || '';
+        detailsHead.innerHTML = '<tr>' + columns.map(function (c) { return '<th>' + esc(c) + '</th>'; }).join('') + '</tr>';
+        detailsBody.innerHTML = rows.map(function (r) {
+          return '<tr>' + r.map(function (cell) {
+            if (cell && typeof cell === 'object') {
+              const text = esc(cell.text || '');
+              const style = cell.color ? ' style="color:' + esc(cell.color) + ';font-weight:600"' : '';
+              return '<td' + style + '>' + text + '</td>';
+            }
+            return '<td>' + esc(cell) + '</td>';
+          }).join('') + '</tr>';
+        }).join('');
+      }
+
+      function familyRows(fid) {
+        const fam = families[fid];
+        if (!fam) return [];
+        const anchor = fam.an || '—';
+        const anchorCC = fam.acc || '—';
+        return companies
+          .filter(function (c) { return c.f === fid; })
+          .map(function (c) {
+            return [anchor, c.n || '—', anchorCC + ' -> ' + (c.cc || '—')];
+          })
+          .sort(function (a, b) { return a[1].localeCompare(b[1]); });
+      }
+
+      if (state.filterMode === 'search' && state.activeFamily) {
+        const fam = families[state.activeFamily];
+        const selectedCompany = state.search || (fam && fam.an) || 'Selected Company';
+        const rows = familyRows(state.activeFamily);
+        renderDetailTable(
+          'Playbook: ' + ((fam && fam.sl) || state.activeFamily) + ' (' + selectedCompany + ')',
+          ['Anchor', 'Variant', 'Country'],
+          rows,
+          (fam && fam.color) || ''
+        );
+      } else if (state.filterMode === 'legend' && state.activeFamily) {
+        const fam = families[state.activeFamily];
+        renderDetailTable(
+          'Playbook: ' + ((fam && fam.sl) || state.activeFamily),
+          ['Anchor', 'Variant', 'Country'],
+          familyRows(state.activeFamily),
+          (fam && fam.color) || ''
+        );
+      } else if (state.filterMode === 'corridor' && state.activeCorridor) {
+        const rows = companies
+          .map(function (c, i) { return { c: c, i: i }; })
+          .filter(function (x) { return visCompanies.has(x.i); })
+          .map(function (x) {
+            const fam = families[x.c.f] || {};
+            return [
+              fam.an || '—',
+              x.c.n || '—',
+              { text: fam.sl || x.c.f || '—', color: fam.color || '' },
+              (fam.acc || '—') + ' -> ' + (x.c.cc || '—')
+            ];
+          })
+          .sort(function (a, b) { return a[1].localeCompare(b[1]); });
+        renderDetailTable('Corridor: ' + state.activeCorridor, ['Anchor', 'Variant', 'Playbook', 'Country'], rows);
+      } else {
+        detailsBlock.style.display = 'none';
+        detailsTitle.style.color = '';
+      }
+
+      byId('map-sidebar').classList.toggle('details-active', detailsBlock.style.display !== 'none');
     }
 
     function renderTip(dims) {
@@ -565,6 +734,46 @@
       const vis = visibleFamilies();
       const visCompanies = visibleCompanyIndices();
       const baseR = Math.max(5, 8 * dims.scale);
+      const familyFiltered = state.filterMode !== 'corridor';
+      const familyAllowed = function (fid) { return !familyFiltered || vis.has(fid); };
+
+      const corridorAnchorFamilies = new Set();
+      if (state.filterMode === 'corridor') {
+        companies.forEach(function (c, i) {
+          if (visCompanies.has(i)) corridorAnchorFamilies.add(c.f);
+        });
+      }
+
+      const visibleAnchorsRaw = anchorNodes.filter(function (a) {
+        if (state.filterMode === 'corridor') return corridorAnchorFamilies.has(a.fid);
+        return vis.has(a.fid);
+      });
+      const anchorSpread = spreadClusteredPoints(
+        visibleAnchorsRaw.map(function (a) {
+          return {
+            id: a.fid,
+            x: dims.tx(a.x),
+            y: dims.ty(a.y),
+            sortKey: a.fam.an
+          };
+        }),
+        22,
+        9,
+        8
+      );
+
+      const visibleCompanyRaw = companies
+        .map(function (c, i) {
+          if (!familyAllowed(c.f) || !visCompanies.has(i) || !positions[i]) return null;
+          return {
+            id: i,
+            x: dims.tx(positions[i][0]),
+            y: dims.ty(positions[i][1]),
+            sortKey: c.n
+          };
+        })
+        .filter(Boolean);
+      const companySpread = spreadClusteredPoints(visibleCompanyRaw, 18, 7, 10);
 
       svg.setAttribute('viewBox', '0 0 ' + dims.mapW + ' ' + dims.mapH);
 
@@ -575,13 +784,15 @@
         '</g>';
 
       const arcs = companies.map(function (c, i) {
-        if (!vis.has(c.f) || !visCompanies.has(i)) return '';
+        if (!familyAllowed(c.f) || !visCompanies.has(i)) return '';
         const ap = families[c.f] && families[c.f].anchorPos;
         if (!ap || !positions[i]) return '';
-        const x1 = dims.tx(ap[0]);
-        const y1 = dims.ty(ap[1]);
-        const x2 = dims.tx(positions[i][0]);
-        const y2 = dims.ty(positions[i][1]);
+        const anchorPos = anchorSpread[c.f] || { x: dims.tx(ap[0]), y: dims.ty(ap[1]) };
+        const nodePos = companySpread[i] || { x: dims.tx(positions[i][0]), y: dims.ty(positions[i][1]) };
+        const x1 = anchorPos.x;
+        const y1 = anchorPos.y;
+        const x2 = nodePos.x;
+        const y2 = nodePos.y;
         if (Math.abs(x1 - x2) < 3 && Math.abs(y1 - y2) < 3) return '';
         return '<path d="' + arcPath(x1, y1, x2, y2, dims.scale) + '" fill="none" stroke="' + (families[c.f].color || '#999') + '" stroke-width="' + (isActive() ? 1 : 0.6) + '" opacity="' + (isActive() ? 0.35 : 0.12) + '"></path>';
       }).join('');
@@ -615,16 +826,18 @@
       }
 
       const dimmed = isActive() ? companies.map(function (c, i) {
-        if ((vis.has(c.f) && visCompanies.has(i)) || !positions[i]) return '';
+        if ((familyAllowed(c.f) && visCompanies.has(i)) || !positions[i]) return '';
         return '<circle cx="' + dims.tx(positions[i][0]) + '" cy="' + dims.ty(positions[i][1]) + '" r="' + (2 * dims.scale) + '" fill="#ccc" opacity="0.08"></circle>';
       }).join('') : '';
 
       const anchors = anchorNodes.map(function (a, i) {
-        if (!vis.has(a.fid)) return '';
+        if (state.filterMode === 'corridor' && !corridorAnchorFamilies.has(a.fid)) return '';
+        if (state.filterMode !== 'corridor' && !vis.has(a.fid)) return '';
         const isH = state.hovered && state.hovered.type === 'anchor' && state.hovered.i === i;
         const r = isActive() ? (isH ? baseR * 1.4 + 3 : baseR * 1.4) : (isH ? baseR * 1.1 + 2 : baseR * 1.1);
-        const cx = dims.tx(a.x);
-        const cy = dims.ty(a.y);
+        const ap = anchorSpread[a.fid] || { x: dims.tx(a.x), y: dims.ty(a.y) };
+        const cx = ap.x;
+        const cy = ap.y;
         const color = a.fam.color || '#999';
         return '<g class="map-anchor" data-i="' + i + '">' +
           (isH ? '<circle cx="' + cx + '" cy="' + cy + '" r="' + (r + 5) + '" fill="' + color + '" opacity="0.15"></circle>' : '') +
@@ -640,12 +853,13 @@
         : 0;
 
       const nodes = companies.map(function (c, i) {
-        if (!vis.has(c.f) || !visCompanies.has(i) || !positions[i]) return '';
+        if (!familyAllowed(c.f) || !visCompanies.has(i) || !positions[i]) return '';
         const isH = state.hovered && state.hovered.type === 'company' && state.hovered.i === i;
         const edge = c.r === 'edge_case';
         const r = isH ? baseR + 3 : (edge ? baseR * 0.75 : baseR);
-        const cx = dims.tx(positions[i][0]);
-        const cy = dims.ty(positions[i][1]);
+        const pos = companySpread[i] || { x: dims.tx(positions[i][0]), y: dims.ty(positions[i][1]) };
+        const cx = pos.x;
+        const cy = pos.y;
         const color = (families[c.f] && families[c.f].color) || '#999';
         const showLbl = isH || (!!state.activeFamily && activeFamilyCount < 25);
         return '<g class="map-node" data-i="' + i + '">' +
@@ -664,23 +878,26 @@
       } else {
         logoLayer.innerHTML =
           anchorNodes.map(function (a, i) {
-            if (!vis.has(a.fid)) return '';
+            if (state.filterMode === 'corridor' && !corridorAnchorFamilies.has(a.fid)) return '';
+            if (state.filterMode !== 'corridor' && !vis.has(a.fid)) return '';
             const isH = state.hovered && state.hovered.type === 'anchor' && state.hovered.i === i;
             const r = isActive() ? (isH ? baseR * 1.4 + 3 : baseR * 1.4) : (isH ? baseR * 1.1 + 2 : baseR * 1.1);
             const lr = r - 2;
-            const cx = dims.tx(a.x);
-            const cy = dims.ty(a.y);
+            const ap = anchorSpread[a.fid] || { x: dims.tx(a.x), y: dims.ty(a.y) };
+            const cx = ap.x;
+            const cy = ap.y;
             return '<img src="' + logoUrl(a.fam.ad, 64, logoToken) + '" style="position:absolute;left:' + (cx - lr) + 'px;top:' + (cy - lr) + 'px;width:' + (lr * 2) + 'px;height:' + (lr * 2) + 'px;border-radius:50%;object-fit:contain;background:white" onerror="this.style.display=\'none\'" />';
           }).join('') +
           companies.map(function (c, i) {
-            if (!vis.has(c.f) || !visCompanies.has(i) || !positions[i]) return '';
+            if (!familyAllowed(c.f) || !visCompanies.has(i) || !positions[i]) return '';
             const isH = state.hovered && state.hovered.type === 'company' && state.hovered.i === i;
             const edge = c.r === 'edge_case';
             const r = isH ? baseR + 3 : (edge ? baseR * 0.75 : baseR);
             const lr = r - 2;
             if (lr < 2) return '';
-            const cx = dims.tx(positions[i][0]);
-            const cy = dims.ty(positions[i][1]);
+            const pos = companySpread[i] || { x: dims.tx(positions[i][0]), y: dims.ty(positions[i][1]) };
+            const cx = pos.x;
+            const cy = pos.y;
             return '<img src="' + logoUrl(c.d, 64, logoToken) + '" style="position:absolute;left:' + (cx - lr) + 'px;top:' + (cy - lr) + 'px;width:' + (lr * 2) + 'px;height:' + (lr * 2) + 'px;border-radius:50%;object-fit:contain;background:white" onerror="this.style.display=\'none\'" />';
           }).join('');
       }
@@ -741,7 +958,13 @@
       renderMapVisuals();
     }
 
+    function clearMapHover() {
+      state.hovered = null;
+      tip.style.display = 'none';
+    }
+
     companySearch.addEventListener('input', function () {
+      clearMapHover();
       state.search = companySearch.value;
       if (!state.search && state.filterMode === 'search') {
         resetFilter();
@@ -761,7 +984,16 @@
     });
 
     familySearch.addEventListener('input', function () {
+      clearMapHover();
       state.famSearch = familySearch.value;
+      if (state.activeFamily && state.filterMode === 'legend') {
+        const fam = families[state.activeFamily];
+        const selectedLabel = ((fam && (fam.sl || fam.l)) || state.activeFamily || '').toLowerCase();
+        if (state.famSearch.trim().toLowerCase() !== selectedLabel) {
+          state.activeFamily = null;
+          state.filterMode = null;
+        }
+      }
       updateSidebar();
     });
     familySearch.addEventListener('focus', function () {
@@ -776,6 +1008,7 @@
     });
 
     corridorSearch.addEventListener('input', function () {
+      clearMapHover();
       state.corridorSearch = corridorSearch.value;
       if (!state.corridorSearch && state.filterMode === 'corridor') {
         resetFilter();
@@ -795,11 +1028,13 @@
     });
 
     toggleFams.addEventListener('click', function () {
+      clearMapHover();
       state.showAllFams = !state.showAllFams;
       render();
     });
 
     corridorModeOneWay.addEventListener('click', function () {
+      clearMapHover();
       state.corridorMode = 'oneway';
       state.activeCorridor = null;
       state.corridorSearch = '';
@@ -808,6 +1043,7 @@
       render();
     });
     corridorModeTwoWay.addEventListener('click', function () {
+      clearMapHover();
       state.corridorMode = 'twoway';
       state.activeCorridor = null;
       state.corridorSearch = '';
@@ -816,8 +1052,9 @@
       render();
     });
 
-    resetBtn.addEventListener('click', resetFilter);
     sidebarClearFilter.addEventListener('click', resetFilter);
+    mapArea.addEventListener('mouseleave', clearMapHover);
+    byId('map-sidebar').addEventListener('mouseenter', clearMapHover);
     window.addEventListener('resize', renderMapVisuals);
 
     render();

@@ -86,7 +86,7 @@
     const toggleButtons = containerEl.querySelectorAll('.toggle-btn');
     if (!list) return;
 
-    let curSort = 'value';
+    let curSort = 'count';
     let initialized = false;
 
     function render() {
@@ -263,148 +263,167 @@
     const summaryEl = containerEl.querySelector('#lag-summary');
     const svg = containerEl.querySelector('#lag-chart-svg');
     if (!svg) return;
+    if (summaryEl) summaryEl.innerHTML = '<div class="lag-stat"><span>Status</span><strong>Loading...</strong></div>';
+    svg.innerHTML = '<text x="24" y="36" fill="#8A8780" font-size="13">Loading lag distribution...</text>';
 
-    const raw = await Promise.all([
-      fetch(resolve(basePath, 'companies.csv')).then(function (r) { return r.text(); }),
-      fetch(resolve(basePath, 'families.json')).then(function (r) { return r.json(); })
-    ]);
-    const companies = parseCSV(raw[0]);
-    const families = raw[1];
-
-    const lags = [];
-    let missingAnchorYear = 0;
-    let missingVariantYear = 0;
-    let negativeLag = 0;
-
-    companies.forEach(function (c) {
-      const fam = families[c.f];
-      const anchorYear = fam ? Number(fam.anchorYear) : NaN;
-      const variantYear = Number(c.y);
-      if (!Number.isFinite(variantYear)) {
-        missingVariantYear += 1;
-        return;
-      }
-      if (!Number.isFinite(anchorYear)) {
-        missingAnchorYear += 1;
-        return;
-      }
-      const lag = variantYear - anchorYear;
-      if (lag < 0) {
-        negativeLag += 1;
-        return;
-      }
-      lags.push(lag);
-    });
-
-    const totalPairs = companies.length;
-    const includedPairs = lags.length;
-    if (summaryEl) {
-      summaryEl.innerHTML =
-        '<div class="lag-stat"><span>Included Pairs</span><strong>' + includedPairs + '</strong></div>' +
-        '<div class="lag-stat"><span>Missing Anchor Year</span><strong>' + missingAnchorYear + '</strong></div>' +
-        '<div class="lag-stat"><span>Missing Variant Year</span><strong>' + missingVariantYear + '</strong></div>' +
-        '<div class="lag-stat"><span>Negative Lag Dropped</span><strong>' + negativeLag + '</strong></div>' +
-        '<div class="lag-stat"><span>Total Pairs</span><strong>' + totalPairs + '</strong></div>';
-    }
-    if (!includedPairs) {
-      svg.innerHTML = '<text x="24" y="36" fill="#8A8780" font-size="13">No valid lag pairs available.</text>';
-      return;
-    }
-
-    const maxLag = Math.max.apply(null, lags.map(function (v) { return Math.ceil(v); }));
-    const minX = 0;
-    const maxX = Math.max(10, maxLag);
-    const binWidth = 1;
-    const bins = Array.from({ length: maxX + 1 }, function (_, i) {
-      return { x0: i, x1: i + binWidth, count: 0 };
-    });
-    lags.forEach(function (v) {
-      const idx = Math.min(maxX, Math.max(0, Math.floor(v)));
-      bins[idx].count += 1;
-    });
-    bins.forEach(function (b) { b.prob = b.count / includedPairs; });
-
-    const bandwidth = 2.2;
-    function gaussian(u) {
-      return Math.exp(-0.5 * u * u) / Math.sqrt(2 * Math.PI);
-    }
-    function density(x) {
-      let sum = 0;
-      for (let i = 0; i < lags.length; i += 1) {
-        sum += gaussian((x - lags[i]) / bandwidth);
-      }
-      return sum / (lags.length * bandwidth);
-    }
-    const sampleStep = 0.25;
-    const curve = [];
-    for (let x = minX; x <= maxX; x += sampleStep) {
-      curve.push({ x: x, y: density(x) });
-    }
-
-    const width = Math.max(640, containerEl.clientWidth - 4);
-    const height = 360;
-    const m = { top: 16, right: 20, bottom: 44, left: 52 };
-    const iw = width - m.left - m.right;
-    const ih = height - m.top - m.bottom;
-
-    const yMax = Math.max(
-      Math.max.apply(null, bins.map(function (b) { return b.prob; })),
-      Math.max.apply(null, curve.map(function (p) { return p.y; }))
-    ) * 1.15;
-
-    function sx(x) { return m.left + ((x - minX) / (maxX - minX)) * iw; }
-    function sy(y) { return m.top + ih - (y / yMax) * ih; }
-
-    const xTickStep = maxX > 40 ? 10 : 5;
-    const xTicks = [];
-    for (let t = 0; t <= maxX; t += xTickStep) xTicks.push(t);
-    const yTicks = 4;
-
-    const bars = bins.map(function (b) {
-      const x = sx(b.x0);
-      const w = Math.max(1, sx(b.x1) - x - 1);
-      const y = sy(b.prob);
-      const h = Math.max(0, m.top + ih - y);
-      return '<rect class="lag-bar" data-x="' + b.x0 + '" data-p="' + b.prob + '" x="' + x.toFixed(2) + '" y="' + y.toFixed(2) + '" width="' + w.toFixed(2) + '" height="' + h.toFixed(2) + '"></rect>';
-    }).join('');
-
-    const linePath = curve.map(function (p, i) {
-      return (i ? 'L' : 'M') + sx(p.x).toFixed(2) + ',' + sy(p.y).toFixed(2);
-    }).join(' ');
-
-    const xGrid = xTicks.map(function (t) {
-      const x = sx(t).toFixed(2);
-      return '<line class="lag-grid" x1="' + x + '" y1="' + m.top + '" x2="' + x + '" y2="' + (m.top + ih) + '"></line>' +
-        '<text class="lag-axis-text" x="' + x + '" y="' + (m.top + ih + 18) + '" text-anchor="middle">' + t + '</text>';
-    }).join('');
-    const yGrid = Array.from({ length: yTicks + 1 }, function (_, i) { return i; }).map(function (i) {
-      const v = (yMax * i) / yTicks;
-      const y = sy(v).toFixed(2);
-      return '<line class="lag-grid" x1="' + m.left + '" y1="' + y + '" x2="' + (m.left + iw) + '" y2="' + y + '"></line>' +
-        '<text class="lag-axis-text" x="' + (m.left - 10) + '" y="' + (Number(y) + 4) + '" text-anchor="end">' + (v * 100).toFixed(1) + '%</text>';
-    }).join('');
-
-    svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
-    svg.innerHTML =
-      '<g>' + xGrid + yGrid + '</g>' +
-      '<line class="lag-axis" x1="' + m.left + '" y1="' + (m.top + ih) + '" x2="' + (m.left + iw) + '" y2="' + (m.top + ih) + '"></line>' +
-      '<line class="lag-axis" x1="' + m.left + '" y1="' + m.top + '" x2="' + m.left + '" y2="' + (m.top + ih) + '"></line>' +
-      '<g class="lag-bars">' + bars + '</g>' +
-      '<path class="lag-line" d="' + linePath + '"></path>' +
-      '<text class="lag-axis-label" x="' + (m.left + iw / 2) + '" y="' + (height - 8) + '" text-anchor="middle">Time Lag n (Years)</text>' +
-      '<text class="lag-axis-label" transform="translate(14 ' + (m.top + ih / 2) + ') rotate(-90)" text-anchor="middle">Probability Distribution</text>';
-
-    svg.querySelectorAll('.lag-bar').forEach(function (bar) {
-      bar.addEventListener('mouseenter', function (e) {
-        const x0 = Number(bar.dataset.x);
-        const p = Number(bar.dataset.p);
-        showTip(e,
-          '<div class="tip-title">Lag ' + x0 + ' to ' + (x0 + 1) + ' years</div>' +
-          '<div class="tip-row"><span>Probability</span><span>' + (p * 100).toFixed(2) + '%</span></div>'
-        );
+    try {
+      const raw = await Promise.all([
+        fetch(resolve(basePath, 'companies.csv')).then(function (r) {
+          if (!r.ok) throw new Error('Failed to load companies.csv (' + r.status + ')');
+          return r.text();
+        }),
+        fetch(resolve(basePath, 'families.json')).then(function (r) {
+          if (!r.ok) throw new Error('Failed to load families.json (' + r.status + ')');
+          return r.json();
+        })
+      ]);
+      const companies = parseCSV(raw[0]);
+      const companiesWithCountry = companies.filter(function (c) {
+        return String(c.cc || '').trim() !== '';
       });
-      bar.addEventListener('mouseleave', hideTip);
-    });
+      const missingCountry = companies.length - companiesWithCountry.length;
+      const families = raw[1];
+
+      const lags = [];
+      let missingAnchorYear = 0;
+      let missingVariantYear = 0;
+      let negativeLag = 0;
+
+      companiesWithCountry.forEach(function (c) {
+        const fam = families[c.f];
+        const anchorYear = fam ? Number(fam.anchorYear) : NaN;
+        const variantYear = Number(c.y);
+        if (!Number.isFinite(variantYear)) {
+          missingVariantYear += 1;
+          return;
+        }
+        if (!Number.isFinite(anchorYear)) {
+          missingAnchorYear += 1;
+          return;
+        }
+        const lag = variantYear - anchorYear;
+        if (lag < 0) {
+          negativeLag += 1;
+          return;
+        }
+        lags.push(lag);
+      });
+
+      const totalPairs = companiesWithCountry.length;
+      const includedPairs = lags.length;
+      if (summaryEl) {
+        summaryEl.innerHTML =
+          '<div class="lag-stat"><span>Included Pairs</span><strong>' + includedPairs + '</strong></div>' +
+          '<div class="lag-stat"><span>Missing Country Dropped</span><strong>' + missingCountry + '</strong></div>' +
+          '<div class="lag-stat"><span>Missing Anchor Year</span><strong>' + missingAnchorYear + '</strong></div>' +
+          '<div class="lag-stat"><span>Missing Variant Year</span><strong>' + missingVariantYear + '</strong></div>' +
+          '<div class="lag-stat"><span>Negative Lag Dropped</span><strong>' + negativeLag + '</strong></div>' +
+          '<div class="lag-stat"><span>Total Pairs</span><strong>' + totalPairs + '</strong></div>';
+      }
+      if (!includedPairs) {
+        svg.innerHTML = '<text x="24" y="36" fill="#8A8780" font-size="13">No valid lag pairs available.</text>';
+        return;
+      }
+
+      const maxLag = Math.max.apply(null, lags.map(function (v) { return Math.ceil(v); }));
+      const minX = 0;
+      const maxX = Math.max(10, maxLag);
+      const binWidth = 1;
+      const bins = Array.from({ length: maxX + 1 }, function (_, i) {
+        return { x0: i, x1: i + binWidth, count: 0 };
+      });
+      lags.forEach(function (v) {
+        const idx = Math.min(maxX, Math.max(0, Math.floor(v)));
+        bins[idx].count += 1;
+      });
+      bins.forEach(function (b) { b.prob = b.count / includedPairs; });
+
+      const bandwidth = 2.2;
+      function gaussian(u) {
+        return Math.exp(-0.5 * u * u) / Math.sqrt(2 * Math.PI);
+      }
+      function density(x) {
+        let sum = 0;
+        for (let i = 0; i < lags.length; i += 1) {
+          sum += gaussian((x - lags[i]) / bandwidth);
+        }
+        return sum / (lags.length * bandwidth);
+      }
+      const sampleStep = 0.25;
+      const curve = [];
+      for (let x = minX; x <= maxX; x += sampleStep) {
+        curve.push({ x: x, y: density(x) });
+      }
+
+      const width = Math.max(640, containerEl.clientWidth - 4);
+      const height = 360;
+      const m = { top: 16, right: 20, bottom: 44, left: 52 };
+      const iw = width - m.left - m.right;
+      const ih = height - m.top - m.bottom;
+
+      const yMax = Math.max(
+        Math.max.apply(null, bins.map(function (b) { return b.prob; })),
+        Math.max.apply(null, curve.map(function (p) { return p.y; }))
+      ) * 1.15;
+
+      function sx(x) { return m.left + ((x - minX) / (maxX - minX)) * iw; }
+      function sy(y) { return m.top + ih - (y / yMax) * ih; }
+
+      const xTickStep = maxX > 40 ? 10 : 5;
+      const xTicks = [];
+      for (let t = 0; t <= maxX; t += xTickStep) xTicks.push(t);
+      const yTicks = 4;
+
+      const bars = bins.map(function (b) {
+        const x = sx(b.x0);
+        const w = Math.max(1, sx(b.x1) - x - 1);
+        const y = sy(b.prob);
+        const h = Math.max(0, m.top + ih - y);
+        return '<rect class="lag-bar" data-x="' + b.x0 + '" data-p="' + b.prob + '" x="' + x.toFixed(2) + '" y="' + y.toFixed(2) + '" width="' + w.toFixed(2) + '" height="' + h.toFixed(2) + '"></rect>';
+      }).join('');
+
+      const linePath = curve.map(function (p, i) {
+        return (i ? 'L' : 'M') + sx(p.x).toFixed(2) + ',' + sy(p.y).toFixed(2);
+      }).join(' ');
+
+      const xGrid = xTicks.map(function (t) {
+        const x = sx(t).toFixed(2);
+        return '<line class="lag-grid" x1="' + x + '" y1="' + m.top + '" x2="' + x + '" y2="' + (m.top + ih) + '"></line>' +
+          '<text class="lag-axis-text" x="' + x + '" y="' + (m.top + ih + 18) + '" text-anchor="middle">' + t + '</text>';
+      }).join('');
+      const yGrid = Array.from({ length: yTicks + 1 }, function (_, i) { return i; }).map(function (i) {
+        const v = (yMax * i) / yTicks;
+        const y = sy(v).toFixed(2);
+        return '<line class="lag-grid" x1="' + m.left + '" y1="' + y + '" x2="' + (m.left + iw) + '" y2="' + y + '"></line>' +
+          '<text class="lag-axis-text" x="' + (m.left - 10) + '" y="' + (Number(y) + 4) + '" text-anchor="end">' + (v * 100).toFixed(1) + '%</text>';
+      }).join('');
+
+      svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
+      svg.innerHTML =
+        '<g>' + xGrid + yGrid + '</g>' +
+        '<line class="lag-axis" x1="' + m.left + '" y1="' + (m.top + ih) + '" x2="' + (m.left + iw) + '" y2="' + (m.top + ih) + '"></line>' +
+        '<line class="lag-axis" x1="' + m.left + '" y1="' + m.top + '" x2="' + m.left + '" y2="' + (m.top + ih) + '"></line>' +
+        '<g class="lag-bars">' + bars + '</g>' +
+        '<path class="lag-line" d="' + linePath + '"></path>' +
+        '<text class="lag-axis-label" x="' + (m.left + iw / 2) + '" y="' + (height - 8) + '" text-anchor="middle">Time Lag n (Years)</text>' +
+        '<text class="lag-axis-label" transform="translate(14 ' + (m.top + ih / 2) + ') rotate(-90)" text-anchor="middle">Probability Distribution</text>';
+
+      svg.querySelectorAll('.lag-bar').forEach(function (bar) {
+        bar.addEventListener('mouseenter', function (e) {
+          const x0 = Number(bar.dataset.x);
+          const p = Number(bar.dataset.p);
+          showTip(e,
+            '<div class="tip-title">Lag ' + x0 + ' to ' + (x0 + 1) + ' years</div>' +
+            '<div class="tip-row"><span>Probability</span><span>' + (p * 100).toFixed(2) + '%</span></div>'
+          );
+        });
+        bar.addEventListener('mouseleave', hideTip);
+      });
+    } catch (err) {
+      if (summaryEl) summaryEl.innerHTML = '<div class="lag-stat"><span>Status</span><strong>Error</strong></div>';
+      svg.innerHTML = '<text x="24" y="36" fill="#B14A2F" font-size="13">Lag chart failed to render: ' + String(err.message || err) + '</text>';
+      console.error('renderLagDistribution failed', err);
+    }
   }
 
   window.renderCorridors = renderCorridors;
