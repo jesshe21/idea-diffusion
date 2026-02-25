@@ -1,0 +1,1887 @@
+{
+  "fintech_lending__payments_superapp_lending": {
+    "l": "Payments Super-App with Embedded Micro-Lending (Ant Group-like)",
+    "an": "Ant Group",
+    "acc": "CHN",
+    "ad": "antgroup.com",
+    "sl": "Payments Super-App Lending",
+    "color": "#3b82f6",
+    "anchorPos": [
+      1002.2,
+      283.9
+    ],
+    "count": 21
+  },
+  "fintech_payments__qr_mobile_wallet": {
+    "l": "QR-code mobile payment wallet / financial super-app (Alipay-like)",
+    "an": "Alipay",
+    "acc": "CHN",
+    "ad": "alipay.com",
+    "sl": "QR Mobile Wallet",
+    "color": "#f59e0b",
+    "anchorPos": [
+      1002.2,
+      283.9
+    ],
+    "count": 19
+  },
+  "cleantech__premium_dtc_ev": {
+    "l": "Premium direct-to-consumer electric vehicle brand (Tesla-like)",
+    "an": "Tesla",
+    "acc": "USA",
+    "ad": "tesla.com",
+    "sl": "Premium DTC EV",
+    "color": "#ef4444",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 20
+  },
+  "ecommerce_horizontal__c2c_marketplace": {
+    "l": "C2C / peer-to-peer online marketplace (eBay-like)",
+    "an": "eBay",
+    "acc": "USA",
+    "ad": "ebay.com",
+    "sl": "C2C Marketplace",
+    "color": "#8b5cf6",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 18
+  },
+  "ecommerce_horizontal__fullstack_marketplace_logistics": {
+    "l": "Full-stack e-commerce platform with integrated logistics (Amazon-like)",
+    "an": "Amazon",
+    "acc": "USA",
+    "ad": "amazon.com",
+    "sl": "Full-Stack E-Commerce + Logistics",
+    "color": "#10b981",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 14
+  },
+  "ride_hailing__marketplace": {
+    "l": "Ride-hailing marketplace (Uber-like)",
+    "an": "Uber",
+    "acc": "USA",
+    "ad": "uber.com",
+    "sl": "Ride-Hailing Marketplace",
+    "color": "#ec4899",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 13
+  },
+  "fintech_lending__p2p_marketplace": {
+    "l": "P2P / Marketplace Lending Platform (Zopa-like)",
+    "an": "Zopa",
+    "acc": "GBR",
+    "ad": "zopa.com",
+    "sl": "P2P Lending Marketplace",
+    "color": "#14b8a6",
+    "anchorPos": [
+      569.3,
+      171.5
+    ],
+    "count": 9
+  },
+  "ai_ml_platform__ai_accelerator_chip": {
+    "l": "AI accelerator chip designer (NVIDIA-like)",
+    "an": "NVIDIA",
+    "acc": "USA",
+    "ad": "nvidia.com",
+    "sl": "AI Accelerator Chip",
+    "color": "#e11d48",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 9
+  },
+  "travel_hospitality__full_service_ota": {
+    "l": "Full-service online travel agency (Expedia-like)",
+    "an": "Expedia",
+    "acc": "USA",
+    "ad": "expediagroup.com",
+    "sl": "Full-Service OTA",
+    "color": "#06b6d4",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 11
+  },
+  "ai_ml_platform__foundation_model_api": {
+    "l": "Foundation model + API/consumer product provider (OpenAI-like)",
+    "an": "OpenAI",
+    "acc": "USA",
+    "ad": "openai.com",
+    "sl": "Foundation Model + API",
+    "color": "#84cc16",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 9
+  },
+  "bnpl_consumer_credit__merchant_checkout_bnpl": {
+    "l": "Merchant-integrated checkout BNPL (Klarna-like)",
+    "an": "Klarna",
+    "acc": "SWE",
+    "ad": "klarna.com",
+    "sl": "Merchant BNPL",
+    "color": "#f97316",
+    "anchorPos": [
+      642.8,
+      108.3
+    ],
+    "count": 11
+  },
+  "fintech_payments__api_payment_gateway": {
+    "l": "Developer-first API payment gateway (Stripe-like)",
+    "an": "Stripe",
+    "acc": "USA",
+    "ad": "stripe.com",
+    "sl": "API Payment Gateway",
+    "color": "#a855f7",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 9
+  },
+  "fintech_payments__mpos_smb_card_acceptance": {
+    "l": "mPOS / SMB card acceptance (Square-like)",
+    "an": "Square",
+    "acc": "USA",
+    "ad": "block.xyz",
+    "sl": "mPOS / SMB Card Acceptance",
+    "color": "#6366f1",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 10
+  },
+  "quick_commerce__scheduled_online_grocery_retailer": {
+    "l": "Online grocery retailer with scheduled delivery (FreshDirect-like)",
+    "an": "FreshDirect",
+    "acc": "USA",
+    "ad": "freshdirect.com",
+    "sl": "Scheduled Online Grocery",
+    "color": "#0ea5e9",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 8
+  },
+  "crypto__regulated_retail_cex": {
+    "l": "Regulated retail crypto exchange (Coinbase-like)",
+    "an": "Coinbase",
+    "acc": "USA",
+    "ad": "coinbase.com",
+    "sl": "Regulated Retail Crypto Exchange",
+    "color": "#d946ef",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 8
+  },
+  "fintech_neobanking__commission_free_retail_brokerage": {
+    "l": "Commission-free mobile retail brokerage (Robinhood-like)",
+    "an": "Robinhood",
+    "acc": "USA",
+    "ad": "robinhood.com",
+    "sl": "Commission-Free Brokerage",
+    "color": "#c084fc",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 6
+  },
+  "ecommerce_horizontal__b2b_horizontal_marketplace": {
+    "l": "B2B horizontal e-commerce marketplace (Alibaba.com-like)",
+    "an": "Alibaba.com",
+    "acc": "CHN",
+    "ad": "alibaba.com",
+    "sl": "B2B Horizontal Marketplace",
+    "color": "#78716c",
+    "anchorPos": [
+      1002.2,
+      283.9
+    ],
+    "count": 6
+  },
+  "food_delivery_restaurant__marketplace": {
+    "l": "Restaurant food delivery marketplace (Just Eat / Grubhub-like)",
+    "an": "Just Eat / Grubhub",
+    "acc": "CAN",
+    "ad": "justeattakeaway.com",
+    "sl": "Restaurant Food Delivery",
+    "color": "#facc15",
+    "anchorPos": [
+      185.5,
+      156.9
+    ],
+    "count": 7
+  },
+  "auto_marketplace__fullstack_used_car_ecommerce": {
+    "l": "Full-stack online used car retailer (Carvana-like)",
+    "an": "Carvana",
+    "acc": "USA",
+    "ad": "carvana.com",
+    "sl": "Full-Stack Used Car Retail",
+    "color": "#0d9488",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 6
+  },
+  "ecommerce_horizontal__fba_brand_aggregator": {
+    "l": "Amazon FBA brand aggregator (Thrasio-like)",
+    "an": "Thrasio",
+    "acc": "USA",
+    "ad": "thrasio.com",
+    "sl": "FBA Brand Aggregator",
+    "color": "#db2777",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 6
+  },
+  "ecom_vertical__fresh_food_ecommerce": {
+    "l": "Online fresh food & produce e-commerce (Yiguo-like)",
+    "an": "Yiguo",
+    "acc": "USA",
+    "ad": "freshdirect.com",
+    "sl": "Fresh Food E-Commerce",
+    "color": "#22d3ee",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 7
+  },
+  "crypto__nft_blockchain_gaming": {
+    "l": "NFT-based blockchain gaming & digital collectibles platform (Dapper Labs-like)",
+    "an": "Dapper Labs",
+    "acc": "CAN",
+    "ad": "dapperlabs.com",
+    "sl": "NFT / Blockchain Gaming",
+    "color": "#fb7185",
+    "anchorPos": [
+      185.5,
+      156.9
+    ],
+    "count": 7
+  },
+  "quick_commerce__dark_store_instant_delivery": {
+    "l": "Quick-commerce dark-store delivery (Gopuff-like)",
+    "an": "Gopuff",
+    "acc": "USA",
+    "ad": "gopuff.com",
+    "sl": "Dark-Store Quick Commerce",
+    "color": "#4ade80",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 7
+  },
+  "enterprise_saas_horizontal__cloud_hr_platform": {
+    "l": "Cloud HR management platform (Workday-like)",
+    "an": "Workday",
+    "acc": "USA",
+    "ad": "workday.com",
+    "sl": "Cloud HR Platform",
+    "color": "#65a30d",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 6
+  },
+  "fintech_neobanking__consumer_neobank": {
+    "l": "Fee-free mobile-first consumer neobank (Chime/N26-like)",
+    "an": "Chime/N26",
+    "acc": "USA",
+    "ad": "chime.com",
+    "sl": "Consumer Neobank",
+    "color": "#7c3aed",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 6
+  },
+  "micro_mobility__dockless_shared_fleet": {
+    "l": "Dockless shared micro-mobility fleet (ofo-like)",
+    "an": "ofo",
+    "acc": "CHN",
+    "ad": "ofo.com",
+    "sl": "Dockless Micro-Mobility",
+    "color": "#ea580c",
+    "anchorPos": [
+      1002.2,
+      283.9
+    ],
+    "count": 6
+  },
+  "classifieds__horizontal_classifieds": {
+    "l": "Horizontal online classifieds (Craigslist-like)",
+    "an": "Craigslist",
+    "acc": "USA",
+    "ad": "craigslist.org",
+    "sl": "Horizontal Classifieds",
+    "color": "#0891b2",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 5
+  },
+  "media_entertainment__svod_streaming": {
+    "l": "Subscription video-on-demand streaming (Netflix-like)",
+    "an": "Netflix",
+    "acc": "USA",
+    "ad": "netflix.com",
+    "sl": "SVOD Streaming",
+    "color": "#be123c",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 5
+  },
+  "ecommerce_horizontal__daily_deals": {
+    "l": "Daily deals / local commerce marketplace (Groupon-like)",
+    "an": "Groupon",
+    "acc": "USA",
+    "ad": "groupon.com",
+    "sl": "Daily Deals Marketplace",
+    "color": "#4ade80",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 2
+  },
+  "cloud_infra__iaas_cloud_platform": {
+    "l": "Public IaaS Cloud Platform (AWS-like)",
+    "an": "AWS",
+    "acc": "USA",
+    "ad": "amazon.com",
+    "sl": "Public IaaS Cloud",
+    "color": "#c084fc",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 2
+  },
+  "hr_workforce__smb_cloud_hr_payroll": {
+    "l": "SMB cloud HR & payroll platform (Gusto-like)",
+    "an": "Gusto",
+    "acc": "USA",
+    "ad": "gusto.com",
+    "sl": "SMB HR & Payroll",
+    "color": "#4f46e5",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 5
+  },
+  "fintech_neobanking__emerging_market_card_neobank": {
+    "l": "Card-first neobank for emerging-market underbanked (Nubank-like)",
+    "an": "Nubank",
+    "acc": "BRA",
+    "ad": "nubank.com.br",
+    "sl": "EM Card-First Neobank",
+    "color": "#059669",
+    "anchorPos": [
+      369.2,
+      498.6
+    ],
+    "count": 5
+  },
+  "b2b_marketplace__small_retailer_fmcg": {
+    "l": "B2B e-commerce for small/informal retailers (Huimin / Udaan-style)",
+    "an": "Huimin / Udaan",
+    "acc": "CHN",
+    "ad": "huimin.cn",
+    "sl": "B2B Small Retailer FMCG",
+    "color": "#3b82f6",
+    "anchorPos": [
+      1002.2,
+      283.9
+    ],
+    "count": 5
+  },
+  "classifieds__mobile_c2c_secondhand": {
+    "l": "Mobile-first C2C secondhand marketplace (OfferUp-like)",
+    "an": "OfferUp",
+    "acc": "USA",
+    "ad": "offerup.com",
+    "sl": "Mobile C2C Secondhand",
+    "color": "#ef4444",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 4
+  },
+  "av_robotics__adas_chip_platform": {
+    "l": "ADAS/AD chip-and-software platform for automotive OEMs (Mobileye-like)",
+    "an": "Mobileye",
+    "acc": "ISR",
+    "ad": "mobileye.com",
+    "sl": "ADAS Chip + Software",
+    "color": "#78716c",
+    "anchorPos": [
+      720.4,
+      301.4
+    ],
+    "count": 2
+  },
+  "ecommerce_horizontal__flash_sale_branded_discount": {
+    "l": "Flash-sale / off-price branded e-commerce (Vipshop-like)",
+    "an": "Vipshop",
+    "acc": "USA",
+    "ad": "gilt.com",
+    "sl": "Flash-Sale Branded Discount",
+    "color": "#ef4444",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "cloud_infra__colocation_datacenter": {
+    "l": "Carrier-Neutral Colocation Data Center Operator (Equinix-like)",
+    "an": "Equinix",
+    "acc": "USA",
+    "ad": "equinix.com",
+    "sl": "Colocation Data Center",
+    "color": "#10b981",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 3
+  },
+  "ecom_vertical__multi_brand_fashion_retail": {
+    "l": "Multi-brand online fashion retailer (Zappos-like)",
+    "an": "Zappos",
+    "acc": "USA",
+    "ad": "zappos.com",
+    "sl": "Multi-Brand Fashion Retail",
+    "color": "#f59e0b",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 4
+  },
+  "edtech__live_tutoring_platform": {
+    "l": "Live online tutoring platform (iTutorGroup-like)",
+    "an": "iTutorGroup",
+    "acc": "TWN",
+    "ad": "itutorgroup.com",
+    "sl": "Live Online Tutoring",
+    "color": "#ec4899",
+    "anchorPos": [
+      1071.6,
+      336.7
+    ],
+    "count": 3
+  },
+  "fintech_infra__corporate_card_spend_mgmt": {
+    "l": "Corporate card & spend management platform (Brex-like)",
+    "an": "Brex",
+    "acc": "USA",
+    "ad": "brex.com",
+    "sl": "Corporate Card + Spend Mgmt",
+    "color": "#8b5cf6",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 4
+  },
+  "healthtech_biotech__in_license_develop_local_market": {
+    "l": "In-license & develop biotech for local market (SymBio-like)",
+    "an": "SymBio",
+    "acc": "JPN",
+    "ad": "symbiopharma.com",
+    "sl": "In-License Biotech Localizer",
+    "color": "#0d9488",
+    "anchorPos": [
+      1149.2,
+      278.8
+    ],
+    "count": 2
+  },
+  "logistics_supply_chain__ecommerce_parcel_delivery": {
+    "l": "Tech-enabled e-commerce express parcel delivery network (Delhivery-like)",
+    "an": "Delhivery",
+    "acc": "CHN",
+    "ad": "best-inc.com",
+    "sl": "E-Commerce Parcel Delivery",
+    "color": "#06b6d4",
+    "anchorPos": [
+      1002.2,
+      283.9
+    ],
+    "count": 3
+  },
+  "cleantech__battery_gigafactory": {
+    "l": "EV battery cell gigafactory (CATL-like)",
+    "an": "CATL",
+    "acc": "CHN",
+    "ad": "catl.com",
+    "sl": "Battery Gigafactory",
+    "color": "#f97316",
+    "anchorPos": [
+      1002.2,
+      283.9
+    ],
+    "count": 3
+  },
+  "ai_ml_vertical__ai_customer_support_chatbot": {
+    "l": "AI-first customer support automation (Ada-like)",
+    "an": "Ada",
+    "acc": "CAN",
+    "ad": "ada.cx",
+    "sl": "AI Customer Support",
+    "color": "#6366f1",
+    "anchorPos": [
+      185.5,
+      156.9
+    ],
+    "count": 3
+  },
+  "ecommerce_horizontal__storefront_saas": {
+    "l": "E-commerce storefront SaaS for SMBs (Shopify-like)",
+    "an": "Shopify",
+    "acc": "CAN",
+    "ad": "shopify.com",
+    "sl": "E-Commerce Storefront SaaS",
+    "color": "#f59e0b",
+    "anchorPos": [
+      185.5,
+      156.9
+    ],
+    "count": 1
+  },
+  "ecommerce_horizontal__social_group_buying": {
+    "l": "Social group-buying e-commerce for price-sensitive consumers (Pinduoduo-like)",
+    "an": "Pinduoduo",
+    "acc": "IRL",
+    "ad": "pddholdings.com",
+    "sl": "Social Group Buying",
+    "color": "#14b8a6",
+    "anchorPos": [
+      544.8,
+      178.5
+    ],
+    "count": 3
+  },
+  "dtc_retail__ultra_fast_fashion_dtc": {
+    "l": "Data-driven ultra-fast fashion DTC (Shein-like)",
+    "an": "Shein",
+    "acc": "SGP",
+    "ad": "shein.com",
+    "sl": "Ultra-Fast Fashion DTC",
+    "color": "#e11d48",
+    "anchorPos": [
+      1001.4,
+      434.3
+    ],
+    "count": 3
+  },
+  "ecom_vertical__home_furnishing_ecommerce": {
+    "l": "Online home furnishing e-commerce (Wayfair-like)",
+    "an": "Wayfair",
+    "acc": "USA",
+    "ad": "wayfair.com",
+    "sl": "Home Furnishing E-Commerce",
+    "color": "#db2777",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 2
+  },
+  "ecom_vertical__luxury_fashion_ecommerce": {
+    "l": "Multi-brand luxury fashion e-commerce retailer (YNAP-like)",
+    "an": "YNAP",
+    "acc": "GBR",
+    "ad": "ynap.com",
+    "sl": "Luxury Fashion E-Commerce",
+    "color": "#65a30d",
+    "anchorPos": [
+      569.3,
+      171.5
+    ],
+    "count": 2
+  },
+  "bnpl_consumer_credit__app_first_installment_credit": {
+    "l": "App-first digital installment credit for underbanked young consumers (Lexin-like)",
+    "an": "Lexin",
+    "acc": "CHN",
+    "ad": "lexin.com",
+    "sl": "App-First Installment Credit",
+    "color": "#8b5cf6",
+    "anchorPos": [
+      1002.2,
+      283.9
+    ],
+    "count": 1
+  },
+  "fintech_infra__open_banking_data_api": {
+    "l": "Open banking / financial data connectivity API (Plaid-like)",
+    "an": "Plaid",
+    "acc": "USA",
+    "ad": "plaid.com",
+    "sl": "Open Banking Data API",
+    "color": "#84cc16",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 3
+  },
+  "fintech_infra__cloud_core_banking": {
+    "l": "Cloud-native core banking platform (Mambu-like)",
+    "an": "Mambu",
+    "acc": "NLD",
+    "ad": "mambu.com",
+    "sl": "Cloud Core Banking",
+    "color": "#a855f7",
+    "anchorPos": [
+      597.9,
+      185.3
+    ],
+    "count": 3
+  },
+  "fintech_neobanking__smb_neobank": {
+    "l": "Digital SMB neobank (Tide-like)",
+    "an": "Tide",
+    "acc": "GBR",
+    "ad": "tide.co",
+    "sl": "SMB Neobank",
+    "color": "#7c3aed",
+    "anchorPos": [
+      569.3,
+      171.5
+    ],
+    "count": 2
+  },
+  "healthtech__doctor_booking_marketplace": {
+    "l": "Doctor appointment booking marketplace (Zocdoc-like)",
+    "an": "Zocdoc",
+    "acc": "USA",
+    "ad": "zocdoc.com",
+    "sl": "Doctor Booking Marketplace",
+    "color": "#ea580c",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 2
+  },
+  "healthtech__telemedicine_virtual_consultation": {
+    "l": "B2C telemedicine / virtual doctor consultation platform (Amwell-like)",
+    "an": "Amwell",
+    "acc": "USA",
+    "ad": "amwell.com",
+    "sl": "Telemedicine Platform",
+    "color": "#0891b2",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 2
+  },
+  "quick_commerce__grocery_personal_shopping_marketplace": {
+    "l": "Grocery personal-shopping marketplace (Instacart-like)",
+    "an": "Instacart",
+    "acc": "USA",
+    "ad": "instacart.com",
+    "sl": "Grocery Personal Shopping",
+    "color": "#0ea5e9",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 3
+  },
+  "media_entertainment__music_streaming": {
+    "l": "Freemium music streaming (Spotify-like)",
+    "an": "Spotify",
+    "acc": "SWE",
+    "ad": "spotify.com",
+    "sl": "Music Streaming",
+    "color": "#d946ef",
+    "anchorPos": [
+      642.8,
+      108.3
+    ],
+    "count": 3
+  },
+  "media_entertainment__ai_news_aggregation": {
+    "l": "AI-powered personalized news/content aggregation (Toutiao/ByteDance-like)",
+    "an": "Toutiao/ByteDance",
+    "acc": "CHN",
+    "ad": "bytedance.com",
+    "sl": "AI News Aggregation",
+    "color": "#facc15",
+    "anchorPos": [
+      1002.2,
+      283.9
+    ],
+    "count": 3
+  },
+  "proptech__property_listing_portal": {
+    "l": "Online property listing portal / real estate classifieds (REA Group-like)",
+    "an": "REA Group",
+    "acc": "AUS",
+    "ad": "rea-group.com",
+    "sl": "Property Listing Portal",
+    "color": "#be123c",
+    "anchorPos": [
+      1124.7,
+      556.5
+    ],
+    "count": 2
+  },
+  "proptech__ibuyer": {
+    "l": "iBuyer / algorithmic instant home buying (Opendoor-like)",
+    "an": "Opendoor",
+    "acc": "USA",
+    "ad": "opendoor.com",
+    "sl": "iBuyer / Instant Home Buying",
+    "color": "#4f46e5",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 2
+  },
+  "proptech__coworking_flexible_workspace": {
+    "l": "Design-forward co-working / flexible workspace (WeWork-like)",
+    "an": "WeWork",
+    "acc": "USA",
+    "ad": "wework.com",
+    "sl": "Co-Working / Flex Workspace",
+    "color": "#22d3ee",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 3
+  },
+  "social_community__mobile_messaging": {
+    "l": "Mobile messaging platform (WhatsApp-like)",
+    "an": "WhatsApp",
+    "acc": "USA",
+    "ad": "whatsapp.com",
+    "sl": "Mobile Messaging",
+    "color": "#fb7185",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 3
+  },
+  "social_community__short_form_video": {
+    "l": "Short-form algorithmic video platform (TikTok/Douyin-like)",
+    "an": "TikTok/Douyin",
+    "acc": "CHN",
+    "ad": "kuaishou.com",
+    "sl": "Short-Form Video",
+    "color": "#059669",
+    "anchorPos": [
+      1002.2,
+      283.9
+    ],
+    "count": 2
+  },
+  "agritech_foodtech__meal_kit_subscription": {
+    "l": "Meal kit subscription box (HelloFresh-like)",
+    "an": "HelloFresh",
+    "acc": "DEU",
+    "ad": "hellofreshgroup.com",
+    "sl": "Meal Kit Subscription",
+    "color": "#10b981",
+    "anchorPos": [
+      618.3,
+      192
+    ],
+    "count": 1
+  },
+  "agritech_foodtech__b2b_restaurant_supply_platform": {
+    "l": "B2B restaurant-supplier ordering platform (Meicai-like)",
+    "an": "Meicai",
+    "acc": "CHN",
+    "ad": "meicai.cn",
+    "sl": "B2B Restaurant Supply",
+    "color": "#3b82f6",
+    "anchorPos": [
+      1002.2,
+      283.9
+    ],
+    "count": 2
+  },
+  "cleantech__residential_solar_leasing": {
+    "l": "Residential solar-as-a-service / solar leasing (Sunrun-like)",
+    "an": "Sunrun",
+    "acc": "USA",
+    "ad": "sunrun.com",
+    "sl": "Residential Solar Leasing",
+    "color": "#ec4899",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "av_robotics__integrated_autonomous_drone_platform": {
+    "l": "Vertically integrated autonomous drone platform (DJI-like)",
+    "an": "DJI",
+    "acc": "CHN",
+    "ad": "dji.com",
+    "sl": "Autonomous Drone Platform",
+    "color": "#ef4444",
+    "anchorPos": [
+      1002.2,
+      283.9
+    ],
+    "count": 2
+  },
+  "ai_ml_platform__gpu_cloud_iaas": {
+    "l": "GPU-dense cloud infrastructure for AI (CoreWeave-like)",
+    "an": "CoreWeave",
+    "acc": "USA",
+    "ad": "coreweave.com",
+    "sl": "GPU Cloud for AI",
+    "color": "#06b6d4",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "ai_ml_vertical__defense_ai_platform": {
+    "l": "AI-powered defense autonomy platform (Shield AI-like)",
+    "an": "Shield AI",
+    "acc": "USA",
+    "ad": "shield.ai",
+    "sl": "Defense AI Platform",
+    "color": "#f59e0b",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 2
+  },
+  "ai_ml_vertical__ai_lending_decisioning": {
+    "l": "AI-powered lending and credit decisioning platform (Upstart-like)",
+    "an": "Upstart",
+    "acc": "USA",
+    "ad": "upstart.com",
+    "sl": "AI Lending Decisioning",
+    "color": "#f97316",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "cybersecurity__enterprise_network_security_platform": {
+    "l": "Enterprise network security platform (Check Point-like)",
+    "an": "Check Point",
+    "acc": "USA",
+    "ad": "checkpoint.com",
+    "sl": "Enterprise Network Security",
+    "color": "#8b5cf6",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 2
+  },
+  "cybersecurity__cloud_delivered_sase_platform": {
+    "l": "Cloud-delivered SASE / zero-trust network-as-a-service (Zscaler-like)",
+    "an": "Zscaler",
+    "acc": "USA",
+    "ad": "zscaler.com",
+    "sl": "Cloud SASE / Zero-Trust",
+    "color": "#10b981",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 2
+  },
+  "dtc_retail__connected_fitness_hardware": {
+    "l": "Connected fitness hardware + content subscription (Peloton-like)",
+    "an": "Peloton",
+    "acc": "USA",
+    "ad": "onepeloton.com",
+    "sl": "Connected Fitness Hardware",
+    "color": "#ec4899",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 2
+  },
+  "dtc_retail__digital_native_dtc_beauty": {
+    "l": "Digital-native community-driven DTC beauty brand (Glossier-like)",
+    "an": "Glossier",
+    "acc": "USA",
+    "ad": "glossier.com",
+    "sl": "DTC Beauty Brand",
+    "color": "#6366f1",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "cloud_infra__oss_data_infrastructure": {
+    "l": "Commercial Open-Source Data Infrastructure & Managed Cloud Service (MongoDB-like)",
+    "an": "MongoDB",
+    "acc": "USA",
+    "ad": "mongodb.com",
+    "sl": "OSS Data Infrastructure",
+    "color": "#06b6d4",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 2
+  },
+  "edtech__open_course_marketplace": {
+    "l": "Open instructor course marketplace (Udemy-like)",
+    "an": "Udemy",
+    "acc": "USA",
+    "ad": "udemy.com",
+    "sl": "Open Course Marketplace",
+    "color": "#f97316",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 2
+  },
+  "fintech_infra__equity_cap_table_mgmt": {
+    "l": "Equity & cap table management platform (Carta-like)",
+    "an": "Carta",
+    "acc": "USA",
+    "ad": "carta.com",
+    "sl": "Equity / Cap Table Mgmt",
+    "color": "#6366f1",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 2
+  },
+  "fintech_infra__banking_as_a_service": {
+    "l": "Banking-as-a-Service embedded finance API (Solaris-like)",
+    "an": "Solaris",
+    "acc": "DEU",
+    "ad": "solarisgroup.com",
+    "sl": "Banking-as-a-Service",
+    "color": "#14b8a6",
+    "anchorPos": [
+      618.3,
+      192
+    ],
+    "count": 2
+  },
+  "crypto__institutional_custody": {
+    "l": "Institutional digital-asset custody (BitGo-like)",
+    "an": "BitGo",
+    "acc": "USA",
+    "ad": "bitgo.com",
+    "sl": "Institutional Crypto Custody",
+    "color": "#e11d48",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 2
+  },
+  "enterprise_saas_horizontal__team_collaboration_platform": {
+    "l": "Enterprise team collaboration platform (Slack-like)",
+    "an": "Slack",
+    "acc": "USA",
+    "ad": "slack.com",
+    "sl": "Team Collaboration Platform",
+    "color": "#84cc16",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 2
+  },
+  "enterprise_saas_horizontal__website_builder_saas": {
+    "l": "Self-serve website builder platform (Squarespace-like)",
+    "an": "Squarespace",
+    "acc": "USA",
+    "ad": "squarespace.com",
+    "sl": "Website Builder SaaS",
+    "color": "#a855f7",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 2
+  },
+  "insurtech__d2c_digital_insurer": {
+    "l": "D2C AI-powered digital insurer (Lemonade-like)",
+    "an": "Lemonade",
+    "acc": "USA",
+    "ad": "lemonade.com",
+    "sl": "D2C Digital Insurer",
+    "color": "#0ea5e9",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 2
+  },
+  "insurtech__insurance_comparison_marketplace": {
+    "l": "Online insurance comparison marketplace (eHealth-like)",
+    "an": "eHealth",
+    "acc": "USA",
+    "ad": "ehealthinsurance.com",
+    "sl": "Insurance Comparison Marketplace",
+    "color": "#d946ef",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 2
+  },
+  "food_delivery_restaurant__cloud_kitchen": {
+    "l": "Cloud kitchen / ghost kitchen operator (CloudKitchens-like)",
+    "an": "CloudKitchens",
+    "acc": "USA",
+    "ad": "cloudkitchens.com",
+    "sl": "Cloud Kitchen / Ghost Kitchen",
+    "color": "#facc15",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 2
+  },
+  "gaming__live_streaming_platform": {
+    "l": "Game-focused live-streaming platform (Twitch-like)",
+    "an": "Twitch",
+    "acc": "USA",
+    "ad": "twitch.tv",
+    "sl": "Game Live Streaming",
+    "color": "#22d3ee",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 2
+  },
+  "gaming__regional_gaming_ecosystem": {
+    "l": "Regional online gaming ecosystem & publisher (Tencent-like)",
+    "an": "Tencent",
+    "acc": "CHN",
+    "ad": "tencent.com",
+    "sl": "Regional Gaming Ecosystem",
+    "color": "#fb7185",
+    "anchorPos": [
+      1002.2,
+      283.9
+    ],
+    "count": 2
+  },
+  "hr_workforce__professional_networking_platform": {
+    "l": "Professional networking platform (LinkedIn-like)",
+    "an": "LinkedIn",
+    "acc": "USA",
+    "ad": "linkedin.com",
+    "sl": "Professional Networking",
+    "color": "#4ade80",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 2
+  },
+  "hr_workforce__cloud_ats_recruiting": {
+    "l": "Cloud ATS / talent acquisition SaaS (iCIMS-like)",
+    "an": "iCIMS",
+    "acc": "USA",
+    "ad": "icims.com",
+    "sl": "Cloud ATS / Recruiting",
+    "color": "#14b8a6",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "fintech_neobanking__robo_advisory": {
+    "l": "Automated robo-advisory platform (Betterment-like)",
+    "an": "Betterment",
+    "acc": "USA",
+    "ad": "betterment.com",
+    "sl": "Robo-Advisory",
+    "color": "#c084fc",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 2
+  },
+  "fintech_payments__online_payment_platform": {
+    "l": "Online digital payment platform / e-commerce wallet (PayPal-like)",
+    "an": "PayPal",
+    "acc": "USA",
+    "ad": "paypal.com",
+    "sl": "Online Payment Platform",
+    "color": "#78716c",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 2
+  },
+  "b2b_marketplace__custom_manufacturing": {
+    "l": "On-demand custom manufacturing marketplace (Xometry-like)",
+    "an": "Xometry",
+    "acc": "USA",
+    "ad": "xometry.com",
+    "sl": "Custom Manufacturing Marketplace",
+    "color": "#0d9488",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 2
+  },
+  "logistics_supply_chain__digital_freight_forwarding": {
+    "l": "Digital freight forwarding platform (Flexport-like)",
+    "an": "Flexport",
+    "acc": "USA",
+    "ad": "flexport.com",
+    "sl": "Digital Freight Forwarding",
+    "color": "#db2777",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 2
+  },
+  "quick_commerce__multi_category_on_demand_delivery": {
+    "l": "Multi-category on-demand delivery super-app (Ele.me-like)",
+    "an": "Ele.me",
+    "acc": "CHN",
+    "ad": "ele.me",
+    "sl": "Multi-Category On-Demand",
+    "color": "#65a30d",
+    "anchorPos": [
+      1002.2,
+      283.9
+    ],
+    "count": 2
+  },
+  "space_aerospace__dedicated_smallsat_launch": {
+    "l": "Dedicated small/medium satellite launch vehicle startup (Rocket Lab-like)",
+    "an": "Rocket Lab",
+    "acc": "USA",
+    "ad": "rocketlabcorp.com",
+    "sl": "Smallsat Launch Vehicle",
+    "color": "#7c3aed",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 2
+  },
+  "media_entertainment__ugc_video_platform": {
+    "l": "User-generated video platform (YouTube-like)",
+    "an": "YouTube",
+    "acc": "USA",
+    "ad": "youtube.com",
+    "sl": "UGC Video Platform",
+    "color": "#e11d48",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "media_entertainment__social_live_streaming": {
+    "l": "Social live-streaming with virtual gifting (YY/JOYY-like)",
+    "an": "YY/JOYY",
+    "acc": "SGP",
+    "ad": "joyy.com",
+    "sl": "Social Live Streaming",
+    "color": "#ea580c",
+    "anchorPos": [
+      1001.4,
+      434.3
+    ],
+    "count": 2
+  },
+  "proptech__home_interior_platform": {
+    "l": "Home interior design & commerce platform (Houzz-like)",
+    "an": "Houzz",
+    "acc": "USA",
+    "ad": "houzz.com",
+    "sl": "Home Interior Platform",
+    "color": "#0891b2",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 2
+  },
+  "social_community__microblogging": {
+    "l": "Public microblogging platform (Twitter/X-like)",
+    "an": "Twitter/X",
+    "acc": "USA",
+    "ad": "x.com",
+    "sl": "Microblogging Platform",
+    "color": "#be123c",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 2
+  },
+  "social_community__swipe_dating": {
+    "l": "Swipe-based mobile dating app (Tinder-like)",
+    "an": "Tinder",
+    "acc": "USA",
+    "ad": "tinder.com",
+    "sl": "Swipe Dating App",
+    "color": "#4f46e5",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 2
+  },
+  "travel_hospitality__p2p_shortterm_rental_marketplace": {
+    "l": "Peer-to-peer short-term rental marketplace (Airbnb-like)",
+    "an": "Airbnb",
+    "acc": "USA",
+    "ad": "airbnb.com",
+    "sl": "P2P Short-Term Rental",
+    "color": "#059669",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 2
+  },
+  "travel_hospitality__travel_ugc_reviews": {
+    "l": "Travel UGC & review platform (Tripadvisor-like)",
+    "an": "Tripadvisor",
+    "acc": "USA",
+    "ad": "tripadvisor.com",
+    "sl": "Travel UGC & Reviews",
+    "color": "#3b82f6",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 2
+  },
+  "agritech_foodtech__alternative_protein_cpg": {
+    "l": "Alternative protein CPG brand (Beyond Meat-like)",
+    "an": "Beyond Meat",
+    "acc": "USA",
+    "ad": "beyondmeat.com",
+    "sl": "Alternative Protein CPG",
+    "color": "#84cc16",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "av_robotics__automotive_lidar_sensor": {
+    "l": "Automotive LiDAR sensor platform for OEMs and AV developers (Velodyne/Luminar-like)",
+    "an": "Velodyne/Luminar",
+    "acc": "USA",
+    "ad": "luminartech.com",
+    "sl": "Automotive LiDAR Sensor",
+    "color": "#a855f7",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "ai_ml_platform__generative_visual_model": {
+    "l": "Generative visual AI foundation model provider (Runway-like)",
+    "an": "Runway",
+    "acc": "USA",
+    "ad": "runwayml.com",
+    "sl": "Generative Visual AI",
+    "color": "#0ea5e9",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "ai_ml_platform__enterprise_ml_platform": {
+    "l": "Enterprise ML/AutoML platform (DataRobot-like)",
+    "an": "DataRobot",
+    "acc": "USA",
+    "ad": "datarobot.com",
+    "sl": "Enterprise ML Platform",
+    "color": "#d946ef",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "ai_ml_vertical__ai_legal_assistant": {
+    "l": "LLM-powered legal assistant platform (Harvey-like)",
+    "an": "Harvey",
+    "acc": "USA",
+    "ad": "harvey.ai",
+    "sl": "AI Legal Assistant",
+    "color": "#facc15",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "cybersecurity__nocode_security_workflow_automation": {
+    "l": "No-code security workflow automation platform (Tines-like)",
+    "an": "Tines",
+    "acc": "IRL",
+    "ad": "tines.com",
+    "sl": "No-Code Security Automation",
+    "color": "#22d3ee",
+    "anchorPos": [
+      544.8,
+      178.5
+    ],
+    "count": 1
+  },
+  "dtc_retail__pod_based_vaping": {
+    "l": "Pod-based e-cigarette / vaping device (JUUL-like)",
+    "an": "JUUL",
+    "acc": "USA",
+    "ad": "juul.com",
+    "sl": "Pod-Based Vaping Device",
+    "color": "#fb7185",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "dtc_retail__clean_label_baby_personal_care": {
+    "l": "DTC clean-label baby & personal care (Honest Company-like)",
+    "an": "Honest Company",
+    "acc": "USA",
+    "ad": "honest.com",
+    "sl": "Clean-Label Baby / Personal Care",
+    "color": "#4ade80",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "cloud_infra__observability_monitoring": {
+    "l": "Cloud Observability & Monitoring SaaS Platform (Datadog-like)",
+    "an": "Datadog",
+    "acc": "USA",
+    "ad": "datadoghq.com",
+    "sl": "Observability & Monitoring",
+    "color": "#c084fc",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "cloud_infra__cloud_data_warehouse": {
+    "l": "Cloud Analytical Data Platform & Warehouse-as-a-Service (Snowflake-like)",
+    "an": "Snowflake",
+    "acc": "USA",
+    "ad": "snowflake.com",
+    "sl": "Cloud Data Warehouse",
+    "color": "#78716c",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "ecom_vertical__authenticated_sneaker_marketplace": {
+    "l": "Authenticated sneaker & streetwear marketplace (StockX-like)",
+    "an": "StockX",
+    "acc": "USA",
+    "ad": "stockx.com",
+    "sl": "Authenticated Sneaker Marketplace",
+    "color": "#0d9488",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "edtech__university_partnered_online_education": {
+    "l": "University-partnered online education platform (Coursera-like)",
+    "an": "Coursera",
+    "acc": "USA",
+    "ad": "coursera.org",
+    "sl": "University Online Education",
+    "color": "#db2777",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "fintech_infra__card_issuing_infrastructure": {
+    "l": "Card issuing infrastructure API (Marqeta-like)",
+    "an": "Marqeta",
+    "acc": "USA",
+    "ad": "marqeta.com",
+    "sl": "Card Issuing Infrastructure",
+    "color": "#65a30d",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "fintech_infra__identity_verification_api": {
+    "l": "B2B identity verification & KYC infrastructure API (Trulioo-like)",
+    "an": "Trulioo",
+    "acc": "CAN",
+    "ad": "trulioo.com",
+    "sl": "Identity Verification API",
+    "color": "#7c3aed",
+    "anchorPos": [
+      185.5,
+      156.9
+    ],
+    "count": 1
+  },
+  "fintech_infra__cross_border_b2b_payments": {
+    "l": "Cross-border B2B payment & multi-currency infrastructure (Airwallex-like)",
+    "an": "Airwallex",
+    "acc": "SGP",
+    "ad": "airwallex.com",
+    "sl": "Cross-Border B2B Payments",
+    "color": "#ea580c",
+    "anchorPos": [
+      1001.4,
+      434.3
+    ],
+    "count": 1
+  },
+  "fintech_infra__brokerage_infrastructure_api": {
+    "l": "Brokerage-as-a-Service embedded investing API (DriveWealth-like)",
+    "an": "DriveWealth",
+    "acc": "USA",
+    "ad": "drivewealth.com",
+    "sl": "Brokerage-as-a-Service API",
+    "color": "#0891b2",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "enterprise_saas_vertical__restaurant_cloud_pos": {
+    "l": "Restaurant cloud POS & operations platform (Toast-like)",
+    "an": "Toast",
+    "acc": "USA",
+    "ad": "toasttab.com",
+    "sl": "Restaurant Cloud POS",
+    "color": "#be123c",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "enterprise_saas_vertical__legal_practice_mgmt": {
+    "l": "Cloud legal practice management SaaS (Clio-like)",
+    "an": "Clio",
+    "acc": "CAN",
+    "ad": "clio.com",
+    "sl": "Legal Practice Mgmt SaaS",
+    "color": "#4f46e5",
+    "anchorPos": [
+      185.5,
+      156.9
+    ],
+    "count": 1
+  },
+  "enterprise_saas_horizontal__cloud_business_planning": {
+    "l": "Cloud connected business planning platform (Anaplan-like)",
+    "an": "Anaplan",
+    "acc": "USA",
+    "ad": "anaplan.com",
+    "sl": "Cloud Business Planning",
+    "color": "#059669",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "enterprise_saas_horizontal__rpa_platform": {
+    "l": "Enterprise robotic process automation platform (Blue Prism-like)",
+    "an": "Blue Prism",
+    "acc": "GBR",
+    "ad": "blueprism.com",
+    "sl": "RPA Platform",
+    "color": "#3b82f6",
+    "anchorPos": [
+      569.3,
+      171.5
+    ],
+    "count": 1
+  },
+  "enterprise_saas_horizontal__cloud_work_management": {
+    "l": "Cloud work & project management platform (Asana-like)",
+    "an": "Asana",
+    "acc": "USA",
+    "ad": "asana.com",
+    "sl": "Cloud Work Management",
+    "color": "#ef4444",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "enterprise_saas_horizontal__workflow_automation_platform": {
+    "l": "No-code workflow automation & integration platform (Zapier-like)",
+    "an": "Zapier",
+    "acc": "USA",
+    "ad": "zapier.com",
+    "sl": "Workflow Automation",
+    "color": "#f59e0b",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "insurtech__tech_first_health_insurer": {
+    "l": "Tech-first digital health insurer (Oscar Health-like)",
+    "an": "Oscar Health",
+    "acc": "USA",
+    "ad": "hioscar.com",
+    "sl": "Tech-First Health Insurer",
+    "color": "#8b5cf6",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "fintech_lending__ecommerce_revenue_financing": {
+    "l": "Revenue-Based Financing for E-commerce / D2C Brands (Clearco-like)",
+    "an": "Clearco",
+    "acc": "CAN",
+    "ad": "clear.co",
+    "sl": "E-Commerce Revenue Financing",
+    "color": "#10b981",
+    "anchorPos": [
+      185.5,
+      156.9
+    ],
+    "count": 1
+  },
+  "fintech_lending__automated_smb_lending": {
+    "l": "Automated Online SMB Lending (Kabbage-like)",
+    "an": "Kabbage",
+    "acc": "USA",
+    "ad": "kabbage.com",
+    "sl": "Automated SMB Lending",
+    "color": "#ec4899",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "gaming__daily_fantasy_sports": {
+    "l": "Daily fantasy sports contest platform (FanDuel-like)",
+    "an": "FanDuel",
+    "acc": "USA",
+    "ad": "fanduel.com",
+    "sl": "Daily Fantasy Sports",
+    "color": "#06b6d4",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "hr_workforce__employee_recognition_rewards": {
+    "l": "Employee recognition & rewards platform (Workhuman-like)",
+    "an": "Workhuman",
+    "acc": "IRL",
+    "ad": "workhuman.com",
+    "sl": "Employee Recognition & Rewards",
+    "color": "#f97316",
+    "anchorPos": [
+      544.8,
+      178.5
+    ],
+    "count": 1
+  },
+  "hr_workforce__employee_engagement_performance": {
+    "l": "Employee engagement & performance management SaaS (Culture Amp-like)",
+    "an": "Culture Amp",
+    "acc": "AUS",
+    "ad": "cultureamp.com",
+    "sl": "Employee Engagement & Perf",
+    "color": "#6366f1",
+    "anchorPos": [
+      1124.7,
+      556.5
+    ],
+    "count": 1
+  },
+  "fintech_neobanking__tech_sme_lending_bank": {
+    "l": "Tech-enabled SME relationship lending bank (OakNorth-like)",
+    "an": "OakNorth",
+    "acc": "GBR",
+    "ad": "oaknorth.co.uk",
+    "sl": "Tech SME Lending Bank",
+    "color": "#14b8a6",
+    "anchorPos": [
+      569.3,
+      171.5
+    ],
+    "count": 1
+  },
+  "b2b_marketplace__indie_retail_wholesale": {
+    "l": "Curated wholesale marketplace for independent retailers (Faire-like)",
+    "an": "Faire",
+    "acc": "USA",
+    "ad": "faire.com",
+    "sl": "Indie Retail Wholesale",
+    "color": "#e11d48",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "b2b_marketplace__mro_supplies": {
+    "l": "MRO / indirect industrial supplies e-commerce marketplace (Moglix-like)",
+    "an": "Moglix",
+    "acc": "CHN",
+    "ad": "zkh360.com",
+    "sl": "MRO / Industrial Supplies",
+    "color": "#84cc16",
+    "anchorPos": [
+      1002.2,
+      283.9
+    ],
+    "count": 1
+  },
+  "healthtech_biotech__sequencing_instruments_platform": {
+    "l": "DNA sequencing instruments platform (Illumina-like)",
+    "an": "Illumina",
+    "acc": "USA",
+    "ad": "illumina.com",
+    "sl": "DNA Sequencing Platform",
+    "color": "#a855f7",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "healthtech_biotech__biologics_technology_platform": {
+    "l": "Biologics technology platform biotech (Xencor-like)",
+    "an": "Xencor",
+    "acc": "USA",
+    "ad": "xencor.com",
+    "sl": "Biologics Tech Platform",
+    "color": "#0ea5e9",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "logistics_supply_chain__digital_trucking_marketplace": {
+    "l": "Digital trucking marketplace / freight brokerage (Convoy-like)",
+    "an": "Convoy",
+    "acc": "USA",
+    "ad": "convoy.com",
+    "sl": "Digital Trucking Marketplace",
+    "color": "#d946ef",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "logistics_supply_chain__ecommerce_shipping_aggregator": {
+    "l": "E-commerce multi-carrier shipping aggregator (Shippo-like)",
+    "an": "Shippo",
+    "acc": "USA",
+    "ad": "goshippo.com",
+    "sl": "E-Commerce Shipping Aggregator",
+    "color": "#facc15",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "space_aerospace__smallsat_earth_observation": {
+    "l": "Small-satellite Earth observation constellation (Planet-like)",
+    "an": "Planet",
+    "acc": "USA",
+    "ad": "planet.com",
+    "sl": "Smallsat Earth Observation",
+    "color": "#22d3ee",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "proptech__tech_brokerage": {
+    "l": "Tech-powered O2O real estate brokerage (Compass-like)",
+    "an": "Compass",
+    "acc": "USA",
+    "ad": "compass.com",
+    "sl": "Tech Real Estate Brokerage",
+    "color": "#fb7185",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "telecom__cpaas_cloud_comms": {
+    "l": "Cloud Communications Platform / CPaaS (Vonage-like)",
+    "an": "Vonage",
+    "acc": "USA",
+    "ad": "twilio.com",
+    "sl": "CPaaS / Cloud Comms",
+    "color": "#4ade80",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "telecom__neutral_shared_infra": {
+    "l": "Neutral Shared Communications Infrastructure / TowerCo-InfraCo (Crown Castle-like)",
+    "an": "Crown Castle",
+    "acc": "USA",
+    "ad": "crowncastle.com",
+    "sl": "Neutral Shared Infra / TowerCo",
+    "color": "#c084fc",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "social_community__qa_knowledge": {
+    "l": "Q&A knowledge community (Quora-like)",
+    "an": "Quora",
+    "acc": "USA",
+    "ad": "quora.com",
+    "sl": "Q&A Knowledge Community",
+    "color": "#78716c",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "social_community__camera_filter_social": {
+    "l": "Camera-first social app with AR filters (Snapchat-like)",
+    "an": "Snapchat",
+    "acc": "USA",
+    "ad": "snap.com",
+    "sl": "Camera + AR Filter Social",
+    "color": "#0d9488",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "social_community__visual_lifestyle_feed": {
+    "l": "Visual lifestyle social feed (Instagram-like)",
+    "an": "Instagram",
+    "acc": "USA",
+    "ad": "instagram.com",
+    "sl": "Visual Lifestyle Feed",
+    "color": "#db2777",
+    "anchorPos": [
+      181.4,
+      263.1
+    ],
+    "count": 1
+  },
+  "travel_hospitality__tours_activities_marketplace": {
+    "l": "Tours & activities booking marketplace (GetYourGuide-like)",
+    "an": "GetYourGuide",
+    "acc": "DEU",
+    "ad": "getyourguide.com",
+    "sl": "Tours & Activities Marketplace",
+    "color": "#65a30d",
+    "anchorPos": [
+      618.3,
+      192
+    ],
+    "count": 1
+  },
+  "travel_hospitality__travel_metasearch": {
+    "l": "Travel metasearch & price comparison engine (Skyscanner-like)",
+    "an": "Skyscanner",
+    "acc": "GBR",
+    "ad": "skyscanner.net",
+    "sl": "Travel Metasearch",
+    "color": "#7c3aed",
+    "anchorPos": [
+      569.3,
+      171.5
+    ],
+    "count": 1
+  }
+}

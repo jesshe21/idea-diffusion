@@ -1,0 +1,92 @@
+[
+  {
+    "from": "China",
+    "to": "US",
+    "code": "CHN ↔ USA",
+    "f1": "🇨🇳",
+    "f2": "🇺🇸",
+    "count": 23.4,
+    "value": 43.2
+  },
+  {
+    "from": "India",
+    "to": "US",
+    "code": "IND ↔ USA",
+    "f1": "🇮🇳",
+    "f2": "🇺🇸",
+    "count": 4.6,
+    "value": 6.1
+  },
+  {
+    "from": "Singapore",
+    "to": "US",
+    "code": "SGP ↔ USA",
+    "f1": "🇸🇬",
+    "f2": "🇺🇸",
+    "count": 8,
+    "value": 5.9
+  },
+  {
+    "from": "UK",
+    "to": "US",
+    "code": "GBR ↔ USA",
+    "f1": "🇬🇧",
+    "f2": "🇺🇸",
+    "count": 5.3,
+    "value": 5.2
+  },
+  {
+    "from": "Argentina",
+    "to": "US",
+    "code": "ARG ↔ USA",
+    "f1": "🇦🇷",
+    "f2": "🇺🇸",
+    "count": 0.5,
+    "value": 4.5
+  },
+  {
+    "from": "Canada",
+    "to": "China",
+    "code": "CAN ↔ CHN",
+    "f1": "🇨🇦",
+    "f2": "🇨🇳",
+    "count": 0.7,
+    "value": 4.1
+  },
+  {
+    "from": "China",
+    "to": "Singapore",
+    "code": "CHN ↔ SGP",
+    "f1": "🇨🇳",
+    "f2": "🇸🇬",
+    "count": 1.6,
+    "value": 4
+  },
+  {
+    "from": "Germany",
+    "to": "US",
+    "code": "DEU ↔ USA",
+    "f1": "🇩🇪",
+    "f2": "🇺🇸",
+    "count": 4,
+    "value": 3.6
+  },
+  {
+    "from": "S. Korea",
+    "to": "US",
+    "code": "KOR ↔ USA",
+    "f1": "🇰🇷",
+    "f2": "🇺🇸",
+    "count": 4,
+    "value": 2.9
+  },
+  {
+    "from": "China",
+    "to": "India",
+    "code": "CHN ↔ IND",
+    "f1": "🇨🇳",
+    "f2": "🇮🇳",
+    "count": 2.6,
+    "value": 2.8
+  }
+]

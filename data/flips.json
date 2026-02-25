@@ -1,0 +1,65 @@
+[
+  {
+    "source": "eBay",
+    "sVal": 37240,
+    "variant": "Alibaba",
+    "vVal": 354830,
+    "delta": 317590
+  },
+  {
+    "source": "Groupon",
+    "sVal": 555,
+    "variant": "Meituan",
+    "vVal": 84400,
+    "delta": 83845
+  },
+  {
+    "source": "eBay",
+    "sVal": 37240,
+    "variant": "MercadoLibre",
+    "vVal": 100800,
+    "delta": 63560
+  },
+  {
+    "source": "Zopa",
+    "sVal": 1030,
+    "variant": "SoFi",
+    "vVal": 26160,
+    "delta": 25130
+  },
+  {
+    "source": "Instagram",
+    "sVal": 1010,
+    "variant": "Xiaohongshu",
+    "vVal": 17000,
+    "delta": 15990
+  },
+  {
+    "source": "Klarna",
+    "sVal": 6830,
+    "variant": "Affirm",
+    "vVal": 16600,
+    "delta": 9770
+  },
+  {
+    "source": "Ada",
+    "sVal": 1200,
+    "variant": "Sierra AI",
+    "vVal": 10000,
+    "delta": 8800
+  },
+  {
+    "source": "Shield AI",
+    "sVal": 5300,
+    "variant": "Helsing AI",
+    "vVal": 13779,
+    "delta": 8479
+  },
+  {
+    "source": "Gilt",
+    "sVal": 250,
+    "variant": "Vipshop",
+    "vVal": 8570,
+    "delta": 8320
+  }
+]

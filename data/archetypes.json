@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Fullstack Marketplace + Logistics",
+    "cat": "E-Commerce",
+    "n": 14,
+    "val": 629378,
+    "pct": 22.2,
+    "c": "ecom"
+  },
+  {
+    "name": "C2C Marketplace",
+    "cat": "E-Commerce",
+    "n": 18,
+    "val": 484663,
+    "pct": 17.1,
+    "c": "ecom"
+  },
+  {
+    "name": "AI Accelerator Chip",
+    "cat": "AI / ML Platform",
+    "n": 9,
+    "val": 131340,
+    "pct": 4.6,
+    "c": "ai"
+  },
+  {
+    "name": "QR / Mobile Wallet",
+    "cat": "Fintech — Payments",
+    "n": 19,
+    "val": 122575,
+    "pct": 4.3,
+    "c": "fin"
+  },
+  {
+    "name": "Payments Superapp + Lending",
+    "cat": "Fintech — Lending",
+    "n": 21,
+    "val": 118695,
+    "pct": 4.2,
+    "c": "fin"
+  },
+  {
+    "name": "Online Payment Platform",
+    "cat": "Fintech — Payments",
+    "n": 2,
+    "val": 100800,
+    "pct": 3.6,
+    "c": "fin"
+  },
+  {
+    "name": "Premium DTC EV",
+    "cat": "Cleantech",
+    "n": 20,
+    "val": 98631,
+    "pct": 3.5,
+    "c": "clean"
+  },
+  {
+    "name": "Daily Deals",
+    "cat": "E-Commerce",
+    "n": 2,
+    "val": 84400,
+    "pct": 3,
+    "c": "ecom"
+  },
+  {
+    "name": "Ride-Hailing Marketplace",
+    "cat": "Ride-Hailing",
+    "n": 13,
+    "val": 80421,
+    "pct": 2.8,
+    "c": "ride"
+  },
+  {
+    "name": "Foundation Model API",
+    "cat": "AI / ML Platform",
+    "n": 9,
+    "val": 79392,
+    "pct": 2.8,
+    "c": "ai"
+  }
+]
