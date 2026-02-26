@@ -117,24 +117,22 @@
   </footer>
 
   <script>
-  /* ── Comet animation ── */
+  /* ── Comet animation: 2 arching comets, L→R and R→L ── */
   (function() {
     var c = document.querySelector('.hero-mesh');
     if (!c) return;
     var ctx = c.getContext('2d');
     var dpr = window.devicePixelRatio || 1;
     var w, h;
-    var comets = [];
-    var MAX = 8;
-    var SPAWN = 0.008;
+    var comets = [null, null]; // slot 0 = L→R, slot 1 = R→L
 
     var COLORS = [
-      [120, 80, 220],
-      [80, 120, 240],
-      [160, 90, 255],
-      [60, 150, 230],
-      [8, 145, 178],
-      [20, 184, 166]
+      [150, 130, 200],
+      [130, 150, 210],
+      [170, 140, 215],
+      [120, 165, 205],
+      [90, 160, 180],
+      [100, 175, 170]
     ];
 
     function resize() {
@@ -145,32 +143,27 @@
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
 
-    function edgePt() {
-      var s = Math.floor(Math.random() * 4);
-      if (s === 0) return { x: Math.random() * w, y: -40 };
-      if (s === 1) return { x: w + 40, y: Math.random() * h };
-      if (s === 2) return { x: Math.random() * w, y: h + 40 };
-      return { x: -40, y: Math.random() * h };
-    }
-
-    function spawn() {
-      var a = edgePt(), b = edgePt();
-      var dx = b.x - a.x, dy = b.y - a.y;
-      var dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < Math.max(w, h) * 0.5) return;
-      var mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
-      var perp = { x: -dy / dist, y: dx / dist };
-      var curve = (Math.random() - 0.5) * dist * 0.25;
+    function makeComet(dir) {
+      var margin = 40;
+      var sy = h * (0.2 + Math.random() * 0.6);
+      var ey = h * (0.2 + Math.random() * 0.6);
+      var sx, ex;
+      if (dir === 'ltr') {
+        sx = -margin; ex = w + margin;
+      } else {
+        sx = w + margin; ex = -margin;
+      }
+      var mx = (sx + ex) / 2;
+      var archHeight = -(h * (0.3 + Math.random() * 0.4));
+      var cy = Math.min(sy, ey) + archHeight;
       var col = COLORS[Math.floor(Math.random() * COLORS.length)];
-      comets.push({
-        sx: a.x, sy: a.y,
-        cx: mx + perp.x * curve, cy: my + perp.y * curve,
-        ex: b.x, ey: b.y,
+      return {
+        sx: sx, sy: sy, cx: mx, cy: cy, ex: ex, ey: ey,
         t: 0,
-        speed: 0.001 + Math.random() * 0.0015,
+        speed: 0.0012 + Math.random() * 0.001,
         r: col[0], g: col[1], b: col[2],
         trail: []
-      });
+      };
     }
 
     function bez(t, s, cp, e) {
@@ -180,69 +173,72 @@
 
     function init() {
       resize();
-      comets = [];
-      for (var i = 0; i < 3; i++) {
-        spawn();
-        if (comets.length) comets[comets.length - 1].t = Math.random() * 0.5;
+      comets[0] = makeComet('ltr');
+      comets[1] = makeComet('rtl');
+      comets[1].t = 0.45;
+    }
+
+    function drawComet(cm) {
+      var px = bez(cm.t, cm.sx, cm.cx, cm.ex);
+      var py = bez(cm.t, cm.sy, cm.cy, cm.ey);
+      cm.trail.push({ x: px, y: py });
+      if (cm.trail.length > 35) cm.trail.shift();
+
+      var rgb = cm.r + ',' + cm.g + ',' + cm.b;
+
+      if (cm.trail.length > 2) {
+        ctx.lineCap = 'round';
+        for (var k = 1; k < cm.trail.length; k++) {
+          var r2 = k / cm.trail.length;
+          ctx.beginPath();
+          ctx.moveTo(cm.trail[k - 1].x, cm.trail[k - 1].y);
+          ctx.lineTo(cm.trail[k].x, cm.trail[k].y);
+          ctx.strokeStyle = 'rgba(' + rgb + ',' + (r2 * r2 * 0.12) + ')';
+          ctx.lineWidth = r2 * 22;
+          ctx.stroke();
+        }
+        for (var j = 1; j < cm.trail.length; j++) {
+          var ratio = j / cm.trail.length;
+          var alpha = ratio * ratio * 0.55;
+          ctx.beginPath();
+          ctx.moveTo(cm.trail[j - 1].x, cm.trail[j - 1].y);
+          ctx.lineTo(cm.trail[j].x, cm.trail[j].y);
+          ctx.strokeStyle = 'rgba(' + rgb + ',' + alpha + ')';
+          ctx.lineWidth = ratio * 2.5;
+          ctx.stroke();
+        }
       }
+
+      var grad = ctx.createRadialGradient(px, py, 0, px, py, 36);
+      grad.addColorStop(0, 'rgba(' + rgb + ', 0.3)');
+      grad.addColorStop(0.3, 'rgba(' + rgb + ', 0.1)');
+      grad.addColorStop(1, 'rgba(' + rgb + ', 0)');
+      ctx.beginPath();
+      ctx.arc(px, py, 36, 0, Math.PI * 2);
+      ctx.fillStyle = grad;
+      ctx.fill();
+
+      var core = ctx.createRadialGradient(px, py, 0, px, py, 5);
+      core.addColorStop(0, 'rgba(255, 255, 255, 0.95)');
+      core.addColorStop(0.4, 'rgba(' + rgb + ', 0.6)');
+      core.addColorStop(1, 'rgba(' + rgb + ', 0)');
+      ctx.beginPath();
+      ctx.arc(px, py, 5, 0, Math.PI * 2);
+      ctx.fillStyle = core;
+      ctx.fill();
     }
 
     function frame() {
       ctx.clearRect(0, 0, w, h);
-      if (Math.random() < SPAWN && comets.length < MAX) spawn();
 
-      for (var i = comets.length - 1; i >= 0; i--) {
+      for (var i = 0; i < 2; i++) {
         var cm = comets[i];
         cm.t += cm.speed;
-        if (cm.t > 1) { comets.splice(i, 1); continue; }
-
-        var px = bez(cm.t, cm.sx, cm.cx, cm.ex);
-        var py = bez(cm.t, cm.sy, cm.cy, cm.ey);
-        cm.trail.push({ x: px, y: py });
-        if (cm.trail.length > 35) cm.trail.shift();
-
-        var rgb = cm.r + ',' + cm.g + ',' + cm.b;
-
-        if (cm.trail.length > 2) {
-          ctx.lineCap = 'round';
-          for (var k = 1; k < cm.trail.length; k++) {
-            var r2 = k / cm.trail.length;
-            ctx.beginPath();
-            ctx.moveTo(cm.trail[k - 1].x, cm.trail[k - 1].y);
-            ctx.lineTo(cm.trail[k].x, cm.trail[k].y);
-            ctx.strokeStyle = 'rgba(' + rgb + ',' + (r2 * r2 * 0.12) + ')';
-            ctx.lineWidth = r2 * 22;
-            ctx.stroke();
-          }
-          for (var j = 1; j < cm.trail.length; j++) {
-            var ratio = j / cm.trail.length;
-            var alpha = ratio * ratio * 0.55;
-            ctx.beginPath();
-            ctx.moveTo(cm.trail[j - 1].x, cm.trail[j - 1].y);
-            ctx.lineTo(cm.trail[j].x, cm.trail[j].y);
-            ctx.strokeStyle = 'rgba(' + rgb + ',' + alpha + ')';
-            ctx.lineWidth = ratio * 2.5;
-            ctx.stroke();
-          }
+        if (cm.t > 1) {
+          comets[i] = makeComet(i === 0 ? 'ltr' : 'rtl');
+          cm = comets[i];
         }
-
-        var grad = ctx.createRadialGradient(px, py, 0, px, py, 36);
-        grad.addColorStop(0, 'rgba(' + rgb + ', 0.3)');
-        grad.addColorStop(0.3, 'rgba(' + rgb + ', 0.1)');
-        grad.addColorStop(1, 'rgba(' + rgb + ', 0)');
-        ctx.beginPath();
-        ctx.arc(px, py, 36, 0, Math.PI * 2);
-        ctx.fillStyle = grad;
-        ctx.fill();
-
-        var core = ctx.createRadialGradient(px, py, 0, px, py, 5);
-        core.addColorStop(0, 'rgba(255, 255, 255, 0.95)');
-        core.addColorStop(0.4, 'rgba(' + rgb + ', 0.6)');
-        core.addColorStop(1, 'rgba(' + rgb + ', 0)');
-        ctx.beginPath();
-        ctx.arc(px, py, 5, 0, Math.PI * 2);
-        ctx.fillStyle = core;
-        ctx.fill();
+        drawComet(cm);
       }
       requestAnimationFrame(frame);
     }
