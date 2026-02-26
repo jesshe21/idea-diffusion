@@ -677,7 +677,7 @@ body {
   padding: 8px 10px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 .lag-stat span {
@@ -686,7 +686,7 @@ body {
   letter-spacing: 0.7px;
   text-transform: uppercase;
   color: var(--text-muted);
-  min-height: 2.4em;
+  flex: 1;
 }
 
 .lag-stat strong {
