@@ -675,6 +675,9 @@ body {
   border: 1px solid var(--border-light);
   border-radius: 8px;
   padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .lag-stat span {
@@ -683,6 +686,7 @@ body {
   letter-spacing: 0.7px;
   text-transform: uppercase;
   color: var(--text-muted);
+  min-height: 2.4em;
 }
 
 .lag-stat strong {
@@ -849,6 +853,72 @@ body {
   .f-delta-val { font-size: 11px; }
   .f-delta { min-width: 50px; }
   .lag-summary { grid-template-columns: 1fr; }
+}
+
+/* ── Footer ── */
+.site-footer {
+  max-width: 1000px;
+  margin: 32px auto 0;
+  padding: 0 clamp(28px, 4.4vw, 72px);
+}
+
+.footer-inner {
+  border-top: 1px solid var(--border);
+  padding: 20px 0 8px;
+}
+
+.footer-source {
+  margin-bottom: 16px;
+}
+
+.footer-source p {
+  font-size: 11.5px;
+  line-height: 1.65;
+  color: var(--text-muted);
+  font-weight: 300;
+  max-width: 100%;
+}
+
+.footer-label {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+  font-weight: 500;
+  opacity: 0.7;
+}
+
+.footer-credits {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.footer-credit-item span,
+.footer-credit-item a {
+  font-size: 13px;
+  color: var(--text-mid);
+  font-weight: 400;
+}
+
+.footer-credit-item a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.footer-credit-item a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .site-footer { padding: 0 14px; margin-top: 24px; }
+  .footer-credits { gap: 20px; }
+  .footer-source p { font-size: 10.5px; }
+  .footer-credit-item span,
+  .footer-credit-item a { font-size: 12px; }
 }
 
 /* ── Map Section ── */
