@@ -16,9 +16,7 @@
       <div class="hero-kicker">Innovation of Diffusion</div>
       <h1 class="page-title">Copy Paste, Make Trillions</h1>
       <p class="page-sub">An interactive look at how borrowed ideas become billion-dollar companies.</p>
-      <div class="hero-orbit" aria-hidden="true"></div>
-      <div class="hero-pulse hero-pulse-a" aria-hidden="true"></div>
-      <div class="hero-pulse hero-pulse-b" aria-hidden="true"></div>
+      <canvas class="hero-mesh" aria-hidden="true"></canvas>
     </section>
   </div>
 
@@ -71,7 +69,7 @@
     <div class="chart-desc">Cases where the derivative company surpassed the original in valuation.</div>
 
     <div class="flip-list" id="flip-list">
-      <div class="f-header" style="display:grid;grid-template-columns:90px 24px 150px 1fr auto;gap:8px;padding:0 14px 6px;border-bottom:1px solid var(--border);margin-bottom:4px;">
+      <div class="f-header" style="display:grid;grid-template-columns:90px 24px 150px 1fr auto;gap:8px;padding:0 0 6px;border-bottom:1px solid var(--border);margin-bottom:4px;">
         <span class="f-header-label">Source</span>
         <span></span>
         <span class="f-header-label">Variant</span>
@@ -100,11 +98,11 @@
       <div class="footer-credits">
         <div class="footer-credit-item">
           <span class="footer-label">Data</span>
-          <span>Ibrahim AlSuwaidi</span>
+          <a href="https://www.linkedin.com/in/ialsuwaidi/" target="_blank" rel="noopener">Ibrahim AlSuwaidi</a>
         </div>
         <div class="footer-credit-item">
           <span class="footer-label">Authors</span>
-          <span>Ibrahim AlSuwaidi &amp; Jess He</span>
+          <span><a href="https://www.linkedin.com/in/ialsuwaidi/" target="_blank" rel="noopener">Ibrahim AlSuwaidi</a> &amp; <a href="https://www.linkedin.com/in/jesshe21/" target="_blank" rel="noopener">Jess He</a></span>
         </div>
         <div class="footer-credit-item">
           <span class="footer-label">Firm</span>
@@ -117,6 +115,162 @@
       </div>
     </div>
   </footer>
+
+  <script>
+  /* ── Comet animation ── */
+  (function() {
+    var c = document.querySelector('.hero-mesh');
+    if (!c) return;
+    var ctx = c.getContext('2d');
+    var dpr = window.devicePixelRatio || 1;
+    var w, h;
+    var comets = [];
+    var MAX = 8;
+    var SPAWN = 0.008;
+
+    var COLORS = [
+      [120, 80, 220],
+      [80, 120, 240],
+      [160, 90, 255],
+      [60, 150, 230],
+      [8, 145, 178],
+      [20, 184, 166]
+    ];
+
+    function resize() {
+      var r = c.parentElement.getBoundingClientRect();
+      w = r.width; h = r.height;
+      c.width = w * dpr; c.height = h * dpr;
+      c.style.width = w + 'px'; c.style.height = h + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function edgePt() {
+      var s = Math.floor(Math.random() * 4);
+      if (s === 0) return { x: Math.random() * w, y: -40 };
+      if (s === 1) return { x: w + 40, y: Math.random() * h };
+      if (s === 2) return { x: Math.random() * w, y: h + 40 };
+      return { x: -40, y: Math.random() * h };
+    }
+
+    function spawn() {
+      var a = edgePt(), b = edgePt();
+      var dx = b.x - a.x, dy = b.y - a.y;
+      var dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < Math.max(w, h) * 0.5) return;
+      var mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
+      var perp = { x: -dy / dist, y: dx / dist };
+      var curve = (Math.random() - 0.5) * dist * 0.25;
+      var col = COLORS[Math.floor(Math.random() * COLORS.length)];
+      comets.push({
+        sx: a.x, sy: a.y,
+        cx: mx + perp.x * curve, cy: my + perp.y * curve,
+        ex: b.x, ey: b.y,
+        t: 0,
+        speed: 0.001 + Math.random() * 0.0015,
+        r: col[0], g: col[1], b: col[2],
+        trail: []
+      });
+    }
+
+    function bez(t, s, cp, e) {
+      var i = 1 - t;
+      return i * i * s + 2 * i * t * cp + t * t * e;
+    }
+
+    function init() {
+      resize();
+      comets = [];
+      for (var i = 0; i < 3; i++) {
+        spawn();
+        if (comets.length) comets[comets.length - 1].t = Math.random() * 0.5;
+      }
+    }
+
+    function frame() {
+      ctx.clearRect(0, 0, w, h);
+      if (Math.random() < SPAWN && comets.length < MAX) spawn();
+
+      for (var i = comets.length - 1; i >= 0; i--) {
+        var cm = comets[i];
+        cm.t += cm.speed;
+        if (cm.t > 1) { comets.splice(i, 1); continue; }
+
+        var px = bez(cm.t, cm.sx, cm.cx, cm.ex);
+        var py = bez(cm.t, cm.sy, cm.cy, cm.ey);
+        cm.trail.push({ x: px, y: py });
+        if (cm.trail.length > 35) cm.trail.shift();
+
+        var rgb = cm.r + ',' + cm.g + ',' + cm.b;
+
+        if (cm.trail.length > 2) {
+          ctx.lineCap = 'round';
+          for (var k = 1; k < cm.trail.length; k++) {
+            var r2 = k / cm.trail.length;
+            ctx.beginPath();
+            ctx.moveTo(cm.trail[k - 1].x, cm.trail[k - 1].y);
+            ctx.lineTo(cm.trail[k].x, cm.trail[k].y);
+            ctx.strokeStyle = 'rgba(' + rgb + ',' + (r2 * r2 * 0.12) + ')';
+            ctx.lineWidth = r2 * 22;
+            ctx.stroke();
+          }
+          for (var j = 1; j < cm.trail.length; j++) {
+            var ratio = j / cm.trail.length;
+            var alpha = ratio * ratio * 0.55;
+            ctx.beginPath();
+            ctx.moveTo(cm.trail[j - 1].x, cm.trail[j - 1].y);
+            ctx.lineTo(cm.trail[j].x, cm.trail[j].y);
+            ctx.strokeStyle = 'rgba(' + rgb + ',' + alpha + ')';
+            ctx.lineWidth = ratio * 2.5;
+            ctx.stroke();
+          }
+        }
+
+        var grad = ctx.createRadialGradient(px, py, 0, px, py, 36);
+        grad.addColorStop(0, 'rgba(' + rgb + ', 0.3)');
+        grad.addColorStop(0.3, 'rgba(' + rgb + ', 0.1)');
+        grad.addColorStop(1, 'rgba(' + rgb + ', 0)');
+        ctx.beginPath();
+        ctx.arc(px, py, 36, 0, Math.PI * 2);
+        ctx.fillStyle = grad;
+        ctx.fill();
+
+        var core = ctx.createRadialGradient(px, py, 0, px, py, 5);
+        core.addColorStop(0, 'rgba(255, 255, 255, 0.95)');
+        core.addColorStop(0.4, 'rgba(' + rgb + ', 0.6)');
+        core.addColorStop(1, 'rgba(' + rgb + ', 0)');
+        ctx.beginPath();
+        ctx.arc(px, py, 5, 0, Math.PI * 2);
+        ctx.fillStyle = core;
+        ctx.fill();
+      }
+      requestAnimationFrame(frame);
+    }
+
+    init();
+    frame();
+    window.addEventListener('resize', init);
+  })();
+  </script>
+
+  <!-- Scroll-reveal for content sections -->
+  <script>
+  (function() {
+    var sections = document.querySelectorAll('.embed-chart, .sep, .site-footer');
+    sections.forEach(function(el) { el.classList.add('reveal'); });
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    sections.forEach(function(el) { observer.observe(el); });
+  })();
+  </script>
 
   <script src="js/site-config.js?v=20260226c"></script>
   <script src="js/map.js?v=20260226c"></script>
