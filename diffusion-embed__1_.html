@@ -743,6 +743,7 @@ function showTip(e, html) {
   tip.classList.add('show');
 }
 function hideTip() { tip.classList.remove('show'); }
+function fmtPct(v) { return Number(v).toFixed(1) + '%'; }
 
 // Desktop: follow cursor
 document.addEventListener('mousemove', e => {
@@ -794,8 +795,8 @@ function renderCorridors() {
          style="${corridorInitialized ? '' : 'animation-delay: ' + i * 35 + 'ms'}"
          onmouseenter="showTip(event, \`
            <div class='tip-title'>${c.f1} ↔ ${c.f2} ${nameDisplay}</div>
-           <div class='tip-row'><span>% of Companies</span><span>${c.count}%</span></div>
-           <div class='tip-row'><span>% of Value</span><span>${c.value}%</span></div>
+           <div class='tip-row'><span>% of Companies</span><span>${fmtPct(c.count)}</span></div>
+           <div class='tip-row'><span>% of Value</span><span>${fmtPct(c.value)}</span></div>
            <div class='tip-row'><span>Value / Count</span><span>${(c.value / c.count).toFixed(1)}×</span></div>
          \`)"
          onmouseleave="hideTip()">
@@ -812,7 +813,7 @@ function renderCorridors() {
           <div class="c-bar-fill ${barColor}" data-w="${(c[curSort] / maxVal) * 100}"></div>
         </div>
       </div>
-      <div class="c-val">${c[curSort].toFixed(1)}%</div>
+      <div class="c-val">${fmtPct(c[curSort])}</div>
     </div>`;
   }).join('');
 
@@ -852,7 +853,7 @@ function renderArchetypes() {
            <div class='tip-row'><span>Category</span><span>${a.cat}</span></div>
            <div class='tip-row'><span>Variants</span><span>${a.n} companies</span></div>
            <div class='tip-row'><span>Total Value</span><span>$${(a.val / 1000).toFixed(0)}B</span></div>
-           <div class='tip-row'><span>% of Total</span><span>${a.pct}%</span></div>
+           <div class='tip-row'><span>% of Total</span><span>${fmtPct(a.pct)}</span></div>
          \`)"
          onmouseleave="hideTip()">
       <div class="a-bg bg-${a.c}" data-w="${(a.val / max) * 100}"></div>
@@ -867,7 +868,7 @@ function renderArchetypes() {
           <span class="a-stat-label">Value</span>
           $${(a.val / 1000).toFixed(0)}B
         </div>
-        <div class="a-pct">${a.pct}%</div>
+        <div class="a-pct">${fmtPct(a.pct)}</div>
       </div>
     </div>
   `).join('');

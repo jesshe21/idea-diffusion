@@ -44,6 +44,10 @@
       : '$' + v + 'M';
   }
 
+  function fmtPct(v) {
+    return Number(v).toFixed(1) + '%';
+  }
+
   function parseCSVLine(line) {
     const out = [];
     let cur = '';
@@ -116,7 +120,7 @@
           '<div class="c-names"><span class="primary">' + nameDisplay + '</span></div>' +
           '</div>' +
           '<div class="c-bars"><div class="c-bar-track"><div class="c-bar-fill ' + barColor + '" data-w="' + pct + '"></div></div></div>' +
-          '<div class="c-val">' + c[curSort].toFixed(1) + '%</div>' +
+          '<div class="c-val">' + fmtPct(c[curSort]) + '</div>' +
           '</div>'
         );
       }).join('');
@@ -127,8 +131,8 @@
         row.addEventListener('mouseenter', function (e) {
           showTip(e,
             '<div class="tip-title">' + c.f1 + ' ↔ ' + c.f2 + ' ' + c.from + ' ↔ ' + c.to + '</div>' +
-            '<div class="tip-row"><span>% of Companies</span><span>' + c.count + '%</span></div>' +
-            '<div class="tip-row"><span>% of Value</span><span>' + c.value + '%</span></div>' +
+            '<div class="tip-row"><span>% of Companies</span><span>' + fmtPct(c.count) + '</span></div>' +
+            '<div class="tip-row"><span>% of Value</span><span>' + fmtPct(c.value) + '</span></div>' +
             '<div class="tip-row"><span>Value / Count</span><span>' + (c.value / c.count).toFixed(1) + '×</span></div>'
           );
         });
@@ -186,7 +190,7 @@
         '<div class="a-name"><span class="a-rank">#' + (i + 1) + '</span><span class="clr-' + a.c + '">' + a.name + '</span><span class="a-cat">' + a.cat + '</span></div>' +
         '<div class="a-pill">' + a.n + ' variants</div>' +
         '<div class="a-stat"><span class="a-stat-label">Value</span>$' + (a.val / 1000).toFixed(0) + 'B</div>' +
-        '<div class="a-pct">' + a.pct + '%</div>' +
+        '<div class="a-pct">' + fmtPct(a.pct) + '</div>' +
         '</div>' +
         '</div>'
       );
@@ -200,7 +204,7 @@
           '<div class="tip-row"><span>Category</span><span>' + a.cat + '</span></div>' +
           '<div class="tip-row"><span>Variants</span><span>' + a.n + ' companies</span></div>' +
           '<div class="tip-row"><span>Total Value</span><span>$' + (a.val / 1000).toFixed(0) + 'B</span></div>' +
-          '<div class="tip-row"><span>% of Total</span><span>' + a.pct + '%</span></div>'
+          '<div class="tip-row"><span>% of Total</span><span>' + fmtPct(a.pct) + '</span></div>'
         );
       });
       row.addEventListener('mouseleave', hideTip);
@@ -414,7 +418,7 @@
           const p = Number(bar.dataset.p);
           showTip(e,
             '<div class="tip-title">Lag ' + x0 + ' to ' + (x0 + 1) + ' years</div>' +
-            '<div class="tip-row"><span>Probability</span><span>' + (p * 100).toFixed(2) + '%</span></div>'
+            '<div class="tip-row"><span>Probability</span><span>' + fmtPct(p * 100) + '</span></div>'
           );
         });
         bar.addEventListener('mouseleave', hideTip);
