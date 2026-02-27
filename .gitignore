@@ -1,1 +1,5 @@
 .DS_Store
+docs/plans/
+idea_diffusion_map_v2*.jsx
+diffusion-embed*.html
+.claude/
