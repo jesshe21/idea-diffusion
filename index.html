@@ -14,9 +14,8 @@
   <div class="top-hero-wrap">
     <section class="top-hero">
       <div class="hero-kicker">Innovation of Diffusion</div>
-      <h1 class="page-title">Copy Paste, Make Trillions</h1>
+      <h1 class="page-title">Copy Paste, Make <span class="title-trillions" aria-label="Trillions"><span class="title-char" style="--i:0">T</span><span class="title-char" style="--i:1">r</span><span class="title-char" style="--i:2">i</span><span class="title-char" style="--i:3">l</span><span class="title-char" style="--i:4">l</span><span class="title-char" style="--i:5">i</span><span class="title-char" style="--i:6">o</span><span class="title-char" style="--i:7">n</span><span class="title-char" style="--i:8">s</span></span></h1>
       <p class="page-sub">An interactive look at how borrowed ideas become billion-dollar companies.</p>
-      <canvas class="hero-mesh" aria-hidden="true"></canvas>
     </section>
   </div>
 
@@ -115,124 +114,6 @@
       </div>
     </div>
   </footer>
-
-  <script>
-  /* ── Hero mesh animation: editorial contour field ── */
-  (function() {
-    var c = document.querySelector('.hero-mesh');
-    if (!c) return;
-    var ctx = c.getContext('2d');
-    var dpr = window.devicePixelRatio || 1;
-    var w, h;
-    var bands = [];
-    var accents = [];
-    var bandCount = 8;
-    var t0 = Date.now();
-    var lastAccentAt = 0;
-    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    function resize() {
-      var r = c.parentElement.getBoundingClientRect();
-      w = r.width; h = r.height;
-      c.width = w * dpr; c.height = h * dpr;
-      c.style.width = w + 'px'; c.style.height = h + 'px';
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    }
-
-    function makeBand(i) {
-      var y = h * (0.16 + (i / (bandCount - 1)) * 0.68);
-      return {
-        y: y,
-        amp: 8 + Math.random() * 16,
-        freq: 1.2 + Math.random() * 1.6,
-        drift: 0.00045 + Math.random() * 0.00045,
-        phase: Math.random() * Math.PI * 2,
-        stroke: i % 3 === 0 ? 'rgba(45,92,214,0.42)' : (i % 3 === 1 ? 'rgba(30,145,116,0.34)' : 'rgba(26,26,26,0.22)'),
-        width: i % 3 === 0 ? 1.2 : 1
-      };
-    }
-
-    function init() {
-      resize();
-      bands = [];
-      accents = [];
-      for (var i = 0; i < bandCount; i++) bands.push(makeBand(i));
-    }
-
-    function drawBand(b, now, idx) {
-      var phase = reduceMotion ? b.phase : (b.phase + now * b.drift);
-      var seg = 14;
-      var step = w / seg;
-      ctx.beginPath();
-      for (var i = 0; i <= seg; i++) {
-        var x = i * step;
-        var wave = Math.sin((i / seg) * Math.PI * b.freq + phase) * b.amp;
-        var y = b.y + wave;
-        if (i === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
-      }
-      ctx.strokeStyle = b.stroke;
-      ctx.lineWidth = b.width;
-      ctx.stroke();
-
-      if (idx % 2 !== 0) return;
-      var notchX = ((now * 0.035 + idx * 120) % (w + 160)) - 80;
-      var notchY = b.y + Math.sin(phase + idx) * (b.amp * 0.6);
-      ctx.beginPath();
-      ctx.moveTo(notchX - 8, notchY);
-      ctx.lineTo(notchX + 8, notchY);
-      ctx.strokeStyle = 'rgba(26,26,26,0.25)';
-      ctx.lineWidth = 1;
-      ctx.stroke();
-    }
-
-    function maybeAddAccent(now) {
-      if (reduceMotion) return;
-      if (now - lastAccentAt < 2200) return;
-      lastAccentAt = now;
-      accents.push({
-        x: w * (0.08 + Math.random() * 0.84),
-        y: h * (0.2 + Math.random() * 0.6),
-        w: 28 + Math.random() * 42,
-        h: 2 + Math.random() * 2,
-        ttl: 1200 + Math.random() * 700
-      });
-      if (accents.length > 4) accents.shift();
-    }
-
-    function drawAccents(now) {
-      for (var i = accents.length - 1; i >= 0; i--) {
-        var a = accents[i];
-        var age = now - (a.start || now);
-        if (!a.start) a.start = now;
-        age = now - a.start;
-        if (age > a.ttl) {
-          accents.splice(i, 1);
-          continue;
-        }
-        var t = age / a.ttl;
-        var alpha = t < 0.2 ? (t / 0.2) * 0.24 : ((1 - t) / 0.8) * 0.24;
-        ctx.fillStyle = 'rgba(26,26,26,' + alpha + ')';
-        ctx.fillRect(a.x - a.w / 2, a.y - a.h / 2, a.w, a.h);
-        ctx.fillStyle = 'rgba(45,92,214,' + (alpha * 0.7) + ')';
-        ctx.fillRect(a.x - 6, a.y - 0.5, 12, 1);
-      }
-    }
-
-    function frame() {
-      var now = Date.now() - t0;
-      ctx.clearRect(0, 0, w, h);
-      for (var i = 0; i < bands.length; i++) drawBand(bands[i], now, i);
-      maybeAddAccent(now);
-      drawAccents(now);
-      requestAnimationFrame(frame);
-    }
-
-    init();
-    frame();
-    window.addEventListener('resize', init);
-  })();
-  </script>
 
   <!-- Scroll-reveal for content sections -->
   <script>
