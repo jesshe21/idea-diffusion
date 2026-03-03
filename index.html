@@ -117,23 +117,19 @@
   </footer>
 
   <script>
-  /* ── Comet animation: 2 arching comets, L→R and R→L ── */
+  /* ── Hero mesh animation: editorial contour field ── */
   (function() {
     var c = document.querySelector('.hero-mesh');
     if (!c) return;
     var ctx = c.getContext('2d');
     var dpr = window.devicePixelRatio || 1;
     var w, h;
-    var comets = [null, null]; // slot 0 = L→R, slot 1 = R→L
-
-    var COLORS = [
-      [150, 130, 200],
-      [130, 150, 210],
-      [170, 140, 215],
-      [120, 165, 205],
-      [90, 160, 180],
-      [100, 175, 170]
-    ];
+    var bands = [];
+    var accents = [];
+    var bandCount = 8;
+    var t0 = Date.now();
+    var lastAccentAt = 0;
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     function resize() {
       var r = c.parentElement.getBoundingClientRect();
@@ -143,103 +139,92 @@
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
 
-    function makeComet(dir) {
-      var margin = 40;
-      var sy = h * (0.2 + Math.random() * 0.6);
-      var ey = h * (0.2 + Math.random() * 0.6);
-      var sx, ex;
-      if (dir === 'ltr') {
-        sx = -margin; ex = w + margin;
-      } else {
-        sx = w + margin; ex = -margin;
-      }
-      var mx = (sx + ex) / 2;
-      var archHeight = -(h * (0.3 + Math.random() * 0.4));
-      var cy = Math.min(sy, ey) + archHeight;
-      var col = COLORS[Math.floor(Math.random() * COLORS.length)];
+    function makeBand(i) {
+      var y = h * (0.16 + (i / (bandCount - 1)) * 0.68);
       return {
-        sx: sx, sy: sy, cx: mx, cy: cy, ex: ex, ey: ey,
-        t: 0,
-        speed: 0.0012 + Math.random() * 0.001,
-        r: col[0], g: col[1], b: col[2],
-        trail: []
+        y: y,
+        amp: 8 + Math.random() * 16,
+        freq: 1.2 + Math.random() * 1.6,
+        drift: 0.00045 + Math.random() * 0.00045,
+        phase: Math.random() * Math.PI * 2,
+        stroke: i % 3 === 0 ? 'rgba(45,92,214,0.42)' : (i % 3 === 1 ? 'rgba(30,145,116,0.34)' : 'rgba(26,26,26,0.22)'),
+        width: i % 3 === 0 ? 1.2 : 1
       };
-    }
-
-    function bez(t, s, cp, e) {
-      var i = 1 - t;
-      return i * i * s + 2 * i * t * cp + t * t * e;
     }
 
     function init() {
       resize();
-      comets[0] = makeComet('ltr');
-      comets[1] = makeComet('rtl');
-      comets[1].t = 0.45;
+      bands = [];
+      accents = [];
+      for (var i = 0; i < bandCount; i++) bands.push(makeBand(i));
     }
 
-    function drawComet(cm) {
-      var px = bez(cm.t, cm.sx, cm.cx, cm.ex);
-      var py = bez(cm.t, cm.sy, cm.cy, cm.ey);
-      cm.trail.push({ x: px, y: py });
-      if (cm.trail.length > 35) cm.trail.shift();
-
-      var rgb = cm.r + ',' + cm.g + ',' + cm.b;
-
-      if (cm.trail.length > 2) {
-        ctx.lineCap = 'round';
-        for (var k = 1; k < cm.trail.length; k++) {
-          var r2 = k / cm.trail.length;
-          ctx.beginPath();
-          ctx.moveTo(cm.trail[k - 1].x, cm.trail[k - 1].y);
-          ctx.lineTo(cm.trail[k].x, cm.trail[k].y);
-          ctx.strokeStyle = 'rgba(' + rgb + ',' + (r2 * r2 * 0.12) + ')';
-          ctx.lineWidth = r2 * 22;
-          ctx.stroke();
-        }
-        for (var j = 1; j < cm.trail.length; j++) {
-          var ratio = j / cm.trail.length;
-          var alpha = ratio * ratio * 0.55;
-          ctx.beginPath();
-          ctx.moveTo(cm.trail[j - 1].x, cm.trail[j - 1].y);
-          ctx.lineTo(cm.trail[j].x, cm.trail[j].y);
-          ctx.strokeStyle = 'rgba(' + rgb + ',' + alpha + ')';
-          ctx.lineWidth = ratio * 2.5;
-          ctx.stroke();
-        }
+    function drawBand(b, now, idx) {
+      var phase = reduceMotion ? b.phase : (b.phase + now * b.drift);
+      var seg = 14;
+      var step = w / seg;
+      ctx.beginPath();
+      for (var i = 0; i <= seg; i++) {
+        var x = i * step;
+        var wave = Math.sin((i / seg) * Math.PI * b.freq + phase) * b.amp;
+        var y = b.y + wave;
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
       }
+      ctx.strokeStyle = b.stroke;
+      ctx.lineWidth = b.width;
+      ctx.stroke();
 
-      var grad = ctx.createRadialGradient(px, py, 0, px, py, 36);
-      grad.addColorStop(0, 'rgba(' + rgb + ', 0.3)');
-      grad.addColorStop(0.3, 'rgba(' + rgb + ', 0.1)');
-      grad.addColorStop(1, 'rgba(' + rgb + ', 0)');
+      if (idx % 2 !== 0) return;
+      var notchX = ((now * 0.035 + idx * 120) % (w + 160)) - 80;
+      var notchY = b.y + Math.sin(phase + idx) * (b.amp * 0.6);
       ctx.beginPath();
-      ctx.arc(px, py, 36, 0, Math.PI * 2);
-      ctx.fillStyle = grad;
-      ctx.fill();
+      ctx.moveTo(notchX - 8, notchY);
+      ctx.lineTo(notchX + 8, notchY);
+      ctx.strokeStyle = 'rgba(26,26,26,0.25)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    }
 
-      var core = ctx.createRadialGradient(px, py, 0, px, py, 5);
-      core.addColorStop(0, 'rgba(255, 255, 255, 0.95)');
-      core.addColorStop(0.4, 'rgba(' + rgb + ', 0.6)');
-      core.addColorStop(1, 'rgba(' + rgb + ', 0)');
-      ctx.beginPath();
-      ctx.arc(px, py, 5, 0, Math.PI * 2);
-      ctx.fillStyle = core;
-      ctx.fill();
+    function maybeAddAccent(now) {
+      if (reduceMotion) return;
+      if (now - lastAccentAt < 2200) return;
+      lastAccentAt = now;
+      accents.push({
+        x: w * (0.08 + Math.random() * 0.84),
+        y: h * (0.2 + Math.random() * 0.6),
+        w: 28 + Math.random() * 42,
+        h: 2 + Math.random() * 2,
+        ttl: 1200 + Math.random() * 700
+      });
+      if (accents.length > 4) accents.shift();
+    }
+
+    function drawAccents(now) {
+      for (var i = accents.length - 1; i >= 0; i--) {
+        var a = accents[i];
+        var age = now - (a.start || now);
+        if (!a.start) a.start = now;
+        age = now - a.start;
+        if (age > a.ttl) {
+          accents.splice(i, 1);
+          continue;
+        }
+        var t = age / a.ttl;
+        var alpha = t < 0.2 ? (t / 0.2) * 0.24 : ((1 - t) / 0.8) * 0.24;
+        ctx.fillStyle = 'rgba(26,26,26,' + alpha + ')';
+        ctx.fillRect(a.x - a.w / 2, a.y - a.h / 2, a.w, a.h);
+        ctx.fillStyle = 'rgba(45,92,214,' + (alpha * 0.7) + ')';
+        ctx.fillRect(a.x - 6, a.y - 0.5, 12, 1);
+      }
     }
 
     function frame() {
+      var now = Date.now() - t0;
       ctx.clearRect(0, 0, w, h);
-
-      for (var i = 0; i < 2; i++) {
-        var cm = comets[i];
-        cm.t += cm.speed;
-        if (cm.t > 1) {
-          comets[i] = makeComet(i === 0 ? 'ltr' : 'rtl');
-          cm = comets[i];
-        }
-        drawComet(cm);
-      }
+      for (var i = 0; i < bands.length; i++) drawBand(bands[i], now, i);
+      maybeAddAccent(now);
+      drawAccents(now);
       requestAnimationFrame(frame);
     }
 

@@ -378,39 +378,47 @@
       for (let t = 0; t <= maxX; t += xTickStep) xTicks.push(t);
       const yTicks = 4;
 
-      const bars = bins.map(function (b) {
+      const bars = bins.map(function (b, i) {
         const x = sx(b.x0);
         const w = Math.max(1, sx(b.x1) - x - 1);
         const y = sy(b.prob);
         const h = Math.max(0, m.top + ih - y);
-        return '<rect class="lag-bar" data-x="' + b.x0 + '" data-p="' + b.prob + '" x="' + x.toFixed(2) + '" y="' + y.toFixed(2) + '" width="' + w.toFixed(2) + '" height="' + h.toFixed(2) + '"></rect>';
+        const delay = 110 + i * 22;
+        return '<rect class="lag-bar lag-enter lag-bar-grow" style="--d:' + delay + 'ms" data-x="' + b.x0 + '" data-p="' + b.prob + '" x="' + x.toFixed(2) + '" y="' + y.toFixed(2) + '" width="' + w.toFixed(2) + '" height="' + h.toFixed(2) + '"></rect>';
       }).join('');
 
       const linePath = curve.map(function (p, i) {
         return (i ? 'L' : 'M') + sx(p.x).toFixed(2) + ',' + sy(p.y).toFixed(2);
       }).join(' ');
 
-      const xGrid = xTicks.map(function (t) {
+      const xGrid = xTicks.map(function (t, i) {
         const x = sx(t).toFixed(2);
-        return '<line class="lag-grid" x1="' + x + '" y1="' + m.top + '" x2="' + x + '" y2="' + (m.top + ih) + '"></line>' +
-          '<text class="lag-axis-text" x="' + x + '" y="' + (m.top + ih + 18) + '" text-anchor="middle">' + t + '</text>';
+        const delay = 40 + i * 28;
+        return '<line class="lag-grid lag-enter" style="--d:' + delay + 'ms" x1="' + x + '" y1="' + m.top + '" x2="' + x + '" y2="' + (m.top + ih) + '"></line>' +
+          '<text class="lag-axis-text lag-enter" style="--d:' + (delay + 45) + 'ms" x="' + x + '" y="' + (m.top + ih + 18) + '" text-anchor="middle">' + t + '</text>';
       }).join('');
       const yGrid = Array.from({ length: yTicks + 1 }, function (_, i) { return i; }).map(function (i) {
         const v = (yMax * i) / yTicks;
         const y = sy(v).toFixed(2);
-        return '<line class="lag-grid" x1="' + m.left + '" y1="' + y + '" x2="' + (m.left + iw) + '" y2="' + y + '"></line>' +
-          '<text class="lag-axis-text" x="' + (m.left - 10) + '" y="' + (Number(y) + 4) + '" text-anchor="end">' + (v * 100).toFixed(1) + '%</text>';
+        const delay = 40 + i * 28;
+        return '<line class="lag-grid lag-enter" style="--d:' + delay + 'ms" x1="' + m.left + '" y1="' + y + '" x2="' + (m.left + iw) + '" y2="' + y + '"></line>' +
+          '<text class="lag-axis-text lag-enter" style="--d:' + (delay + 45) + 'ms" x="' + (m.left - 10) + '" y="' + (Number(y) + 4) + '" text-anchor="end">' + (v * 100).toFixed(1) + '%</text>';
       }).join('');
 
       svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
+      svg.classList.remove('lag-ready');
       svg.innerHTML =
         '<g>' + xGrid + yGrid + '</g>' +
-        '<line class="lag-axis" x1="' + m.left + '" y1="' + (m.top + ih) + '" x2="' + (m.left + iw) + '" y2="' + (m.top + ih) + '"></line>' +
-        '<line class="lag-axis" x1="' + m.left + '" y1="' + m.top + '" x2="' + m.left + '" y2="' + (m.top + ih) + '"></line>' +
+        '<line class="lag-axis lag-enter" style="--d:20ms" x1="' + m.left + '" y1="' + (m.top + ih) + '" x2="' + (m.left + iw) + '" y2="' + (m.top + ih) + '"></line>' +
+        '<line class="lag-axis lag-enter" style="--d:20ms" x1="' + m.left + '" y1="' + m.top + '" x2="' + m.left + '" y2="' + (m.top + ih) + '"></line>' +
         '<g class="lag-bars">' + bars + '</g>' +
         '<path class="lag-line" d="' + linePath + '"></path>' +
-        '<text class="lag-axis-label" x="' + (m.left + iw / 2) + '" y="' + (height - 8) + '" text-anchor="middle">Time Lag n (Years)</text>' +
-        '<text class="lag-axis-label" transform="translate(14 ' + (m.top + ih / 2) + ') rotate(-90)" text-anchor="middle">Probability Distribution</text>';
+        '<text class="lag-axis-label lag-enter" style="--d:90ms" x="' + (m.left + iw / 2) + '" y="' + (height - 8) + '" text-anchor="middle">Time Lag n (Years)</text>' +
+        '<text class="lag-axis-label lag-enter" style="--d:90ms" transform="translate(14 ' + (m.top + ih / 2) + ') rotate(-90)" text-anchor="middle">Probability Distribution</text>';
+
+      requestAnimationFrame(function () {
+        svg.classList.add('lag-ready');
+      });
 
       svg.querySelectorAll('.lag-bar').forEach(function (bar) {
         bar.addEventListener('mouseenter', function (e) {
